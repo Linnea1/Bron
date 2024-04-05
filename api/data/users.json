@@ -1,0 +1,37 @@
+[
+    {
+        "userId": 1,
+        "email": "erica@hej",
+        "username": "elliot",
+        "password": "elliot",
+        "clues": []
+    },
+    {
+        "userId": 2,
+        "email": "berit@hej.se",
+        "username": "berit",
+        "password": "berit",
+        "clues": []
+    },
+    {
+        "userId": 3,
+        "email": "redbull@hej.se",
+        "username": "redbull",
+        "password": "redbull",
+        "clues": []
+    },
+    {
+        "userId": 4,
+        "email": "lo@hej.se",
+        "username": "hejhopp",
+        "password": "hejsan",
+        "clues": []
+    },
+    {
+        "userId": 5,
+        "email": "oliweer@hej.se",
+        "username": "oliwer",
+        "password": "oliwer",
+        "clues": []
+    }
+]
