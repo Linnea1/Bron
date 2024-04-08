@@ -4,9 +4,11 @@ async function renderHomePage() {
     let user = JSON.parse(localStorage.getItem("user"));
     let username = user.username
 
+
     RenderIntro()
 
     // RenderSuspects()
+
 }
 
 function RenderIntro() {
@@ -35,16 +37,22 @@ function RenderHomePage() {
 }
 
 function RenderSuspects() {
+
     let main = body.querySelector("main");
-    main.innerHTML = ``;
 
     main.style.backgroundImage = `url('Bilder/Skärmavbild 2024-04-08 kl. 09.50.53.png')`;
     main.style.backgroundSize = "cover";
 
     let evenOrOdd = 0;
+
+    main.innerHTML = `
+        <div class="suspects"></div>
+        <nav class="sticky-nav">${stickyNav()}</nav>
+    `;
+
     SUSPECTS.forEach(clue => {
         let SuspectxBox = document.createElement("div");
-        document.querySelector("main").append(SuspectxBox)
+        document.querySelector(".suspects").append(SuspectxBox)
         SuspectxBox.setAttribute("id", "suspectBox")
         SuspectxBox.innerHTML = `
             <div id="info">
@@ -109,4 +117,16 @@ function RenderSuspects() {
         }
 
     });
+
+    document
+        .querySelector(".nav-home")
+        .addEventListener("click", () => renderHomePage());
+    document
+        .querySelector(".nav-suspects")
+        .addEventListener("click", () => RenderSuspects());
+    document
+        .querySelector(".nav-clues")
+        .addEventListener("click", () => RenderClues());
+
 }
+

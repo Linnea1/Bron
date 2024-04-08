@@ -42,6 +42,7 @@ function renderRegisterPage() {
             if (response.ok) {
                 message.innerHTML = `The user ${data.username} was successfully added!`;
                 //if it's not ok
+                user=data;
             } else {
                 message.innerHTML = `<span>${data.message}</span>.`;
             }

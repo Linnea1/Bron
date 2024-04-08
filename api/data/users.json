@@ -33,5 +33,19 @@
         "username": "oliwer",
         "password": "oliwer",
         "clues": []
+    },
+    {
+        "userId": 6,
+        "email": "linnea@gmail.com",
+        "username": "Linnea",
+        "password": "hejhopp",
+        "clues": []
+    },
+    {
+        "userId": 7,
+        "email": "Tesst@.com",
+        "username": "tesst",
+        "password": "hejsan",
+        "clues": []
     }
 ]
