@@ -15,9 +15,10 @@ function RenderClues() {
             
         `;
    });
-    
-    function clueUnlocked(){
 
+   console.log(user)
+    function clueUnlocked(){
+        
     }
     
 }
