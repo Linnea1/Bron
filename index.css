@@ -46,6 +46,11 @@ main {
     background-color: #030303aa;
 }
 
+.suspects {
+    overflow: scroll;
+    height: 100vh;
+}
+
 #suspectBox {
     padding: 5vw;
     margin: 5vw 0vw;
