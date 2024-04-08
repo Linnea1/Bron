@@ -1,0 +1,82 @@
+body {
+    margin: 0px;
+    height: 100vh;
+}
+
+#profilePicture {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    background-position: center;
+    margin: 10px 10px 0px 0px;
+}
+
+header {
+    display: flex;
+    justify-content: end;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+}
+
+#SagaIntro {
+    color: white;
+    font-size: 14px;
+    margin: 10vw;
+}
+
+#next {
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #03030385;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+}
+
+#next:hover {
+    background-color: #030303aa;
+}
+
+#suspectBox {
+    padding: 5vw;
+    margin: 5vw 0vw;
+    border-radius: 20px;
+    background-color: #03030385;
+    color: white;
+    height: 70vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.odd {
+    border: 1px solid #2772C1;
+    text-align: right;
+}
+
+.odd #suspectPicture {
+    border: 1px solid #2772C1;
+}
+
+.even {
+    border: 1px solid #AC1B51;
+    text-align: left;
+}
+
+.even #suspectPicture {
+    border: 1px solid #AC1B51;
+}
+
+#PicNameAndAge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
