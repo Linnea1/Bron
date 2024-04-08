@@ -1,16 +1,19 @@
 async function renderHomePage() {
     let user = JSON.parse(localStorage.getItem("user"));
     let username = user.username
-
+   
     RenderSuspects()
 }
 
 
 function RenderSuspects() {
-    document.querySelector("main").innerHTML = ``;
+    document.querySelector("main").innerHTML = `
+        <div class="suspects"></div>
+        <nav class="sticky-nav">${stickyNav()}</nav>
+    `;
     SUSPECTS.forEach(clue => {
         let SuspectxBox = document.createElement("div");
-        document.querySelector("main").append(SuspectxBox)
+        document.querySelector(".suspects").append(SuspectxBox)
         SuspectxBox.setAttribute("id", "suspectBox")
         SuspectxBox.innerHTML = `
             <div id ="suspectPicture"></div>
@@ -50,4 +53,16 @@ function RenderSuspects() {
         }
 
     });
+
+   
 }
+
+document
+.querySelector(".nav-home")
+.addEventListener("click", () => renderHomePage());
+document
+.querySelector(".nav-suspects")
+.addEventListener("click", () => RenderSuspects());
+document
+.querySelector(".nav-clues")
+.addEventListener("click", () => RenderClues());
