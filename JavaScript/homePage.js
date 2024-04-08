@@ -54,15 +54,15 @@ function RenderSuspects() {
 
     });
 
+    document
+    .querySelector(".nav-home")
+    .addEventListener("click", () => renderHomePage());
+    document
+    .querySelector(".nav-suspects")
+    .addEventListener("click", () => RenderSuspects());
+    document
+    .querySelector(".nav-clues")
+    .addEventListener("click", () => RenderClues());
    
 }
 
-document
-.querySelector(".nav-home")
-.addEventListener("click", () => renderHomePage());
-document
-.querySelector(".nav-suspects")
-.addEventListener("click", () => RenderSuspects());
-document
-.querySelector(".nav-clues")
-.addEventListener("click", () => RenderClues());
