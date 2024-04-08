@@ -72,6 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // make sure its the right method
         "email" => $input["email"],
         "username" => $input["username"],
         "password" => $input["password"],
+        "pfp" => "",
         "clues" => []
     ];
     $users[] = $newUser; 

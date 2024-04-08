@@ -4,6 +4,7 @@
         "email": "erica@hej",
         "username": "elliot",
         "password": "elliot",
+        "pfp": "",
         "clues": []
     },
     {
@@ -11,6 +12,7 @@
         "email": "berit@hej.se",
         "username": "berit",
         "password": "berit",
+        "pfp": "",
         "clues": []
     },
     {
@@ -18,6 +20,7 @@
         "email": "redbull@hej.se",
         "username": "redbull",
         "password": "redbull",
+        "pfp": "",
         "clues": []
     },
     {
@@ -25,13 +28,15 @@
         "email": "lo@hej.se",
         "username": "hejhopp",
         "password": "hejsan",
+        "pfp": "",
         "clues": []
     },
     {
         "userId": 5,
-        "email": "oliweer@hej.se",
+        "email": "morgan@hej.se",
         "username": "oliwer",
         "password": "oliwer",
+        "pfp": "api\/data\/pictures\/pfp\/1712590410.jpeg",
         "clues": []
     },
     {
@@ -39,6 +44,7 @@
         "email": "linnea@gmail.com",
         "username": "Linnea",
         "password": "hejhopp",
+        "pfp": "",
         "clues": []
     },
     {
@@ -46,6 +52,7 @@
         "email": "Tesst@.com",
         "username": "tesst",
         "password": "hejsan",
+        "pfp": "",
         "clues": []
     }
 ]

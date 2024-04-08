@@ -1,39 +1,40 @@
 .sticky-nav {
     height: 75px;
     width: 100%;
-    background-color: rgb(39,38,39);
-    bottom: 0;
-    position: fixed;
+    background-color: rgb(39, 38, 39);
+    position: relative;
+    /* Ändra positionen till relativ istället för fast */
     z-index: 7;
+    margin-top: auto;
+    /* Flytta navigationsfältet längst ned */
 }
 
 .sticky-nav ul {
-display: flex;
-justify-content: space-around;
-margin: 0;
-padding: 0;
-height: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 .sticky-nav li {
-list-style-type: none;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 33.3%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 33.3%;
 }
 
 .sticky-nav .fa-solid {
-font-size: 24px;
-padding-bottom: 5px;
-padding-top: 5px;
-color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-icon-name {
-margin: 3px;
-font-size: 12px;
-color: rgba(255, 255, 255, 0.5);
+    margin: 3px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
 }
-  

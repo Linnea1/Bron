@@ -1,4 +1,4 @@
-let body = document.querySelector("body");
+
 
 // async function renderHomePage() {
 //     let user = JSON.parse(localStorage.getItem("user"));

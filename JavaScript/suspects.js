@@ -1,8 +1,6 @@
 function RenderSuspects() {
     basicHeader()
 
-    let main = body.querySelector("main");
-
     body.style.backgroundImage = `url('Bilder/istockphoto-1462731789-640x640.jpg')`;
     body.style.backgroundSize = "cover";
 
