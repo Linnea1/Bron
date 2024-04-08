@@ -1,15 +1,14 @@
 let body = document.querySelector("body");
 
-async function renderHomePage() {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let username = user.username
+// async function renderHomePage() {
+//     let user = JSON.parse(localStorage.getItem("user"));
+//     let username = user.username
 
+//     RenderIntro()
 
-    RenderIntro()
+//     // RenderSuspects()
 
-    // RenderSuspects()
-
-}
+// }
 
 function RenderIntro() {
     basicHeader()
@@ -42,19 +41,22 @@ function RenderOptions() {
             title: "Nästa Steg",
             OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.46.15.png",
             description: "Gå till platserna markerade på kartan",
-            sagaPic: "Bilder/Saga.jpg"
+            sagaPic: "Bilder/Saga.jpg",
+            event: "RenderMap()"
         },
         {
             title: "Misstänkta",
             OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.47.20.png",
             description: "Dessa är de personer som är misstänkta",
-            sagaPic: "Bilder/Saga.jpg"
+            sagaPic: "Bilder/Saga.jpg",
+            event: "RenderSuspects()"
         },
         {
             title: "Mina ledtrådar",
             OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.48.17.png",
             description: "Vem pekar ledtrådarna på?",
-            sagaPic: "Bilder/Saga.jpg"
+            sagaPic: "Bilder/Saga.jpg",
+            event: "RenderClues()"
         }
     ]
     console.log("hej");
@@ -73,15 +75,18 @@ function RenderOptions() {
         document.querySelector(".options").append(divDom);
         // divDom.style.backgroundImage = `url('${option.OptionPic}')`
 
+        let eventFunciton = option.event;
+
         divDom.innerHTML = `
             <h2 class="title"> ${option.title}</h2>
             <div class="optionPic" style="background-image: url('${option.OptionPic}')"></div>
             <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
-            <div class="description"> 
+            <div class="description" onclick="${eventFunciton}()"> 
                 <p>${option.description}</p>
             </div>
         `;
 
+        // divDom.addEventListener("click", option.event)
     })
 
 }

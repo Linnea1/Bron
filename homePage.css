@@ -16,7 +16,7 @@
     background-size: contain;
     left: -15px;
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     z-index: 1;
 }
 
@@ -24,16 +24,15 @@
     background-color: #ffffffba;
     height: 40%;
     width: 100%;
-    bottom: -6px;
+    bottom: -10px;
     position: absolute;
     border-radius: 0px 0px 0px 20px;
-
-
 }
 
 .description p {
     padding-left: 110px;
     color: black;
+    width: 50vw;
 }
 
 .title {
