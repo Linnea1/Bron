@@ -44,8 +44,7 @@
         "email": "linnea@gmail.com",
         "username": "Linnea",
         "password": "hejhopp",
-        "pfp": "",
-        "clues": []
+        "clues": [3,4]
     },
     {
         "userId": 7,

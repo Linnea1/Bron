@@ -13,7 +13,7 @@
 function RenderIntro() {
     basicHeader()
     let main = body.querySelector("main");
-    body.style.backgroundImage = `url('Bilder/Skärmavbild 2024-04-08 kl. 09.53.02.png')`;
+    body.style.backgroundImage = `url('Bilder/intro.png')`;
     body.style.backgroundSize = "cover";
     main.style.display = "flex";
     main.style.flexDirection = "column";
