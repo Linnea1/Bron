@@ -11,20 +11,18 @@ async function fetching(URL, method, body) {
 
 
 function basicHeader() {
-    // let user = JSON.parse(localStorage.getItem("user"));
 
     document.querySelector("header").innerHTML = ` 
-        <div id="profilePicture" class="icon"></div>
+        <div id="profilePicture" class="icon" onclick="RenderUserPage()"></div>
     `;
 
     let user = JSON.parse(localStorage.getItem("user"));
-    document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
 
-    document.querySelector("#profilePicture").addEventListener("click", e => {
-        // newState();
-        RenderUserPage();
-    });
-
+    if (user.pfp !== "") {
+        document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
+    } else {
+        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+    }
 }
 
 function swapStyleSheet(styleSheet) {
@@ -32,8 +30,33 @@ function swapStyleSheet(styleSheet) {
 }
 
 
-function popUp(prompt) { // pop up
-    document.querySelector("#loading").classList.add("hidden");
+function ArrestPopUp(prompt) {
+    document.querySelector("#popUp").classList.remove("hidden");
+    document.querySelector("#popUpWindow").innerHTML = `
+
+        <h2> ${prompt.title}</h2>
+        <div class="content">
+            <div class="pictureOfSaga" style="background-image: url('Bilder/Saga.jpg')"></div>
+                <div id="first">
+                    <p>Saga:</p> 
+                    <p>${prompt.text}</p>
+                </div>
+                <div id="second"> 
+                    <p> ${prompt.direction}</p>
+                    <p onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
+                </div>
+        </div>
+
+    `;
+
+    document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
+    document.querySelector("#second p:nth-child(2)").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
+    document.querySelector("span").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
+    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+}
+
+function popUp(prompt) {
+
     document.querySelector("#popUpWindow").innerHTML = `
          <p id="prompt"></p>
     `;

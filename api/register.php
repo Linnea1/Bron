@@ -43,8 +43,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // make sure its the right method
     incorrectChar($splitUsername, "username");
     incorrectChar($splitPassword, "password");
     incorrectChar($splitEmail, "email");
-    
-    //////////////
 
     if($users != []){ // dont do this if no users yet
         foreach($users as $user){
@@ -60,9 +58,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // make sure its the right method
     $id = 1;
 
     foreach ($users as $user) {
-        // if ($user["userId"] > $id) {
-        //     $id = $user["id"];
-        // }
         $id = $user["userId"] + 1;
     }
 

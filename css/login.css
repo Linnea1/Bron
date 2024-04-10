@@ -1,0 +1,83 @@
+body {
+    color: white;
+}
+
+main {
+    min-height: 100vh;
+    /* Ensure main fills the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    color: white;
+    margin-left: 5%;
+    font-size: var(--h2)
+}
+
+#infoText {
+    width: 90%;
+    text-align: center;
+    color: white;
+    margin: 20% 5%;
+}
+
+#infoText h2 {
+    font-size: 40px;
+}
+
+#infoText h3 {
+    font-size: 16px;
+    margin: 5%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center buttons horizontally */
+    margin-bottom: 20px;
+    /* height: 40vw; */
+}
+
+input {
+    height: 10vw;
+    width: 90%;
+    background-color: #242424;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    margin: 5px 0px;
+}
+
+#register {
+    margin-top: 15px;
+}
+
+#register span {
+    text-decoration: underline;
+}
+
+button {
+    height: 12vw;
+    background-color: #242424;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin: 3vw;
+    font-size: 16px;
+    width: 90%;
+}
+
+form {
+    margin-bottom: 20%;
+    text-align: center;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2%;
+}

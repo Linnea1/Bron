@@ -1,6 +1,7 @@
 main {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .bigBox {
@@ -13,28 +14,6 @@ main {
     align-items: center;
 }
 
-#emailHolder,
-#passwordHolder {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px 0px;
-}
-
-#emailHolder p,
-#passwordHolder p {
-    align-self: flex-start;
-    padding-left: 16px;
-}
-
-#passwordHolder {
-    margin-bottom: 35px;
-}
-
-#passwordold {
-    margin-bottom: 15px;
-}
 
 .PictureBox {
     height: 60vw;
@@ -52,22 +31,19 @@ main {
     background-size: cover;
 }
 
-#edit {
-    height: 30px;
-    width: 30px;
-    border: 1px solid black;
-    position: absolute;
-    right: 50px;
-    border-radius: 50%;
-    bottom: 0px;
-    background-color: #D9D9D9;
-    background-size: contain;
-    background-repeat: no-repeat;
+
+#pfpHolder {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vw;
 }
 
 input {
     height: 10vw;
-    width: 90%;
+    width: 100%;
     background-color: #242424;
     border: 1px solid white;
     border-radius: 10px;
@@ -113,4 +89,26 @@ p {
 
 p {
     font-size: 3.5vw;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+label {
+    margin-bottom: 5px;
+    text-align: initial;
+}
+
+#back {
+    align-self: center;
+    width: 50%;
+    margin-top: 20vw;
+
+}
+
+#upload {
+    margin-top: 10px;
 }

@@ -4,7 +4,7 @@ function RenderClues() {
     <div class="clues"></div>
     <nav class="sticky-nav">${stickyNav()}</nav>
     `;
-
+    
     console.log(user)
 
     let main = body.querySelector("main");
