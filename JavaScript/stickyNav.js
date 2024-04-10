@@ -11,7 +11,7 @@ function stickyNav() {
         <i class="fa-solid fa-person"></i>
         <p class="nav-icon-name text-groups">Misstänkta</p>
       </li>
-      <li class="nav-clues">
+      <li class="nav-clues" onclick="RenderClues()">
         <i class="fa-solid fa-clipboard-question"></i>
         <p class="nav-icon-name text-house">Ledtrådar</p>
       </li>

@@ -3,7 +3,7 @@ async function RenderUserPage() {
 
     swapStyleSheet("css/profile.css");
 
-    body.style.backgroundImage = `url('Bilder/istockphoto-476228695-612x612.jpg')`;
+    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 
     main.innerHTML = `

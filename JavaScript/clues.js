@@ -1,4 +1,7 @@
 function RenderClues() {
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    swapStyleSheet("css/clues.css");
     document.querySelector("main").innerHTML = `
     <div class="clues"></div>
     <nav class="sticky-nav">${stickyNav()}</nav>
@@ -6,12 +9,12 @@ function RenderClues() {
 
     let main = body.querySelector("main");
 
-    main.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
-    main.style.backgroundSize = "cover";
+    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    body.style.backgroundSize = "cover";
 
-   CLUES.forEach(clue => {
-       
-        if(clueUnlocked(clue.id)){
+    CLUES.forEach(clue => {
+
+        if (clueUnlocked(clue.id)) {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
             clueBox.setAttribute("class", "clueBox unlocked")
@@ -21,7 +24,7 @@ function RenderClues() {
             <div id ="cluePicture"></div>
             
             `;
-        }else{
+        } else {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
             clueBox.setAttribute("class", "clueBox locked")
@@ -30,14 +33,14 @@ function RenderClues() {
             <p>Lås upp ledtråden</p>
             `;
         }
-   });
+    });
 
-    function clueUnlocked(clueId){
+    function clueUnlocked(clueId) {
         user.clues.forEach(clue => {
-            if(clueId===clue){
+            if (clueId === clue) {
                 return true
             }
         });
     }
-    
+
 }

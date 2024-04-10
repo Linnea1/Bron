@@ -3,7 +3,7 @@ async function RenderMakeArrest() {
 
     swapStyleSheet("css/arrest.css");
 
-    body.style.backgroundImage = `url('Bilder/istockphoto-476228695-612x612.jpg')`;
+    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 
     main.innerHTML = `
@@ -28,7 +28,6 @@ async function RenderMakeArrest() {
         <button onclick="CheckChosenPerson()"> Lås in och avsluta spelet </button>
         <div id="message"></div>
     `
-    body.style.backgroundImage = `url('Bilder/istockphoto-476228695-612x612.jpg')`;
     document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
 
     let count = 0;
