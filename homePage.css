@@ -1,0 +1,48 @@
+.option {
+    padding: 5vw 0vw;
+    margin: 5vw 8vw;
+    border-radius: 20px 20px 0px 20px;
+    color: white;
+    height: 40vw;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.picSaga {
+    height: 22vw;
+    width: 22vw;
+    border-radius: 50px;
+    background-size: contain;
+    left: -15px;
+    position: absolute;
+    bottom: -15px;
+    z-index: 1;
+}
+
+.description {
+    background-color: #ffffffba;
+    height: 40%;
+    width: 100%;
+    bottom: -10px;
+    position: absolute;
+    border-radius: 0px 0px 0px 20px;
+}
+
+.description p {
+    padding-left: 110px;
+    color: black;
+    width: 50vw;
+}
+
+.title {
+    padding: 0;
+    margin: 0;
+}
+
+.optionPic {
+    border-radius: 20px 20px 0px 20px;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}

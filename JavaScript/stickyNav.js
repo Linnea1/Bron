@@ -3,11 +3,11 @@
 function stickyNav() {
   return `
     <ul>
-      <li class="nav-home">
+      <li class="nav-home" onclick="RenderOptions()">
         <i class="fa-solid fa-house"></i>
         <p class="nav-icon-name text-awards">Home</p>
       </li>
-      <li class="nav-suspects">
+      <li class="nav-suspects" onclick="RenderSuspects()">
         <i class="fa-solid fa-person"></i>
         <p class="nav-icon-name text-groups">Suspects</p>
       </li>

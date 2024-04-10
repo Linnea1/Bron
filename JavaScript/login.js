@@ -41,7 +41,7 @@ function renderLoginPage() {
                 window.localStorage.setItem("user", JSON.stringify(data));
                 user = data;
                 // logged in! (adding function later)
-                renderHomePage()
+                RenderIntro()
             }
         } catch (error) { // if something went wrong
             errorMessage.textContent = `Error: ${error.message}`;

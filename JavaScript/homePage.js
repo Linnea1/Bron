@@ -1,15 +1,14 @@
-let body = document.querySelector("body");
-
-async function renderHomePage() {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let username = user.username
 
 
-    RenderIntro()
+// async function renderHomePage() {
+//     let user = JSON.parse(localStorage.getItem("user"));
+//     let username = user.username
 
-    // RenderSuspects()
+//     RenderIntro()
 
-}
+//     // RenderSuspects()
+
+// }
 
 function RenderIntro() {
     basicHeader()
@@ -28,105 +27,67 @@ function RenderIntro() {
             Så här mycket vet vi hittills: offret heter Klas och han blev mördad  sent på natten igår. Varje liten bit information kan vara den pusselbit  vi behöver för att lösa fallet. </h3>
         </div>
 
-        <button id="next" onclick="RenderHomePage()"> Nästa </button>
+        <button id="next" onclick="RenderOptions()"> Nästa </button>
     `;
 }
 
-function RenderHomePage() {
-   RenderClues()
-}
+function RenderOptions() {
+    swapStyleSheet("homePage.css");
 
-function RenderSuspects() {
+    body.style.backgroundImage = `url('Bilder/police-cars-with-emergency-lights-on-at-night-hero-m.jpg')`;
+
+    let options = [
+        {
+            title: "Nästa Steg",
+            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.46.15.png",
+            description: "Gå till platserna markerade på kartan",
+            sagaPic: "Bilder/Saga.jpg",
+            event: "RenderMap()"
+        },
+        {
+            title: "Misstänkta",
+            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.47.20.png",
+            description: "Dessa är de personer som är misstänkta",
+            sagaPic: "Bilder/Saga.jpg",
+            event: "RenderSuspects()"
+        },
+        {
+            title: "Mina ledtrådar",
+            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.48.17.png",
+            description: "Vem pekar ledtrådarna på?",
+            sagaPic: "Bilder/Saga.jpg",
+            event: "RenderClues()"
+        }
+    ]
+    console.log("hej");
+    basicHeader()
 
     let main = body.querySelector("main");
 
-    main.style.backgroundImage = `url('Bilder/Skärmavbild 2024-04-08 kl. 09.50.53.png')`;
-    main.style.backgroundSize = "cover";
-
-    let evenOrOdd = 0;
-
     main.innerHTML = `
-        <div class="suspects"></div>
+        <div class="options"></div>
         <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
-    SUSPECTS.forEach(clue => {
-        let SuspectxBox = document.createElement("div");
-        document.querySelector(".suspects").append(SuspectxBox)
-        SuspectxBox.setAttribute("id", "suspectBox")
-        SuspectxBox.innerHTML = `
-            <div id="info">
-                <div id ="PicNameAndAge">
-                </div>
-                <div id ="text"></div>
+    options.forEach(option => {
+        let divDom = document.createElement("div");
+        divDom.classList.add("option")
+        document.querySelector(".options").append(divDom);
+        // divDom.style.backgroundImage = `url('${option.OptionPic}')`
+
+        let eventFunciton = option.event;
+
+        divDom.innerHTML = `
+            <h2 class="title"> ${option.title}</h2>
+            <div class="optionPic" style="background-image: url('${option.OptionPic}')"></div>
+            <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
+            <div class="description" onclick="${eventFunciton}()"> 
+                <p>${option.description}</p>
             </div>
         `;
 
-
-        evenOrOdd++
-        if (evenOrOdd %= 2) {
-            SuspectxBox.classList.add("odd");
-            SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
-                <div id ="suspectPicture"></div>
-                <div id ="NameAndAge"></div>
-            `;
-        } else {
-            SuspectxBox.classList.add("even");
-            SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
-                <div id ="NameAndAge"></div>
-                <div id ="suspectPicture"></div>
-            `;
-        }
-
-
-        let pic = SuspectxBox.querySelector("#suspectPicture");
-        pic.style.backgroundImage = `url('${clue.image}')`;
-        pic.style.height = "105px";
-        pic.style.width = "105px";
-        pic.style.backgroundSize = "cover";
-        pic.style.borderRadius = "50px";
-
-
-        for (const index in clue) {
-
-            if (index === "suspectId" || index === "image" || index === "guilty") {
-                continue;
-            }
-
-
-            switch (index) {
-                case "name":
-                    SuspectxBox.querySelector("#NameAndAge").innerHTML += `
-                        <h2 id="${index}">${clue[index]}, </h2>
-                    `;
-                    break;
-
-                case "age":
-                    SuspectxBox.querySelector("#NameAndAge").textContent += `
-                        ${clue[index]} år
-                    `;
-                    break;
-
-                case "text":
-                    SuspectxBox.querySelector("#text").innerHTML += `
-                    <p id="${index}">${clue[index]} </p>
-                    `;
-                    break;
-            }
-
-        }
-
-    });
-
-    document
-        .querySelector(".nav-home")
-        .addEventListener("click", () => renderHomePage());
-    document
-        .querySelector(".nav-suspects")
-        .addEventListener("click", () => RenderSuspects());
-    document
-        .querySelector(".nav-clues")
-        .addEventListener("click", () => RenderClues());
+        // divDom.addEventListener("click", option.event)
+    })
 
 }
 
