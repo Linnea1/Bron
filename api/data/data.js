@@ -2,41 +2,46 @@ const CLUES = [
     {
         id: 1,
         code: 6435,
-        title: "Titel",
-        image: "image path",
-        text: "Själva ledtråden"
+        title: "Kniven",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Mordvapnet har hittats",
+        text:""
 
     },
     {
         id: 2,
         code: 2201,
-        title: "Titel",
-        image: "image path",
-        text: "Själva ledtråden"
+        title: "Platsen för brottet",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Blod och skoavtryck finns på brottsplatsen",
+        text:""
 
     },
     {
         id: 3,
         code: 9782,
-        title: "Titel",
-        image: "image path",
-        text: "Själva ledtråden"
+        title: "Ögonvittnen",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Det finns folk som såg Klas innan han dog",
+        text:""
 
     },
     {
         id: 4,
         code: 8414,
-        title: "Titel",
-        image: "image path",
-        text: "Själva ledtråden"
+        title: "Övervakningskameror",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Det finns video på Klas innan han dog",
+        text:""
 
     },
     {
         id: 5,
         code: 2009,
-        title: "Titel",
-        image: "image path",
-        text: "Själva ledtråden"
+        title: "Klas rörelsemönster",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Klas spenderade kvällen på casinot och var aktiv vid olika spelbord",
+        text:""
 
     }
 ];

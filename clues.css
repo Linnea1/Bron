@@ -9,11 +9,18 @@
 
 .clueBox{
     width: 100%;
-    padding: 20px 5px;
+    height: 15vh;
     color: white;
     border-radius: 10px;
     border: 1px white solid;
     box-sizing: border-box;
+}
+
+.unlocked{
+    background-color: rgba(0, 0, 0, 0.555);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1fr 1fr;
 }
 
 .locked{
@@ -38,4 +45,17 @@
 .clueBox p {
     position: relative;
     z-index: 2;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+#cluePicture{
+    width: 13vh;
+    height: 13vh;
+    grid-row: span 2;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+    background-size: cover;
 }

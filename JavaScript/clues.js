@@ -1,8 +1,11 @@
 function RenderClues() {
+    swapStyleSheet("clues.css");
     document.querySelector("main").innerHTML = `
     <div class="clues"></div>
     <nav class="sticky-nav">${stickyNav()}</nav>
     `;
+
+    console.log(user)
 
     let main = body.querySelector("main");
 
@@ -17,9 +20,8 @@ function RenderClues() {
             clueBox.setAttribute("class", "clueBox unlocked")
             clueBox.innerHTML = `
             <p>${clue.title}</p>
-            <p id="info">${clue.text}</p>
-            <div id ="cluePicture"></div>
-            
+            <div id ="cluePicture" style="background-image: url('${clue.image}')"></div>
+            <p id="info">${clue.shortText}</p>
             `;
         }else{
             let clueBox = document.createElement("div");
@@ -33,11 +35,14 @@ function RenderClues() {
    });
 
     function clueUnlocked(clueId){
+        let isUnlocked = false;
         user.clues.forEach(clue => {
+            
             if(clueId===clue){
-                return true
+                isUnlocked=true;
             }
         });
+        return isUnlocked;
     }
     
 }
