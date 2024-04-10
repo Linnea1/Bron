@@ -3,7 +3,6 @@ async function RenderUserPage() {
 
     swapStyleSheet("css/profile.css");
 
-    // document.querySelector("header").style.opacity = 0;
     document.querySelector("#profilePicture").style.backgroundImage = "none";
 
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;

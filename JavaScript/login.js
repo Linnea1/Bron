@@ -25,10 +25,8 @@ function renderLoginPage() {
         </div>
     `;
 
-    // go to register
     main.querySelector("#register").addEventListener("click", renderRegisterPage);
 
-    let loginForm = main.querySelector("#loginForm");
     let username = main.querySelector("#username");
     let password = main.querySelector("#password");
 
@@ -41,23 +39,20 @@ function renderLoginPage() {
             password: password.value,
         };
 
-        // trying to log in...
         try {
             let response = await fetching("api/login.php", "POST", body);
             let data = await response.json();
 
-            data.password = password.value; // add password
+            data.password = password.value;
 
             if (!response.ok) {
-                errorMessage.innerHTML = `<span>${data.message}</span>.`; // error message
+                errorMessage.innerHTML = `<span>${data.message}</span>.`;
             } else {
-                // add to local storage
                 window.localStorage.setItem("user", JSON.stringify(data));
                 user = data;
-                // logged in! (adding function later)
                 RenderIntro()
             }
-        } catch (error) { // if something went wrong
+        } catch (error) {
             errorMessage.textContent = `Error: ${error.message}`;
         }
     });

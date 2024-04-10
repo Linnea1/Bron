@@ -1,5 +1,4 @@
 async function RenderMakeArrest() {
-    let user = JSON.parse(localStorage.getItem("user"));
 
     swapStyleSheet("css/arrest.css");
 
@@ -82,11 +81,8 @@ async function RenderMakeArrest() {
 function CheckChosenPerson(parent) {
     let chosenSuspect = document.querySelector(".chosen");
     if (chosenSuspect === null) {
-
         document.querySelector("#message").textContent = "Du måste välja en person";
-
     } else {
-
         document.querySelector("#message").textContent = "";
         let parent = chosenSuspect.parentElement;
         RenderAnswere(parent)

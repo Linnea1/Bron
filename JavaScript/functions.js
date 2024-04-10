@@ -19,17 +19,10 @@ function basicHeader() {
     let user = JSON.parse(localStorage.getItem("user"));
 
     if (user.pfp !== "") {
-
         document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
     } else {
         document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
     }
-
-    // document.querySelector("#profilePicture").addEventListener("click", e => {
-    //     // newState();
-    //     RenderUserPage();
-    // });
-
 }
 
 function swapStyleSheet(styleSheet) {

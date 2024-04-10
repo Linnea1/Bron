@@ -4,7 +4,6 @@ body {
 
 main {
     min-height: 100vh;
-    /* Ensure main fills the viewport height */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,9 +35,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center buttons horizontally */
     margin-bottom: 20px;
-    /* height: 40vw; */
 }
 
 input {
@@ -71,7 +68,6 @@ button {
 }
 
 form {
-    /* margin-bottom: 20%; */
     text-align: center;
 }
 

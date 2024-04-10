@@ -1,15 +1,4 @@
 
-
-// async function renderHomePage() {
-//     let user = JSON.parse(localStorage.getItem("user"));
-//     let username = user.username
-
-//     RenderIntro()
-
-//     // RenderSuspects()
-
-// }
-
 function RenderIntro() {
     basicHeader()
     let main = body.querySelector("main");
@@ -72,7 +61,6 @@ function RenderOptions() {
         let divDom = document.createElement("div");
         divDom.classList.add("option")
         document.querySelector(".options").append(divDom);
-        // divDom.style.backgroundImage = `url('${option.OptionPic}')`
 
         let eventFunciton = option.event;
 
@@ -84,8 +72,6 @@ function RenderOptions() {
                 <p>${option.description}</p>
             </div>
         `;
-
-        // divDom.addEventListener("click", option.event)
     })
 
 }

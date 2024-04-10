@@ -23,7 +23,6 @@ function RenderSuspects() {
             </div>
         `;
 
-
         evenOrOdd++
         if (evenOrOdd %= 2) {
             SuspectxBox.classList.add("odd");
@@ -39,7 +38,6 @@ function RenderSuspects() {
             `;
         }
 
-
         let pic = SuspectxBox.querySelector("#suspectPicture");
         pic.style.backgroundImage = `url('${clue.image}')`;
         pic.style.height = "105px";
@@ -47,13 +45,10 @@ function RenderSuspects() {
         pic.style.backgroundSize = "cover";
         pic.style.borderRadius = "50px";
 
-
         for (const index in clue) {
-
             if (index === "suspectId" || index === "image" || index === "guilty") {
                 continue;
             }
-
 
             switch (index) {
                 case "name":
@@ -78,15 +73,5 @@ function RenderSuspects() {
         }
 
     });
-
-    // document
-    //     .querySelector(".nav-home")
-    //     .addEventListener("click", () => renderHomePage());
-    // document
-    //     .querySelector(".nav-suspects")
-    //     .addEventListener("click", () => RenderSuspects());
-    // document
-    //     .querySelector(".nav-clues")
-    //     .addEventListener("click", () => RenderClues());
 
 }
