@@ -32,9 +32,9 @@ function RenderIntro() {
 }
 
 function RenderOptions() {
-    swapStyleSheet("homePage.css");
+    swapStyleSheet("css/homePage.css");
 
-    body.style.backgroundImage = `url('Bilder/police-cars-with-emergency-lights-on-at-night-hero-m.jpg')`;
+    body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
 
     let options = [
         {
@@ -59,7 +59,6 @@ function RenderOptions() {
             event: "RenderClues()"
         }
     ]
-    console.log("hej");
     basicHeader()
 
     let main = body.querySelector("main");

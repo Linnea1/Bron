@@ -1,0 +1,53 @@
+body {
+    color: black;
+}
+
+main {
+    min-height: 100vh;
+    /* Ensure main fills the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    color: white;
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+#infoText {
+    width: 90%;
+    text-align: center;
+    color: white;
+    margin: 40% 5%;
+}
+
+#infoText h2 {
+    font-size: 40px;
+}
+
+#infoText h3 {
+    font-size: 16px;
+    margin: 5%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center buttons horizontally */
+    margin-bottom: 20px;
+    height: 40vw;
+}
+
+button {
+    height: 12vw;
+    background-color: #242424;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin: 3vw;
+    font-size: 16px;
+    width: 90%;
+}

@@ -36,7 +36,7 @@
         "email": "morgan@hej.se",
         "username": "oliwer",
         "password": "oliwer",
-        "pfp": "api\/data\/pictures\/pfp\/1712590410.jpeg",
+        "pfp": "api\/data\/pictures\/pfp\/1712733284.jpeg",
         "clues": []
     },
     {
@@ -52,6 +52,22 @@
         "email": "Tesst@.com",
         "username": "tesst",
         "password": "hejsan",
+        "pfp": "",
+        "clues": []
+    },
+    {
+        "userId": 8,
+        "email": "morganhej@hej.se",
+        "username": "morgan",
+        "password": "morgan",
+        "pfp": "",
+        "clues": []
+    },
+    {
+        "userId": 9,
+        "email": "mysterysolver@hej.se",
+        "username": "mysterysolver",
+        "password": "mysterysolver",
         "pfp": "",
         "clues": []
     }

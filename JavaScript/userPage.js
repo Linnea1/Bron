@@ -1,8 +1,7 @@
 async function RenderUserPage() {
     let user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
 
-    swapStyleSheet("profile.css");
+    swapStyleSheet("css/profile.css");
 
     body.style.backgroundImage = `url('Bilder/istockphoto-476228695-612x612.jpg')`;
     body.style.backgroundSize = "cover";
@@ -13,7 +12,7 @@ async function RenderUserPage() {
     `;
 
     body.querySelector("nav").innerHTML = `${stickyNav()}`;
-    document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
+    // document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
 
     document.querySelector(".bigBox").innerHTML = `
 
@@ -45,7 +44,12 @@ async function RenderUserPage() {
         </div>
     `;
 
-    main.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
+    if (user.pfp !== "") {
+
+        document.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
+    } else {
+        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+    }
 
     let saveButton = main.querySelector("#save");
 
@@ -53,13 +57,13 @@ async function RenderUserPage() {
 
         e.stopPropagation();
         e.preventDefault();
-        // let email = document.getElementById("email").value;
+
         let username = user.username;
         let newEmail = main.querySelector('input[name="email"]').value;
         let newPassword = main.querySelector('input[name="passwordnew"]').value;
         let oldPassword = main.querySelector('input[name="passwordold"]').value;
 
-        // "email": email,
+
         let changesInForm = {
             "username": username,
             "email": newEmail,
@@ -69,8 +73,6 @@ async function RenderUserPage() {
 
         console.log(changesInForm);
         ChangeSettings(changesInForm);
-
-
     })
 
     main.querySelector("#delete").addEventListener("click", e => {
@@ -103,8 +105,6 @@ async function RenderUserPage() {
 
     async function ChangeSettings(data) {
 
-        console.log(data.username);
-
         let body = {
             "username": data.username,
             "email": data.email,
@@ -112,7 +112,6 @@ async function RenderUserPage() {
             "newPassword": data.newPassword,
         };
 
-        // console.log(body);
         try {
 
             let response = await fetching("api/settings.php", "PATCH", body);
@@ -137,25 +136,35 @@ async function RenderUserPage() {
 
 async function RenderChangeProfilePicture() {
 
+    let user = JSON.parse(localStorage.getItem("user"));
+
     main.innerHTML = `
-        <div class="box"></div>
+        <div class="bigBox"></div>
         <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
-    main.querySelector(".box").innerHTML = `
+    main.querySelector(".bigBox").innerHTML = `
 
-    <button onclick="RenderUserPage()"> Tillbaka </button>
-        <div id="pfpHolder">
-            <form id="uploadPfp">
-                <p>Change profile picture</p>
-                <input type="file" id="pfp" name="pfp">
-                <label for="pfp">Choose a file...</label>
-                <button type="submit">Upload</button>
-            </form>
-            <div id="message"></div>
+        <h2> Change profile picture </h2>
+        <button onclick="RenderUserPage()"> Tillbaka </button>
+        <div class="PictureBox">
+            <div id="profilePic"></div>
         </div>
+
+        <h2> ${user.username}</h2>
+
+            <div id="pfpHolder">
+                <form id="uploadPfp">
+                    <p>Change profile picture</p>
+                    <input type="file" id="pfp" name="pfp">
+                    <label for="pfp">Choose a file...</label>
+                    <button type="submit">Upload</button>
+                </form>
+                <div id="message"></div>
+            </div>
     `;
 
+    main.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
 
     let fileForm = main.querySelector("#uploadPfp");
     let pfpLabel = main.querySelector("label");
@@ -193,6 +202,7 @@ async function RenderChangeProfilePicture() {
 
                     main.querySelector("#message").textContent = "Successfully saved!";
                     document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
+                    main.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
                 }
             } catch (e) {
                 main.querySelector("#message").textContent = e;
@@ -224,7 +234,7 @@ async function change(body, URL, method, select, newValue) {
 }
 
 
-async function changeEmail(e) { // change email
+async function changeEmail(e) {
     if (newEmail.value === "") {
         popUp("Please do not leave an empty field");
     } else {
@@ -238,7 +248,7 @@ async function changeEmail(e) { // change email
     }
 }
 
-async function changePassword(e) { // change password
+async function changePassword(e) {
     if (newPassword.value === "" || oldPassword.value === "") {
         popUp("Please do not leave any empty fields");
     } else {
@@ -252,27 +262,7 @@ async function changePassword(e) { // change password
     }
 }
 
-async function deleteAccount() { // delete
-    let body = {
-        username: user.username,
-        password: user.password
-    };
-
-    try {
-        let response = await fetching("api/settings.php", "DELETE", body);
-        if (response.ok) {
-            logout();
-        } else {
-            let data = await response.json();
-            popUp(data.message);
-        }
-    } catch (error) {
-        popUp(error);
-    }
-}
-
-
-async function deleteAccount() { // delete
+async function deleteAccount() {
     let body = {
         username: user.username,
         password: user.password

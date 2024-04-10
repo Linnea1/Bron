@@ -1,24 +1,38 @@
 function renderLoginPage() {
+    swapStyleSheet("css/login.css");
     let main = document.querySelector("main");
     main.innerHTML = `
-        <h2>Logga in</h2>
-        <p id=message></p>
-        <form>
-            <input type=text id=username placeholder=Användarnamn>
-            <input type=password id=password placeholder=Lösenord>
-            <button id=login type=submit>Logga in</button>
-        </form>
-        <button id=register>Är du ny här?</br>Registrera dig här</button>
+
+        <h2 class="title">Bron</h2>
+        <div>
+            <div id="infoText">
+                <h2> Logga in </h2>
+            </div>
+
+            <form id="loginForm">
+                <label> Användarnamn</label>
+                <input type=text id=username>
+                <label> Lösenord</label>
+                <input type=password id=password>
+            </form>
+
+            <p id=message></p>
+
+            <div class="buttons">
+                <button id="login">Logga in</button>
+                <div id=register>Är du ny här? Registrera dig <span> här </span> </div>
+            </div>
+        </div>
     `;
 
     // go to register
     main.querySelector("#register").addEventListener("click", renderRegisterPage);
 
-    let loginForm = main.querySelector("form");
+    let loginForm = main.querySelector("#loginForm");
     let username = main.querySelector("#username");
     let password = main.querySelector("#password");
 
-    loginForm.addEventListener("submit", async function (event) {
+    main.querySelector("#login").addEventListener("click", async function (event) {
         event.preventDefault();
         let errorMessage = main.querySelector("#message");
 
