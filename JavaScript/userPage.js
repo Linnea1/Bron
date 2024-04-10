@@ -3,6 +3,9 @@ async function RenderUserPage() {
 
     swapStyleSheet("css/profile.css");
 
+    // document.querySelector("header").style.opacity = 0;
+    document.querySelector("#profilePicture").style.backgroundImage = "none";
+
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 
@@ -12,10 +15,8 @@ async function RenderUserPage() {
     `;
 
     body.querySelector("nav").innerHTML = `${stickyNav()}`;
-    // document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
 
     document.querySelector(".bigBox").innerHTML = `
-
         <h2> Profil </h2>
         <div class="PictureBox">
             <div id="profilePic"></div>
@@ -45,7 +46,6 @@ async function RenderUserPage() {
     `;
 
     if (user.pfp !== "") {
-
         document.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
     } else {
         document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
@@ -71,8 +71,12 @@ async function RenderUserPage() {
             "newPassword": newPassword,
         };
 
-        console.log(changesInForm);
-        ChangeSettings(changesInForm);
+        if (newEmail === "" && oldPassword === "" && newPassword === "") {
+            main.querySelector("#message").textContent = "Please fill in to change";
+        } else {
+
+            ChangeSettings(changesInForm);
+        }
     })
 
     main.querySelector("#delete").addEventListener("click", e => {
@@ -119,7 +123,6 @@ async function RenderUserPage() {
             localStorage.setItem("user", JSON.stringify(user));
 
             if (response.status === 200) {
-                console.log(resourse);
                 main.querySelector("#message").textContent = "Successfully saved!";
                 localStorage.setItem("user", JSON.stringify(resourse));
             }
@@ -136,6 +139,8 @@ async function RenderUserPage() {
 
 async function RenderChangeProfilePicture() {
 
+    swapStyleSheet("css/changeProfilePic.css");
+
     let user = JSON.parse(localStorage.getItem("user"));
 
     main.innerHTML = `
@@ -145,30 +150,31 @@ async function RenderChangeProfilePicture() {
 
     main.querySelector(".bigBox").innerHTML = `
 
-        <h2> Change profile picture </h2>
-        <button onclick="RenderUserPage()"> Tillbaka </button>
+        <h2> Byt profilbild </h2>
         <div class="PictureBox">
             <div id="profilePic"></div>
         </div>
 
-        <h2> ${user.username}</h2>
-
-            <div id="pfpHolder">
-                <form id="uploadPfp">
-                    <p>Change profile picture</p>
-                    <input type="file" id="pfp" name="pfp">
-                    <label for="pfp">Choose a file...</label>
-                    <button type="submit">Upload</button>
-                </form>
-                <div id="message"></div>
-            </div>
+        <div id="pfpHolder">
+            <form id="uploadPfp">
+                <label for="pfp">Välj en fil...</label>
+                <input type="file" id="pfp" name="pfp">
+                <button id="upload" type="submit">Ladda upp</button>
+            </form>
+            <button id="back" onclick="RenderUserPage()"> Tillbaka </button>
+            <div id="message"></div>
+        </div>
     `;
 
-    main.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
+    if (user.pfp !== "") {
+        document.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
+    } else {
+        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+    }
 
     let fileForm = main.querySelector("#uploadPfp");
     let pfpLabel = main.querySelector("label");
-    fileForm.addEventListener("submit", changePfp); // change pfp
+    fileForm.addEventListener("submit", changePfp);
 
     async function changePfp(e) {
 

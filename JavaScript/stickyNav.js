@@ -17,7 +17,7 @@ function stickyNav() {
       </li>
       <li class="nav-arrest" onclick="RenderMakeArrest()">
         <i class="fa-solid fa-handcuffs"></i>
-        <p class="nav-icon-name text-profile">Arrestering</p>
+        <p class="nav-icon-name text-profile">Arrestera</p>
         </li>
     </ul>
   `;

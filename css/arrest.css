@@ -1,3 +1,8 @@
+:root {
+    --p: 3.8vw;
+    --h2: 5.2vw;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -30,19 +35,19 @@ main {
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 3.8vw;
     text-align: center;
     width: 80%;
-    margin-bottom: 30px;
+    margin-bottom: 6vw;
     font-weight: normal;
 }
 
 button {
-    height: 10vw;
     background-color: #000000c7;
     border: 1px solid white;
     border-radius: 10px;
     color: white;
+    padding: 12px;
 }
 
 #suspects {
@@ -54,7 +59,7 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    height: 30vw;
+    height: 32vw;
 }
 
 #suspectBoxTwo {
@@ -66,12 +71,11 @@ button {
 
 .suspectBox {
     text-align: center;
-
 }
 
 .Pic {
-    height: 18vw;
-    width: 18vw;
+    height: 21vw;
+    width: 21vw;
     border-radius: 50%;
     background-size: contain;
     border: 1px solid black;
@@ -112,6 +116,7 @@ button {
 
 h2 {
     margin-bottom: 0;
+    font-size: var(--h2)
 }
 
 #first {

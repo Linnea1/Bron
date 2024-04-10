@@ -11,7 +11,6 @@ async function fetching(URL, method, body) {
 
 
 function basicHeader() {
-    // let user = JSON.parse(localStorage.getItem("user"));
 
     document.querySelector("header").innerHTML = ` 
         <div id="profilePicture" class="icon" onclick="RenderUserPage()"></div>

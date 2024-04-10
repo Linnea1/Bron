@@ -13,7 +13,7 @@ main {
 .title {
     color: white;
     margin-left: 5%;
-    font-size: 20px;
+    font-size: var(--h2)
 }
 
 #infoText {

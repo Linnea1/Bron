@@ -3,6 +3,11 @@
     src: url("/fonts/Sora/Sora-VariableFont_wght.ttf");
 }
 
+:root {
+    --p: 3.8vw;
+    --h2: 5.2vw;
+}
+
 body {
     margin: 0px;
     width: 100vw;
