@@ -23,6 +23,7 @@ function basicHeader() {
     } else {
         document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
     }
+
 }
 
 function swapStyleSheet(styleSheet) {

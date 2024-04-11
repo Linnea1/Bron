@@ -1,5 +1,7 @@
 async function RenderMakeArrest() {
 
+    basicHeader()
+
     swapStyleSheet("css/arrest.css");
 
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
@@ -7,7 +9,6 @@ async function RenderMakeArrest() {
 
     main.innerHTML = `
         <div class="bigBox"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
     document.querySelector(".bigBox").innerHTML = `

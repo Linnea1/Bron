@@ -55,8 +55,8 @@ function RenderOptions() {
 
     main.innerHTML = `
         <div class="options"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
+    stickyNav();
 
     options.forEach(option => {
         let divDom = document.createElement("div");
@@ -85,7 +85,6 @@ function RenderMap(params) {
 
     main.innerHTML = `
         <div id="map"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
     const x = document.querySelector("#demo");
@@ -98,7 +97,7 @@ function RenderMap(params) {
     }
 
     // Konstant för radie i meter
-    const RADIUS = 20;
+    const RADIUS = 10;
 
     function showPosition(position) {
         const latitude = position.coords.latitude;

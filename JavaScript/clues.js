@@ -4,8 +4,7 @@ function RenderClues() {
 
     swapStyleSheet("clues.css");
     document.querySelector("main").innerHTML = `
-    <div class="clues"></div>
-    <nav class="sticky-nav">${stickyNav()}</nav>
+        <div class="clues"></div>
     `;
 
     console.log(user)
