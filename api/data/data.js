@@ -5,7 +5,8 @@ const CLUES = [
         title: "Kniven",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Mordvapnet har hittats",
-        text:""
+        text: "",
+        koordinater: [55.6024166667, 12.9946388889]
 
     },
     {
@@ -14,7 +15,8 @@ const CLUES = [
         title: "Platsen för brottet",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Blod och skoavtryck finns på brottsplatsen",
-        text:""
+        text: "",
+        koordinater: [55.6018888889, 12.9905555556]
 
     },
     {
@@ -23,7 +25,8 @@ const CLUES = [
         title: "Ögonvittnen",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Det finns folk som såg Klas innan han dog",
-        text:""
+        text: "",
+        koordinater: [55.6026944444, 12.9892222222]
 
     },
     {
@@ -32,7 +35,8 @@ const CLUES = [
         title: "Övervakningskameror",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Det finns video på Klas innan han dog",
-        text:""
+        text: "",
+        koordinater: [55.6021944444, 12.9913611111]
 
     },
     {
@@ -41,7 +45,8 @@ const CLUES = [
         title: "Klas rörelsemönster",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Klas spenderade kvällen på casinot och var aktiv vid olika spelbord",
-        text:""
+        text: "",
+        koordinater: [55.6014166667, 12.9913055556]
 
     }
 ];

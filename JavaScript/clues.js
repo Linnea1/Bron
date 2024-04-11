@@ -1,10 +1,13 @@
 function RenderClues() {
+
+    let user = JSON.parse(localStorage.getItem("user"));
+
     swapStyleSheet("clues.css");
     document.querySelector("main").innerHTML = `
     <div class="clues"></div>
     <nav class="sticky-nav">${stickyNav()}</nav>
     `;
-    
+
     console.log(user)
 
     let main = body.querySelector("main");
@@ -12,9 +15,9 @@ function RenderClues() {
     main.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     main.style.backgroundSize = "cover";
 
-   CLUES.forEach(clue => {
-       
-        if(clueUnlocked(clue.id)){
+    CLUES.forEach(clue => {
+
+        if (clueUnlocked(clue.id)) {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
             clueBox.setAttribute("class", "clueBox unlocked")
@@ -23,7 +26,7 @@ function RenderClues() {
             <div id ="cluePicture" style="background-image: url('${clue.image}')"></div>
             <p id="info">${clue.shortText}</p>
             `;
-        }else{
+        } else {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
             clueBox.setAttribute("class", "clueBox locked")
@@ -32,17 +35,17 @@ function RenderClues() {
             <p>Lås upp ledtråden</p>
             `;
         }
-   });
+    });
 
-    function clueUnlocked(clueId){
+    function clueUnlocked(clueId) {
         let isUnlocked = false;
         user.clues.forEach(clue => {
-            
-            if(clueId===clue){
-                isUnlocked=true;
+
+            if (clueId === clue) {
+                isUnlocked = true;
             }
         });
         return isUnlocked;
     }
-    
+
 }

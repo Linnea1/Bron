@@ -28,29 +28,30 @@ function RenderOptions() {
     let options = [
         {
             title: "Nästa Steg",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.46.15.png",
+            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.46.15.png",
             description: "Gå till platserna markerade på kartan",
             sagaPic: "Bilder/Saga.jpg",
-            event: "RenderMap()"
+            event: RenderMap
         },
         {
             title: "Misstänkta",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.47.20.png",
+            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.47.20.png",
             description: "Dessa är de personer som är misstänkta",
             sagaPic: "Bilder/Saga.jpg",
-            event: "RenderSuspects()"
+            event: RenderSuspects
         },
         {
             title: "Mina ledtrådar",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.48.17.png",
+            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.48.17.png",
             description: "Vem pekar ledtrådarna på?",
             sagaPic: "Bilder/Saga.jpg",
-            event: "RenderClues()"
+            event: RenderClues
         }
-    ]
-    basicHeader()
+    ];
 
-    let main = body.querySelector("main");
+    basicHeader();
+
+    let main = document.querySelector("main"); // Lägg till "document." för att referera till DOM
 
     main.innerHTML = `
         <div class="options"></div>
@@ -59,20 +60,98 @@ function RenderOptions() {
 
     options.forEach(option => {
         let divDom = document.createElement("div");
-        divDom.classList.add("option")
+        divDom.classList.add("option");
         document.querySelector(".options").append(divDom);
 
-        let eventFunciton = option.event;
-
         divDom.innerHTML = `
-            <h2 class="title"> ${option.title}</h2>
+            <h2 class="title">${option.title}</h2>
             <div class="optionPic" style="background-image: url('${option.OptionPic}')"></div>
             <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
-            <div class="description" onclick="${eventFunciton}()"> 
+            <div class="description"> 
                 <p>${option.description}</p>
             </div>
         `;
-    })
 
+        divDom.addEventListener("click", option.event);
+    });
 }
 
+
+function RenderMap(params) {
+
+    swapStyleSheet("css/map.css");
+
+    body.style.backgroundImage = `url('none')`;
+
+    main.innerHTML = `
+        <div id="map"></div>
+        <nav class="sticky-nav">${stickyNav()}</nav>
+    `;
+
+    const x = document.querySelector("#demo");
+    const map = L.map('map');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+
+    // Konstant för radie i meter
+    const RADIUS = 20;
+
+    function showPosition(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        map.setView([55.6018888889, 12.9905555556], 16); // Centrera kartan på användarens position
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Markera användarens position på kartan med en cirkel
+        let userCircle = L.circle([latitude, longitude], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: RADIUS
+        }).addTo(map);
+
+        // Rita polygon för området
+        const areaPolygon = L.polygon(CLUES.map(clue => clue.koordinater), { color: 'orange' }).addTo(map);
+
+        // Markera varje koordinat på kartan med en pin och visa popup vid klick
+        CLUES.forEach(clue => {
+            let marker = L.marker(clue.koordinater).addTo(map);
+            marker.bindPopup("<b>" + clue.title + "</b><br>" + clue.shortText);
+        });
+
+        // Kontrollera om användaren är inom radie från de utsatta koordinaterna
+        if (checkInsideRegion([latitude, longitude], CLUES.map(clue => clue.koordinater))) {
+            notifyAndNavigate();
+        }
+
+    }
+
+    function notifyAndNavigate() {
+        // Gå vidare till en annan funktion här
+    }
+
+    // Function to check if a point is inside a polygon
+    function checkInsideRegion(point, polygon) {
+        let x = point[0];
+        let y = point[1];
+        let inside = false;
+        for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+            let xi = polygon[i][0], yi = polygon[i][1];
+            let xj = polygon[j][0], yj = polygon[j][1];
+
+            let intersect = ((yi > y) != (yj > y)) &&
+                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+            if (intersect) inside = !inside;
+        }
+        return inside;
+    }
+}
