@@ -50,6 +50,7 @@ async function RenderOptions() {
 
 
     body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
+    document.querySelector("main").style.backgroundImage = "";
 
     let options = [
         {

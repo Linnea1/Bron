@@ -11,7 +11,7 @@ function RenderClues() {
 
     let main = body.querySelector("main");
 
-    main.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    document.querySelector("body").style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     main.style.backgroundSize = "cover";
 
     CLUES.forEach(clue => {
