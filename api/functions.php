@@ -99,4 +99,29 @@ function change ($input, $users, $filename, $field, $secondaryField = "password"
     }
     send_JSON(["message"=>"Problems with finding user"], 404); // if user cant be found / matched
 }
+
+$method = $_SERVER["REQUEST_METHOD"];
+
+if ($method == "PATCH") {
+
+    $filename = "data/users.json";
+    
+    $users = json_decode(file_get_contents($filename), true);
+    $input = json_decode(file_get_contents("php://input"), true);
+    
+    $username = $input['username']; // take out the two keys that are sent in the request
+    
+    foreach($users as &$userData){
+        if ($userData["username"] == $username) { // find the correct user
+
+            $userData["firstTime"] = false; //update the array of favourites 
+            file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+            send_JSON($user);
+            // send_JSON($userData);
+        }
+        
+    }  
+    send_JSON(["message"=>"Problems with finding user"], 404); 
+    
+}
 ?>

@@ -1,9 +1,10 @@
 #map {
-    /* position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; */
     height: 82vh;
     position: relative;
+    z-index: 999;
+    /* Sätt ett z-index-värde som är lägre än PopUp-rutan för att se till att kartan är under PopUp-rutan */
+}
+
+#GoTo {
+    text-decoration: underline;
 }

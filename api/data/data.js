@@ -6,7 +6,7 @@ const CLUES = [
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Mordvapnet har hittats",
         text: "",
-        koordinater: [55.6024166667, 12.9946388889]
+        koordinater: [55.60273330679147, 12.989689799850712]
 
     },
     {
@@ -22,11 +22,11 @@ const CLUES = [
     {
         id: 3,
         code: 9782,
-        title: "Ögonvittnen",
+        title: "Bråk mellan Kristoffer och Klas",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
-        shortText: "Det finns folk som såg Klas innan han dog",
+        shortText: "Exfruns vittnesmål om bråket mellan Kristoffer och Klas.",
         text: "",
-        koordinater: [55.6026944444, 12.9892222222]
+        koordinater: [55.6014166667, 12.9913055556]
 
     },
     {
@@ -36,19 +36,79 @@ const CLUES = [
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Det finns video på Klas innan han dog",
         text: "",
-        koordinater: [55.6021944444, 12.9913611111]
+        koordinater: [55.60074586831715, 12.993409032961107]
 
     },
     {
         id: 5,
         code: 2009,
-        title: "Klas rörelsemönster",
+        title: "Eriks stämpelkort",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
-        shortText: "Klas spenderade kvällen på casinot och var aktiv vid olika spelbord",
+        shortText: "Eriks stämpelkort",
         text: "",
-        koordinater: [55.6014166667, 12.9913055556]
+        koordinater: [55.6026051896978, 12.99257303071663]
+
+    },
+    {
+        id: 6,
+        code: 3286,
+        title: "Här hittades Klas kropp & obduktionsrapport",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Ett par var ute på promenad när de hittade Klas kropp i vattenbrynet. Här får du även obduktionsrapporten",
+        text: "",
+        koordinater: [55.6026944444, 12.9892222222]
+
+    },
+    {
+        id: 7,
+        code: 2753,
+        title: "Görans rörelsemönster",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Här är Görans rörelsemönster under kvällen",
+        text: "",
+        koordinater: [55.60307051733962, 12.994193590927555]
 
     }
+    ,
+    {
+        id: 8,
+        code: 9063,
+        title: "Annas POV",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Anna ser hur Göran räknar sina pengar",
+        text: "",
+        koordinater: [55.603214837494534, 12.991839320922354]
+
+    },
+    {
+        id: 9,
+        code: 2840,
+        title: "Samtalshistorik ",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Visar sig att Klas har Robin som kontakt under namnet Robban, haft kontakt under kvällen.",
+        text: "",
+        koordinater: [55.60249199340967, 12.993933693685316]
+
+    },
+    {
+        id: 10,
+        code: 2840,
+        title: "Klas sms till Göran ",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Klas sms till Göran",
+        text: "",
+        koordinater: [55.60275427257728, 12.991648619320317]
+
+    },
+    {
+        id: 11,
+        code: 0000,
+        title: "Test",
+        image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
+        shortText: "Här är Görans rörelsemönster under kvällen",
+        text: "",
+        koordinater: [55.610523712415024, 12.995720098479564]
+    },
 ];
 
 const SUSPECTS = [

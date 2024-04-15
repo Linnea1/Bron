@@ -1,14 +1,20 @@
 
 function RenderIntro() {
-    basicHeader()
-    let main = body.querySelector("main");
-    body.style.backgroundImage = `url('Bilder/intro.png')`;
-    body.style.backgroundSize = "cover";
-    main.style.display = "flex";
-    main.style.flexDirection = "column";
-    main.style.position = "absolute"
 
-    document.querySelector("main").innerHTML = `
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.firstTime) {
+
+
+        basicHeader()
+        let main = body.querySelector("main");
+        body.style.backgroundImage = `url('Bilder/intro.png')`;
+        body.style.backgroundSize = "cover";
+        main.style.display = "flex";
+        main.style.flexDirection = "column";
+        main.style.position = "absolute"
+
+        document.querySelector("main").innerHTML = `
         <div id="SagaIntro">
             <h2> Saga: </h2>
             <h3> Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårat arbete.
@@ -18,10 +24,30 @@ function RenderIntro() {
 
         <button id="next" onclick="RenderOptions()"> Nästa </button>
     `;
+    } else {
+        RenderOptions()
+    }
 }
 
-function RenderOptions() {
+async function RenderOptions() {
     swapStyleSheet("css/homePage.css");
+
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.firstTime) {
+
+        try {
+            let resourse = await fetching("api/functions.php", "PATCH", user);
+
+            if (resourse) {
+                console.log(resourse);
+            }
+
+        } catch (error) {
+            popUp(error);
+        }
+    }
+
 
     body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
 
@@ -97,13 +123,13 @@ function RenderMap(params) {
     }
 
     // Konstant för radie i meter
-    const RADIUS = 10;
+    const RADIUS = 40;
 
     function showPosition(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        map.setView([55.6018888889, 12.9905555556], 16); // Centrera kartan på användarens position
+        map.setView([latitude, longitude], 16); // Centrera kartan på användarens position
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -115,42 +141,56 @@ function RenderMap(params) {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5,
-            radius: RADIUS
+            radius: RADIUS / 4
         }).addTo(map);
 
-        // Rita polygon för området
-        const areaPolygon = L.polygon(CLUES.map(clue => clue.koordinater), { color: 'orange' }).addTo(map);
-
-        // Markera varje koordinat på kartan med en pin och visa popup vid klick
+        // Loopa igenom varje ledtråd och beräkna avståndet till användarens position
         CLUES.forEach(clue => {
+            let clueLat = clue.koordinater[0];
+            let clueLng = clue.koordinater[1];
+
+            // Beräkna avståndet mellan användarens position och ledtrådens position
+            let distance = calculateDistance(latitude, longitude, clueLat, clueLng);
+
+            // Kontrollera om avståndet är inom den angivna radie
+            if (distance <= RADIUS) {
+                notifyAndNavigate(clue.id);
+            }
+
+            // Markera varje koordinat på kartan med en pin och visa popup vid klick
             let marker = L.marker(clue.koordinater).addTo(map);
-            marker.bindPopup("<b>" + clue.title + "</b><br>" + clue.shortText);
+            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br><div id="GoTo" onclick="RenderClue(${clue.id})">Gå till ledtråd</div>`);
         });
-
-        // Kontrollera om användaren är inom radie från de utsatta koordinaterna
-        if (checkInsideRegion([latitude, longitude], CLUES.map(clue => clue.koordinater))) {
-            notifyAndNavigate();
-        }
-
     }
 
-    function notifyAndNavigate() {
-        // Gå vidare till en annan funktion här
+    // Funktion för att beräkna avstånd mellan två koordinater (i meter)
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371e3; // Earth's radius in meters
+        const φ1 = toRadians(lat1);
+        const φ2 = toRadians(lat2);
+        const Δφ = toRadians(lat2 - lat1);
+        const Δλ = toRadians(lon2 - lon1);
+
+        const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        const distance = R * c;
+        return distance;
     }
 
-    // Function to check if a point is inside a polygon
-    function checkInsideRegion(point, polygon) {
-        let x = point[0];
-        let y = point[1];
-        let inside = false;
-        for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-            let xi = polygon[i][0], yi = polygon[i][1];
-            let xj = polygon[j][0], yj = polygon[j][1];
-
-            let intersect = ((yi > y) != (yj > y)) &&
-                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-            if (intersect) inside = !inside;
-        }
-        return inside;
+    // Funktion för att konvertera grader till radianer
+    function toRadians(degrees) {
+        return degrees * Math.PI / 180;
     }
+
+}
+
+function notifyAndNavigate(id) {
+    CluePopUp(id)
+}
+
+function RenderClue(id) {
+    console.log(id);
 }

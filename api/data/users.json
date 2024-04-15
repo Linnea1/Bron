@@ -4,6 +4,7 @@
         "email": "erica@hej",
         "username": "elliot",
         "password": "elliot",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     },
@@ -12,6 +13,7 @@
         "email": "berit@hej.se",
         "username": "berit",
         "password": "berit",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     },
@@ -20,6 +22,7 @@
         "email": "redbull@hej.se",
         "username": "redbull",
         "password": "redbull",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     },
@@ -28,6 +31,7 @@
         "email": "lo@hej.se",
         "username": "hejhopp",
         "password": "hejsan",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     },
@@ -36,6 +40,7 @@
         "email": "morgan@hej.se",
         "username": "oliwer",
         "password": "oliwer",
+        "firstTime": false,
         "pfp": "api\/data\/pictures\/pfp\/1712733284.jpeg",
         "clues": []
     },
@@ -44,6 +49,7 @@
         "email": "linnea@gmail.com",
         "username": "Linnea",
         "password": "hejhopp",
+        "firstTime": false,
         "clues": [
             3,
             4
@@ -54,6 +60,7 @@
         "email": "Tesst@.com",
         "username": "tesst",
         "password": "hejsan",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     },
@@ -62,6 +69,7 @@
         "email": "morganhej@hej.se",
         "username": "morgan",
         "password": "morgan",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     },
@@ -70,6 +78,25 @@
         "email": "mysterysolver@hej.se",
         "username": "mysterysolver",
         "password": "greger",
+        "firstTime": false,
+        "pfp": "",
+        "clues": []
+    },
+    {
+        "userId": 10,
+        "email": "theo@hej.se",
+        "username": "theo",
+        "password": "theo",
+        "firstTime": false,
+        "pfp": "",
+        "clues": []
+    },
+    {
+        "userId": 11,
+        "email": "virve@hej.se",
+        "username": "virve",
+        "password": "virve",
+        "firstTime": false,
         "pfp": "",
         "clues": []
     }
