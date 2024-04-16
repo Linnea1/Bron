@@ -35,6 +35,7 @@ async function addClue(idUser, idClue) {
         if (!response.ok) {
             errorMessage.innerHTML = `<span>${data.message}</span>.`;
         } else {
+            let user = JSON.parse(localStorage.getItem("user"));
             user = data;
             console.log(data);
         }
