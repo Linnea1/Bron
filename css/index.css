@@ -1,7 +1,8 @@
 @font-face {
-    font-family: "Sora";
-    src: url("../fonts/Sora/Sora-VariableFont_wght.ttf");
+    font-family: Sora;
+    src: url("../css/fonts/Sora/Sora-VariableFont_wght.ttf");
 }
+
 
 :root {
     --p: 3.8vw;

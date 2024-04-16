@@ -55,21 +55,21 @@ async function RenderOptions() {
     let options = [
         {
             title: "Nästa Steg",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.46.15.png",
+            OptionPic: "Bilder/MapSlottsparken.png",
             description: "Gå till platserna markerade på kartan",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderMap
         },
         {
             title: "Misstänkta",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.47.20.png",
+            OptionPic: "Bilder/suspectsBackground.png",
             description: "Dessa är de personer som är misstänkta",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderSuspects
         },
         {
             title: "Mina ledtrådar",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.48.17.png",
+            OptionPic: "Bilder/cluesBackground.png",
             description: "Vem pekar ledtrådarna på?",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderClues
