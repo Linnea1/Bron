@@ -3,14 +3,14 @@ function handleOK(id) {
     var input2 = document.getElementById("input2").value;
     var input3 = document.getElementById("input3").value;
     var input4 = document.getElementById("input4").value;
-  
+
     let code = input1 + input2 + input3 + input4;
-    
+
     let errorMessage = document.querySelector("#message");
 
     let codeMatch = false;
     CLUES.forEach(clue => {
-        if(clue.id === id && JSON.stringify(clue.code) === code) {
+        if (clue.id === id && JSON.stringify(clue.code) === code) {
             codeMatch = true;
             addClue(user.userId, clue.id);
         }
@@ -34,6 +34,7 @@ async function addClue(idUser, idClue) {
         if (!response.ok) {
             errorMessage.innerHTML = `<span>${data.message}</span>.`;
         } else {
+            let user = JSON.parse(localStorage.getItem("user"));
             user = data;
             console.log(data);
         }
@@ -87,7 +88,7 @@ function unlockClue() {
       </div>
     `;
 }
-  
+
 function RenderClues() {
     swapStyleSheet("css/clues.css");
     document.querySelector("main").innerHTML = `
@@ -95,29 +96,29 @@ function RenderClues() {
       <div class="unlockClue" onclick="unlockClue()">Lås upp ledtråd</div>
       <div class="clues"></div>
     `;
-  
-    console.log(user)
-  
+
+    // console.log(user)
+
     let main = body.querySelector("main");
-  
-    main.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
-    main.style.backgroundSize = "cover";
-  
+
+    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    body.style.backgroundSize = "cover";
+
     CLUES.forEach(clue => {
-      if (isClueUnlocked(clue.id)) {
-        let clueBox = document.createElement("div");
-        let parent=document.querySelector(".clues");
-        parent.append(clueBox)
-        clueBox.setAttribute("class", "clueBox unlocked")
-        clueBox.innerHTML = `
+        if (isClueUnlocked(clue.id)) {
+            let clueBox = document.createElement("div");
+            let parent = document.querySelector(".clues");
+            parent.append(clueBox)
+            clueBox.setAttribute("class", "clueBox unlocked")
+            clueBox.innerHTML = `
           <div class="clueContent">
               <h2>${clue.title}</h2>
               <p id="info">${clue.shortText}</p>
           </div>
           <div id="cluePicture" style="background-image: url('${clue.image}')"></div>
         `;
-        clueBox.addEventListener("click",()=>{
-            document.querySelector("main").innerHTML = `
+            clueBox.addEventListener("click", () => {
+                document.querySelector("main").innerHTML = `
             <h1>${clue.title}</h1>
             <div class="unlockClueContainer">
                 <div class="clueImage2" style="background-image: url('${clue.image}')"></div>
@@ -125,26 +126,27 @@ function RenderClues() {
                 <button onclick="RenderClues()">Fortsätt</button>
             </div>
           `;
-        })
-      } else {
-        let clueBox = document.createElement("div");
-        document.querySelector(".clues").append(clueBox)
-        clueBox.setAttribute("class", "clueBox locked")
-        clueBox.innerHTML = `
+            })
+        } else {
+            let clueBox = document.createElement("div");
+            document.querySelector(".clues").append(clueBox)
+            clueBox.setAttribute("class", "clueBox locked")
+            clueBox.innerHTML = `
           <div class="overlay"></div>
           <h2>Ledtråden låst</h2>
         `;
-      }
-    });
-  
-    function isClueUnlocked(clueId) {
-      let isUnlocked = false;
-      user.clues.forEach(clue => {
-        if (clueId === clue) {
-          isUnlocked = true;
         }
-      });
-      return isUnlocked;
+    });
+
+    function isClueUnlocked(clueId) {
+        let user = JSON.parse(localStorage.getItem("user"));
+        let isUnlocked = false;
+        user.clues.forEach(clue => {
+            if (clueId === clue) {
+                isUnlocked = true;
+            }
+        });
+        return isUnlocked;
     }
 }
-  
+
