@@ -1,3 +1,13 @@
+.unlockClue{
+    width: 38vw;
+    background-color: rgb(39, 38, 39);
+    color: white;
+    border-radius: 10px;
+    border: solid white 1px;
+    padding:20px 0;
+    margin: auto;
+    text-align: center;
+}
 .clues{
     width: 100%;
     display: flex;
@@ -19,16 +29,19 @@
 .unlocked{
     background-color: rgba(0, 0, 0, 0.555);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     grid-row: 1fr 1fr;
 }
 
 .locked{
-    background-image: url("Bilder/locked.jpg");
+    background-image: url("../Bilder/locked.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay {
@@ -42,20 +55,75 @@
     border: 1px white solid;
 }
 
-.clueBox p {
+.clueBox h2 {
     position: relative;
     z-index: 2;
     align-self: center;
     justify-self: center;
-    text-align: center;
 }
 
 #cluePicture{
-    width: 13vh;
-    height: 13vh;
+    width: 12vh;
+    height: 12vh;
     grid-row: span 2;
     border-radius: 50%;
     align-self: center;
     justify-self: center;
     background-size: cover;
+    margin:0 15px 0 7.5px;
+}
+
+.clueContent{
+    grid-row: span 2;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    margin: 0 15px 0 7.5px;
+}
+h2{
+    font-size: 15px;
+}
+
+.unlockClueContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.unlockClueContainer p{
+    width: 80vw;
+}
+
+.unlockImage{
+    width: 80vw;
+    height: 80vw;
+    background-image: url("../Bilder/UnlockClue.jpg");
+    background-position: center;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+}
+
+.buttonContainer{
+    display: flex;
+    width: 80vw;
+}
+
+button{
+    color: white;
+}
+
+.cluePopup div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width:50px;
+    height:70px;
 }
