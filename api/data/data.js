@@ -102,12 +102,12 @@ const CLUES = [
     },
     {
         id: 11,
-        code: 0000,
+        code: 5040,
         title: "Test",
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Här är Görans rörelsemönster under kvällen",
         text: "",
-        koordinater: [55.610523712415024, 12.995720098479564]
+        koordinater: [55.559380780515774, 12.916877793449823]
     },
 ];
 

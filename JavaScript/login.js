@@ -55,7 +55,8 @@ function renderLoginPage() {
                 "email": data.email,
                 "pfp": pfp,
                 "firstTime": data.firstTime,
-                "userId": data.userId
+                "userId": data.userId,
+                "clues":data.clues
             }
 
             data.password = password.value;
@@ -64,7 +65,6 @@ function renderLoginPage() {
                 errorMessage.innerHTML = `<span>${data.message}</span>.`;
             } else {
                 window.localStorage.setItem("user", JSON.stringify(localUser));
-                user = data;
                 RenderIntro()
             }
         } catch (error) {

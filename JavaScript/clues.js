@@ -1,4 +1,4 @@
-function handleOK() {
+function handleOK(id) {
     var input1 = document.getElementById("input1").value;
     var input2 = document.getElementById("input2").value;
     var input3 = document.getElementById("input3").value;
@@ -8,7 +8,6 @@ function handleOK() {
     
     let errorMessage = document.querySelector("#message");
 
-    let id = 2;
     let codeMatch = false;
     CLUES.forEach(clue => {
         if(clue.id === id && JSON.stringify(clue.code) === code) {
@@ -45,7 +44,7 @@ async function addClue(idUser, idClue) {
     }
 }
 
-function unlockCluePopUp() {
+function unlockCluePopUp(id) {
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#popUpWindow").innerHTML = `
       <div class="cluePopup">
@@ -56,7 +55,7 @@ function unlockCluePopUp() {
               <input class="popup-input" id="input4" maxlength="1">
           </div>
           <p id="message"></p>
-          <button onclick="handleOK()">OK</button>
+          <button onclick="handleOK(${id})">OK</button>
       </div>
     `;
 
@@ -86,7 +85,6 @@ function unlockClue() {
               <div class="unlockClue">Ta mig till kartan</div>
           </div>
       </div>
-      <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 }
   
@@ -96,7 +94,6 @@ function RenderClues() {
       <h1>Ledtrådar</h1>
       <div class="unlockClue" onclick="unlockClue()">Lås upp ledtråd</div>
       <div class="clues"></div>
-      <nav class="sticky-nav">${stickyNav()}</nav>
     `;
   
     console.log(user)
