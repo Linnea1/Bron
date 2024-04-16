@@ -1,6 +1,14 @@
 function RenderSuspects() {
     basicHeader()
 
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.pfp !== "") {
+        document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
+    } else {
+        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+    }
+
     body.style.backgroundImage = `url('Bilder/istockphoto-1462731789-640x640.jpg')`;
     body.style.backgroundSize = "cover";
 
@@ -8,7 +16,6 @@ function RenderSuspects() {
 
     main.innerHTML = `
         <div class="suspects"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
     SUSPECTS.forEach(clue => {

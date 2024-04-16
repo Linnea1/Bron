@@ -1,14 +1,20 @@
 
 function RenderIntro() {
-    basicHeader()
-    let main = body.querySelector("main");
-    body.style.backgroundImage = `url('Bilder/intro.png')`;
-    body.style.backgroundSize = "cover";
-    main.style.display = "flex";
-    main.style.flexDirection = "column";
-    main.style.position = "absolute"
 
-    document.querySelector("main").innerHTML = `
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.firstTime) {
+
+
+        basicHeader()
+        let main = body.querySelector("main");
+        body.style.backgroundImage = `url('Bilder/intro.png')`;
+        body.style.backgroundSize = "cover";
+        main.style.display = "flex";
+        main.style.flexDirection = "column";
+        main.style.position = "absolute"
+
+        document.querySelector("main").innerHTML = `
         <div id="SagaIntro">
             <h2> Saga: </h2>
             <h3> Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårat arbete.
@@ -18,61 +24,174 @@ function RenderIntro() {
 
         <button id="next" onclick="RenderOptions()"> Nästa </button>
     `;
+    } else {
+        RenderOptions()
+    }
 }
 
-function RenderOptions() {
+async function RenderOptions() {
     swapStyleSheet("css/homePage.css");
 
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.firstTime) {
+
+        try {
+            let resourse = await fetching("api/functions.php", "PATCH", user);
+
+            if (resourse) {
+                console.log(resourse);
+            }
+
+        } catch (error) {
+            popUp(error);
+        }
+    }
+
+
     body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
+    document.querySelector("main").style.backgroundImage = "";
 
     let options = [
         {
             title: "Nästa Steg",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.46.15.png",
+            OptionPic: "Bilder/MapSlottsparken.png",
             description: "Gå till platserna markerade på kartan",
             sagaPic: "Bilder/Saga.jpg",
-            event: "RenderMap()"
+            event: RenderMap
         },
         {
             title: "Misstänkta",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.47.20.png",
+            OptionPic: "Bilder/suspectsBackground.png",
             description: "Dessa är de personer som är misstänkta",
             sagaPic: "Bilder/Saga.jpg",
-            event: "RenderSuspects()"
+            event: RenderSuspects
         },
         {
             title: "Mina ledtrådar",
-            OptionPic: "Bilder/Skärmavbild 2024-04-08 kl. 10.48.17.png",
+            OptionPic: "Bilder/cluesBackground.png",
             description: "Vem pekar ledtrådarna på?",
             sagaPic: "Bilder/Saga.jpg",
-            event: "RenderClues()"
+            event: RenderClues
         }
-    ]
-    basicHeader()
+    ];
 
-    let main = body.querySelector("main");
+    basicHeader();
+
+    let main = document.querySelector("main"); // Lägg till "document." för att referera till DOM
 
     main.innerHTML = `
         <div class="options"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
+    stickyNav();
 
     options.forEach(option => {
         let divDom = document.createElement("div");
-        divDom.classList.add("option")
+        divDom.classList.add("option");
         document.querySelector(".options").append(divDom);
 
-        let eventFunciton = option.event;
-
         divDom.innerHTML = `
-            <h2 class="title"> ${option.title}</h2>
+            <h2 class="title">${option.title}</h2>
             <div class="optionPic" style="background-image: url('${option.OptionPic}')"></div>
             <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
-            <div class="description" onclick="${eventFunciton}()"> 
+            <div class="description"> 
                 <p>${option.description}</p>
             </div>
         `;
-    })
+
+        divDom.addEventListener("click", option.event);
+    });
+}
+
+
+function RenderMap(params) {
+
+    swapStyleSheet("css/map.css");
+
+    body.style.backgroundImage = `url('none')`;
+
+    main.innerHTML = `
+        <div id="map"></div>
+    `;
+
+    const x = document.querySelector("#demo");
+    const map = L.map('map');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+
+    // Konstant för radie i meter
+    const RADIUS = 40;
+
+    function showPosition(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        map.setView([latitude, longitude], 16); // Centrera kartan på användarens position
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Markera användarens position på kartan med en cirkel
+        let userCircle = L.circle([latitude, longitude], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: RADIUS / 4
+        }).addTo(map);
+
+        // Loopa igenom varje ledtråd och beräkna avståndet till användarens position
+        CLUES.forEach(clue => {
+            let clueLat = clue.koordinater[0];
+            let clueLng = clue.koordinater[1];
+
+            // Beräkna avståndet mellan användarens position och ledtrådens position
+            let distance = calculateDistance(latitude, longitude, clueLat, clueLng);
+
+            // Kontrollera om avståndet är inom den angivna radie
+            if (distance <= RADIUS) {
+                notifyAndNavigate(clue.id);
+            }
+
+            // Markera varje koordinat på kartan med en pin och visa popup vid klick
+            let marker = L.marker(clue.koordinater).addTo(map);
+            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClue(${clue.id})"> Gå till ledtråd</div>`);
+        });
+    }
+
+    // Funktion för att beräkna avstånd mellan två koordinater (i meter)
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371e3; // Earth's radius in meters
+        const φ1 = toRadians(lat1);
+        const φ2 = toRadians(lat2);
+        const Δφ = toRadians(lat2 - lat1);
+        const Δλ = toRadians(lon2 - lon1);
+
+        const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        const distance = R * c;
+        return distance;
+    }
+
+    // Funktion för att konvertera grader till radianer
+    function toRadians(degrees) {
+        return degrees * Math.PI / 180;
+    }
 
 }
 
+function notifyAndNavigate(id) {
+    CluePopUp(id)
+}
+
+function RenderClue(id) {
+    console.log(id);
+}

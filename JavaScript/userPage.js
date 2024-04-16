@@ -3,14 +3,13 @@ async function RenderUserPage() {
 
     swapStyleSheet("css/profile.css");
 
-    document.querySelector("#profilePicture").style.backgroundImage = "none";
+    document.querySelector("#profilePicture").style.backgroundImage = "";
 
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 
     main.innerHTML = `
         <div class="bigBox"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
     body.querySelector("nav").innerHTML = `${stickyNav()}`;
@@ -144,7 +143,6 @@ async function RenderChangeProfilePicture() {
 
     main.innerHTML = `
         <div class="bigBox"></div>
-        <nav class="sticky-nav">${stickyNav()}</nav>
     `;
 
     main.querySelector(".bigBox").innerHTML = `

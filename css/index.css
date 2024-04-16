@@ -1,7 +1,8 @@
 @font-face {
-    font-family: "Sora";
-    src: url("/fonts/Sora/Sora-VariableFont_wght.ttf");
+    font-family: Sora;
+    src: url("../css/fonts/Sora/Sora-VariableFont_wght.ttf");
 }
+
 
 :root {
     --p: 3.8vw;
@@ -11,10 +12,10 @@
 body {
     margin: 0px;
     width: 100vw;
-    height: 100%;
     color: white;
     font-family: Sora;
     font-size: 14px;
+    background-color: rgb(39, 38, 39);
 }
 
 #profilePicture {
@@ -24,7 +25,7 @@ body {
     background-repeat: no-repeat;
     border-radius: 50px;
     background-position: center;
-    margin: 10px 10px 0px 0px;
+    margin: 10px 10px;
 }
 
 header {
@@ -34,7 +35,7 @@ header {
 
 main {
     width: 100vw;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
 }
@@ -113,7 +114,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 1000;
 
     margin-left: auto;
     margin-right: auto;
@@ -125,7 +126,7 @@ main {
     position: absolute;
     background-color: black;
 
-    opacity: 50%;
+    opacity: 80%;
     height: 100%;
     width: 100%;
 
@@ -148,6 +149,7 @@ main {
     right: 0;
     text-align: center;
     border: 1px solid white;
+    padding: 10px;
 }
 
 #popUpWindow button {

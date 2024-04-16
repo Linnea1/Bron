@@ -1,7 +1,7 @@
 "use strict";
 
 function stickyNav() {
-  return `
+  return document.querySelector("nav").innerHTML = `
     <ul>
       <li class="nav-home" onclick="RenderOptions()">
         <i class="fa-solid fa-house"></i>
