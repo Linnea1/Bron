@@ -134,7 +134,7 @@ function RenderMap(params) {
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '© OpenStreetMap'
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
         // Markera användarens position på kartan med en cirkel
@@ -160,7 +160,7 @@ function RenderMap(params) {
 
             // Markera varje koordinat på kartan med en pin och visa popup vid klick
             let marker = L.marker(clue.koordinater).addTo(map);
-            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br><div id="GoTo" onclick="RenderClue(${clue.id})">Gå till ledtråd</div>`);
+            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClue(${clue.id})"> Gå till ledtråd</div>`);
         });
     }
 

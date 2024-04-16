@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Sora";
-    src: url("/fonts/Sora/Sora-VariableFont_wght.ttf");
+    src: url("../fonts/Sora/Sora-VariableFont_wght.ttf");
 }
 
 :root {
