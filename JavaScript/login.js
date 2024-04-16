@@ -43,12 +43,27 @@ function renderLoginPage() {
             let response = await fetching("api/login.php", "POST", body);
             let data = await response.json();
 
+            let pfp;
+            if (data.pfp === "") {
+                pfp = "";
+            } else {
+                pfp = data.pfp
+            }
+
+            let localUser = {
+                "username": data.username,
+                "email": data.email,
+                "pfp": pfp,
+                "firstTime": data.firstTime,
+                "userId": data.userId
+            }
+
             data.password = password.value;
 
             if (!response.ok) {
                 errorMessage.innerHTML = `<span>${data.message}</span>.`;
             } else {
-                window.localStorage.setItem("user", JSON.stringify(data));
+                window.localStorage.setItem("user", JSON.stringify(localUser));
                 user = data;
                 RenderIntro()
             }
