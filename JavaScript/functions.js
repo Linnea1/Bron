@@ -8,8 +8,6 @@ async function fetching(URL, method, body) {
     return response;
 }
 
-
-
 function basicHeader() {
 
     document.querySelector("header").innerHTML = ` 

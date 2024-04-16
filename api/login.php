@@ -22,12 +22,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         send_JSON(["message"=>"Wrong data"], 401);
     }
 
-    if($users != []){ // if first user, no need to loop through
+    if($users != []){
         foreach($users as $user){
             if($user["username"] == $input["username"] and $user["password"] == $input["password"]){
-                unset($user["password"]); // dont send password
+                unset($user["password"]);
                 send_JSON($user); 
-                // check so username and password is correct
             }
         }
     } 
