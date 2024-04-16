@@ -125,7 +125,7 @@ const SUSPECTS = [
         suspectId: 2,
         name: "Göran",
         age: "57",
-        image: "Bilder/suspects/Göran.png",
+        image: "Bilder/suspects/Goran.png",
         text: "Klas smsar Göran efter sin stora vinst på casinot. Jobbade för Uber den kvällen, han hade inte mycket körningar den kvällen och sade att han ofta stod parkerad.",
         guilty: true
 
