@@ -132,7 +132,7 @@ function RenderMap(params) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        map.setView([latitude, longitude], 16); // Centrera kartan på användarens position
+        // map.setView([latitude, longitude], 16); // Centrera kartan på användarens position
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
