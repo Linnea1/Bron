@@ -104,8 +104,9 @@ async function RenderOptions() {
 }
 
 
-function RenderMap(params) {
+let map;
 
+function RenderMap(params) {
     swapStyleSheet("css/map.css");
 
     body.style.backgroundImage = `url('none')`;
@@ -115,7 +116,7 @@ function RenderMap(params) {
     `;
 
     const x = document.querySelector("#demo");
-    const map = L.map('map');
+    map = L.map('map');
 
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
@@ -125,24 +126,36 @@ function RenderMap(params) {
 
     // Konstant för radie i meter
     const RADIUS = 40;
+    let userCircle;
 
     function showPosition(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        map.setView([latitude, longitude], 16); // Centrera kartan på användarens position
+        // Skapa eller uppdatera användarens cirkel
+        if (userCircle) {
+            userCircle.setLatLng([latitude, longitude]);
+        } else {
+            userCircle = L.circle([latitude, longitude], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: RADIUS / 4
+            }).addTo(map);
+            // Centrera kartan bara när cirkeln skapas första gången
+            map.setView([latitude, longitude], 16);
+        }
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // Rensa tidigare markeringar för ledtrådar
+        map.eachLayer(function (layer) {
+            if (layer instanceof L.Marker) {
+                map.removeLayer(layer);
+            }
+        });
+
+        L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-        // Markera användarens position på kartan med en cirkel
-        let userCircle = L.circle([latitude, longitude], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: RADIUS / 4
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
         // Loopa igenom varje ledtråd och beräkna avståndet till användarens position
@@ -187,6 +200,7 @@ function RenderMap(params) {
     }
 
 }
+
 
 function notifyAndNavigate(id) {
     CluePopUp(id)

@@ -45,7 +45,7 @@ function renderRegisterPage() {
 
             };
 
-            let response = await fetching("../api/register.php", "POST", body);
+            let response = await fetching("api/register.php", "POST", body);
             let data = await response.json();
 
             if (response.ok) {
