@@ -1,3 +1,13 @@
+function renderClue(clue){
+    document.querySelector("main").innerHTML = `
+    <h1>${clue.title}</h1>
+    <div class="unlockClueContainer">
+        <div class="clueImage2" style="background-image: url('${clue.image}')"></div>
+        <p>${clue.shortText}</p>
+        <button onclick="RenderClues()">Fortsätt</button>
+    </div>
+  `;
+}
 function handleOK(id) {
     var input1 = document.getElementById("input1").value;
     var input2 = document.getElementById("input2").value;
@@ -34,14 +44,15 @@ async function addClue(idUser, idClue) {
         if (!response.ok) {
             errorMessage.innerHTML = `<span>${data.message}</span>.`;
         } else {
-            let user = JSON.parse(localStorage.getItem("user"));
-            user = data;
-            console.log(data);
+            window.localStorage.setItem("user", JSON.stringify(data));
+            user = JSON.parse(localStorage.getItem("user"));
+            console.log(user);
         }
     } catch (error) {
         errorMessage.textContent = error.message;
     } finally {
         document.querySelector("#popUp").classList.add("hidden");
+        RenderClues();
     }
 }
 
@@ -97,8 +108,6 @@ function RenderClues() {
       <div class="clues"></div>
     `;
 
-    // console.log(user)
-
     let main = body.querySelector("main");
 
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
@@ -117,16 +126,9 @@ function RenderClues() {
           </div>
           <div id="cluePicture" style="background-image: url('${clue.image}')"></div>
         `;
-            clueBox.addEventListener("click", () => {
-                document.querySelector("main").innerHTML = `
-            <h1>${clue.title}</h1>
-            <div class="unlockClueContainer">
-                <div class="clueImage2" style="background-image: url('${clue.image}')"></div>
-                <p>${clue.shortText}</p>
-                <button onclick="RenderClues()">Fortsätt</button>
-            </div>
-          `;
-            })
+            clueBox.addEventListener("click", function() {
+                renderClue(clue);
+            });
         } else {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
@@ -149,4 +151,5 @@ function RenderClues() {
         return isUnlocked;
     }
 }
+
 

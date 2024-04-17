@@ -155,7 +155,7 @@ function RenderMap(params) {
 
             // Kontrollera om avståndet är inom den angivna radie
             if (distance <= RADIUS) {
-                notifyAndNavigate(clue.id);
+                notifyAndNavigate(clue);
             }
 
             // Markera varje koordinat på kartan med en pin och visa popup vid klick
@@ -188,8 +188,8 @@ function RenderMap(params) {
 
 }
 
-function notifyAndNavigate(id) {
-    CluePopUp(id)
+function notifyAndNavigate(clue) {
+    CluePopUp(clue)
 }
 
 function RenderClue(id) {

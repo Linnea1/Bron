@@ -113,17 +113,3 @@ h1{
     display: flex;
     width: 80vw;
 }
-
-button{
-    color: white;
-}
-
-.cluePopup div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-input{
-    width:50px;
-    height:70px;
-}
