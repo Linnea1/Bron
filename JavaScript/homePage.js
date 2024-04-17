@@ -153,7 +153,7 @@ function RenderMap(params) {
             }
         });
 
-        L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
@@ -209,3 +209,5 @@ function notifyAndNavigate(id) {
 function RenderClue(id) {
     console.log(id);
 }
+
+
