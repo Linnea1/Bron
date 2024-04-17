@@ -155,7 +155,7 @@ function RenderMap(params) {
 
         L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
         // Loopa igenom varje ledtråd och beräkna avståndet till användarens position
