@@ -104,13 +104,20 @@ async function RenderOptions() {
 }
 
 let userCircle = null;
-let map;
+let map = null;
 
 function RenderMap(params) {
 
     swapStyleSheet("css/map.css");
 
-    body.style.backgroundImage = `url('none')`;
+    if (map !== null) {
+        map.off();
+        map.remove();
+        map = null;
+        userCircle = null;
+    }
+
+    body.style.backgroundImage = 'none';
 
     main.innerHTML = `
         <div id="map"></div>
@@ -118,6 +125,10 @@ function RenderMap(params) {
 
     const x = document.querySelector("#demo");
     map = L.map('map');
+
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
+    });
 
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
@@ -129,15 +140,9 @@ function RenderMap(params) {
     const RADIUS = 40;
 
     function showPosition(position) {
+
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-
-        // map.setView([latitude, longitude], 16); // Centrera kartan på användarens position
-
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
 
         // Om cirkeln inte redan finns, skapa den och lägg till klassen
         if (!userCircle) {
@@ -148,11 +153,28 @@ function RenderMap(params) {
                 radius: RADIUS / 4
             }).addTo(map);
 
+            // userCircle2 = L.circle([latitude, longitude], {
+            //     color: 'blue',
+            //     fillColor: '#00f',
+            //     fillOpacity: 0.5,
+            //     radius: RADIUS / 2
+            // }).addTo(map);
+
             // Centrera kartan bara när cirkeln skapas första gången
             map.setView([latitude, longitude], 16);
         } else {
+            // map.flyTo([latitude, longitude], 16);
+            // userCircle.setLatLng([latitude, longitude]).fire('move');
             userCircle.setLatLng([latitude, longitude]);
         }
+
+        // userCircle2.getElement().style.transition = 'all 0.3s';
+        // userCircle2.getElement().style.animation = 'pulse 1.5s infinite';
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
 
         // Loopa igenom varje ledtråd och beräkna avståndet till användarens position
         CLUES.forEach(clue => {
@@ -169,7 +191,7 @@ function RenderMap(params) {
 
             // Markera varje koordinat på kartan med en pin och visa popup vid klick
             let marker = L.marker(clue.koordinater).addTo(map);
-            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClue(${clue.id})"> Gå till ledtråd</div>`);
+            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div>`);
         });
     }
 
@@ -201,9 +223,17 @@ function notifyAndNavigate(clue) {
     CluePopUp(clue)
 }
 
-function RenderClue(id) {
-    console.log(id);
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
