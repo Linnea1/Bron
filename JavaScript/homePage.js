@@ -107,7 +107,6 @@ let userCircle = null;
 let map = null;
 
 function RenderMap(params) {
-    console.log("i renderMap");
 
     swapStyleSheet("css/map.css");
 
@@ -142,7 +141,6 @@ function RenderMap(params) {
 
     function showPosition(position) {
 
-        console.log("i showPosition");
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
@@ -155,12 +153,23 @@ function RenderMap(params) {
                 radius: RADIUS / 4
             }).addTo(map);
 
+            // userCircle2 = L.circle([latitude, longitude], {
+            //     color: 'blue',
+            //     fillColor: '#00f',
+            //     fillOpacity: 0.5,
+            //     radius: RADIUS / 2
+            // }).addTo(map);
+
             // Centrera kartan bara när cirkeln skapas första gången
             map.setView([latitude, longitude], 16);
         } else {
-            map.flyTo([latitude, longitude], 16);
-            userCircle.setLatLng([latitude, longitude]).fire('move');
+            // map.flyTo([latitude, longitude], 16);
+            // userCircle.setLatLng([latitude, longitude]).fire('move');
+            userCircle.setLatLng([latitude, longitude]);
         }
+
+        // userCircle2.getElement().style.transition = 'all 0.3s';
+        // userCircle2.getElement().style.animation = 'pulse 1.5s infinite';
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
