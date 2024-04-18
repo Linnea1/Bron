@@ -104,12 +104,19 @@ async function RenderOptions() {
 }
 
 let userCircle = null;
-let map;
+let map = null;
 
 function RenderMap(params) {
     console.log("i renderMap");
 
     swapStyleSheet("css/map.css");
+
+    if (map !== null) {
+        map.off();
+        map.remove();
+        map = null;
+        userCircle = null;
+    }
 
     body.style.backgroundImage = 'none';
 
@@ -151,7 +158,8 @@ function RenderMap(params) {
             // Centrera kartan bara när cirkeln skapas första gången
             map.setView([latitude, longitude], 16);
         } else {
-            userCircle.setLatLng([latitude, longitude]);
+            map.flyTo([latitude, longitude], 16);
+            userCircle.setLatLng([latitude, longitude]).fire('move');
         }
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -174,7 +182,7 @@ function RenderMap(params) {
 
             // Markera varje koordinat på kartan med en pin och visa popup vid klick
             let marker = L.marker(clue.koordinater).addTo(map);
-            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtråd</div>`);
+            marker.bindPopup(`<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div>`);
         });
     }
 
