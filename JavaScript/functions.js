@@ -77,7 +77,7 @@ function CluePopUp(id) {
         <h2> Ledtråd ${id} befinner sig i din närhet! </h2>
         <div> Du kan nu låsa upp ledtråden med hjälp av en kod som finns på plats.</div>
         <br>
-        <div> Klicka <span class="underscore" onclick="unlockCluePopUp(${id})" id="GoTo"> här </span> för att låsa upp ledtråd nummer ${id}</div>
+        <div> Klicka <span class="underscore" onclick="unlockCluePopUp(${id})" id="GoTo">här</span> för att låsa upp ledtråd nummer ${id}</div>
         <br>
     `;
 
