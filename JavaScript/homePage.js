@@ -220,7 +220,12 @@ function RenderMap(params) {
 }
 
 function notifyAndNavigate(clue) {
-    CluePopUp(clue)
+    let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user.clues)
+    if (!user.clues.includes(clue.id)) {
+        CluePopUp(clue.id)
+    }
+    
 }
 
 

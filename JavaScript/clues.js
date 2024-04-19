@@ -1,7 +1,7 @@
 function renderClue(clue){
     document.querySelector("main").innerHTML = `
-    <h1>${clue.title}</h1>
     <div class="unlockClueContainer">
+        <h1>${clue.title}</h1>
         <div class="clueImage2" style="background-image: url('${clue.image}')"></div>
         <p>${clue.shortText}</p>
         <button onclick="RenderClues()">Fortsätt</button>
@@ -9,6 +9,8 @@ function renderClue(clue){
   `;
 }
 function handleOK(id) {
+    let user = JSON.parse(localStorage.getItem("user"));
+
     var input1 = document.getElementById("input1").value;
     var input2 = document.getElementById("input2").value;
     var input3 = document.getElementById("input3").value;
@@ -104,7 +106,6 @@ function RenderClues() {
     swapStyleSheet("css/clues.css");
     document.querySelector("main").innerHTML = `
       <h1>Ledtrådar</h1>
-      <div class="unlockClue" onclick="unlockClue()">Lås upp ledtråd</div>
       <div class="clues"></div>
     `;
 
