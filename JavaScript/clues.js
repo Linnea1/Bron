@@ -31,6 +31,7 @@ function handleOK(id) {
     if (!codeMatch) {
         errorMessage.textContent = "Koden är fel";
     }
+    ifPopup=true;
 }
 
 async function addClue(idUser, idClue) {
@@ -86,7 +87,10 @@ function unlockCluePopUp(id) {
     });
 
     document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
-    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    document.querySelector("#popUpBackground").addEventListener("click", e => { 
+        document.querySelector("#popUp").classList.add("hidden") 
+        ifPopup=true;
+    });
 }
 function unlockClue() {
     document.querySelector("main").innerHTML = `

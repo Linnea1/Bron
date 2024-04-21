@@ -1,3 +1,4 @@
+let ifPopup=true;
 
 function RenderIntro() {
 
@@ -189,7 +190,9 @@ function RenderMap(params) {
 
             // Kontrollera om avståndet är inom den angivna radie
             if (distance <= RADIUS) {
-                notifyAndNavigate(clue);
+                if(ifPopup){
+                    notifyAndNavigate(clue);
+                }
             }
 
             // Markera varje koordinat på kartan med en pin och visa popup vid klick
