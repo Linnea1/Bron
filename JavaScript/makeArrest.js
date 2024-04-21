@@ -76,6 +76,9 @@ async function RenderMakeArrest() {
         });
 
     })
+    resetButtons()
+    document.querySelector(".fa-handcuffs").classList.add("current-page");
+    document.querySelector(".text-arrest").classList.add("current-page");
 
 }
 

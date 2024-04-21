@@ -80,5 +80,7 @@ function RenderSuspects() {
         }
 
     });
-
+    resetButtons()
+    document.querySelector(".fa-person").classList.add("current-page");
+    document.querySelector(".text-suspects").classList.add("current-page");
 }

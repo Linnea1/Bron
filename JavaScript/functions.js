@@ -98,3 +98,17 @@ function logout() {
     renderStartPage();
     location.reload();
 }
+
+function resetButtons(){
+    var navBoxes = document.querySelectorAll('.nav-box');
+    navBoxes.forEach(function(navBox) {
+  
+    var children = navBox.children;
+    
+   
+    for (var i = 0; i < children.length; i++) {
+        
+        children[i].classList.remove('current-page'); 
+    }
+});
+}

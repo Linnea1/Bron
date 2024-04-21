@@ -151,6 +151,9 @@ function RenderClues() {
         });
         return isUnlocked;
     }
+    resetButtons()
+    document.querySelector(".fa-clipboard-question").classList.add("current-page");
+    document.querySelector(".text-clue").classList.add("current-page");
 }
 
 

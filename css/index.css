@@ -16,6 +16,7 @@ body {
     font-family: Sora;
     font-size: 14px;
     background-color: rgb(39, 38, 39);
+    position: relative;
 }
 
 #profilePicture {
@@ -38,6 +39,7 @@ main {
     /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
+    padding-bottom: 75px;
 }
 
 #SagaIntro {
@@ -203,4 +205,9 @@ input{
 
 button{
     color: white;
+}
+
+.current-page {
+    color: rgb(67, 89, 186) !important;
+    text-shadow: 0 0 10px rgba(68, 97, 227, 0.63);
 }

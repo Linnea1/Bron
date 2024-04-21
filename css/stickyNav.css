@@ -2,11 +2,9 @@
     height: 75px;
     width: 100%;
     background-color: rgb(39, 38, 39);
-    position: relative;
-    /* Ändra positionen till relativ istället för fast */
+    position: fixed; /* Change position to fixed */
+    bottom: 0; /* Stick it to the bottom of the screen */
     z-index: 7;
-    margin-top: auto;
-    /* Flytta navigationsfältet längst ned */
 }
 
 .sticky-nav ul {

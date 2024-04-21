@@ -101,6 +101,9 @@ async function RenderOptions() {
 
         divDom.addEventListener("click", option.event);
     });
+    resetButtons()
+    document.querySelector(".fa-house").classList.add("current-page");
+    document.querySelector(".text-home").classList.add("current-page");
 }
 
 let userCircle = null;
