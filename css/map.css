@@ -1,5 +1,5 @@
 #map {
-    height: 82vh;
+    height: 84vh;
     position: relative;
     z-index: 999;
     /* Sätt ett z-index-värde som är lägre än PopUp-rutan för att se till att kartan är under PopUp-rutan */
