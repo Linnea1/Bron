@@ -2,7 +2,8 @@
     height: 84vh;
     position: relative;
     z-index: 999;
-    /* Sätt ett z-index-värde som är lägre än PopUp-rutan för att se till att kartan är under PopUp-rutan */
+    transition: center 0.4s ease-in-out;
+    /* Anpassa tiden efter behov */
 }
 
 #GoTo {

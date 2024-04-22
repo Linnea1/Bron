@@ -31,11 +31,10 @@ function RenderIntro() {
 }
 
 async function RenderOptions() {
-    // Återställ kartan och användarens position
+
     map = null;
     userMarker = null;
 
-    // Ditt befintliga kodblock fortsätter här
     swapStyleSheet("css/homePage.css");
     let user = JSON.parse(localStorage.getItem("user"));
 
@@ -107,10 +106,6 @@ async function RenderOptions() {
 
 let userMarker;
 let map;
-// let outerCircle;
-let radius = 5; // Initialt värde på radien för den yttersta cirkeln
-// const scale = 10;
-
 
 async function renderCurrentLocationView() {
     swapStyleSheet("css/map.css");
@@ -124,7 +119,6 @@ async function renderCurrentLocationView() {
     }
 
 }
-
 
 async function showPosition(position) {
     const latitude = position.coords.latitude;
@@ -155,7 +149,8 @@ async function showPosition(position) {
                 scale: 10, // Justera storleken efter behov
                 strokeColor: 'white',
                 strokeWeight: 2
-            }
+            },
+            animation: google.maps.Animation.DROP
         });
 
     } else {
@@ -199,6 +194,8 @@ async function showPosition(position) {
         }
     });
 
+    animateMarkerPosition(userMarker, { lat: latitude, lng: longitude }, 2000);
+
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -216,10 +213,10 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     const distance = R * c;
     return distance;
 }
+
 function toRadians(degrees) {
     return degrees * Math.PI / 180;
 }
-
 
 
 function showError(error) {
@@ -235,53 +232,73 @@ function notifyAndNavigate(clue) {
 
 }
 
-function addYourLocationButton(map, marker) {
-    var controlDiv = document.createElement('div');
+function animateMarkerPosition(marker, newPosition, duration) {
+    let start = performance.now();
+    let initialPosition = marker.getPosition();
+    let deltaLat = (newPosition.lat - initialPosition.lat()) / duration;
+    let deltaLng = (newPosition.lng - initialPosition.lng()) / duration;
 
-    var firstChild = document.createElement('button');
-    firstChild.style.backgroundColor = '#fff';
-    firstChild.style.border = 'none';
-    firstChild.style.outline = 'none';
-    firstChild.style.width = '28px';
-    firstChild.style.height = '28px';
-    firstChild.style.borderRadius = '2px';
-    firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
-    firstChild.style.cursor = 'pointer';
-    firstChild.style.marginRight = '10px';
-    firstChild.style.padding = '0px';
-    firstChild.title = 'Your Location';
-    controlDiv.appendChild(firstChild);
-
-    var secondChild = document.createElement('div');
-    secondChild.style.margin = '5px';
-    secondChild.style.width = '18px';
-    secondChild.style.height = '18px';
-    secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
-    secondChild.style.backgroundSize = '180px 18px';
-    secondChild.style.backgroundPosition = '0px 0px';
-    secondChild.style.backgroundRepeat = 'no-repeat';
-    secondChild.id = 'you_location_img';
-    firstChild.appendChild(secondChild);
-
-    firstChild.addEventListener('click', function () {
-        var imgX = '0';
-        var animationInterval = setInterval(function () {
-            if (imgX == '-18') imgX = '0';
-            else imgX = '-18';
-        }, 500);
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                marker.setPosition(latlng);
-                map.setCenter(latlng);
-                clearInterval(animationInterval);
-            });
+    function animate() {
+        let elapsed = performance.now() - start;
+        let progress = Math.min(elapsed / duration, 1);
+        let lat = initialPosition.lat() + deltaLat * elapsed;
+        let lng = initialPosition.lng() + deltaLng * elapsed;
+        marker.setPosition({ lat: lat, lng: lng });
+        if (progress < 1) {
+            requestAnimationFrame(animate);
         }
-        else {
-            clearInterval(animationInterval);
-        }
-    });
+    }
 
-    controlDiv.index = 1;
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+    animate();
 }
+
+// function addYourLocationButton(map, marker) {
+//     var controlDiv = document.createElement('div');
+
+//     var firstChild = document.createElement('button');
+//     firstChild.style.backgroundColor = '#fff';
+//     firstChild.style.border = 'none';
+//     firstChild.style.outline = 'none';
+//     firstChild.style.width = '28px';
+//     firstChild.style.height = '28px';
+//     firstChild.style.borderRadius = '2px';
+//     firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+//     firstChild.style.cursor = 'pointer';
+//     firstChild.style.marginRight = '10px';
+//     firstChild.style.padding = '0px';
+//     firstChild.title = 'Your Location';
+//     controlDiv.appendChild(firstChild);
+
+//     var secondChild = document.createElement('div');
+//     secondChild.style.margin = '5px';
+//     secondChild.style.width = '18px';
+//     secondChild.style.height = '18px';
+//     secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
+//     secondChild.style.backgroundSize = '180px 18px';
+//     secondChild.style.backgroundPosition = '0px 0px';
+//     secondChild.style.backgroundRepeat = 'no-repeat';
+//     secondChild.id = 'you_location_img';
+//     firstChild.appendChild(secondChild);
+
+//     firstChild.addEventListener('click', function () {
+//         var imgX = '0';
+//         var animationInterval = setInterval(function () {
+//             if (imgX == '-18') imgX = '0';
+//             else imgX = '-18';
+//         }, 500);
+//         if (navigator.geolocation) {
+//             navigator.geolocation.getCurrentPosition(function (position) {
+//                 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//                 marker.setPosition(latlng);
+//                 map.setCenter(latlng);
+//                 clearInterval(animationInterval);
+//             });
+//         }
+//         else {
+//             clearInterval(animationInterval);
+//         }
+//     });
+
+//     controlDiv.index = 1;
+//     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+// }

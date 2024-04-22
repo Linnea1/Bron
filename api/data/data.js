@@ -117,7 +117,7 @@ const SUSPECTS = [
         name: "Kristoffer",
         age: "50",
         image: "Bilder/suspects/kristoffer.jpg",
-        text: "Klas har lånat pengar från Kristoffer och hans ex fru Emma. Kristoffer har bett Klas betala tillbaka summan pengar men han har inte haft råd. Klas och Kristoffer bråkade kvällen innan mordet. Han var hemma med barnen medan frun var borta.",
+        text: "Kristoffer är advokat och kände Klas då han har barn med Kristoffers nya fru. Kristoffers alibi var att han var hemma med barnen medan hans fru var bortrest.",
         guilty: false
 
     },
@@ -126,7 +126,7 @@ const SUSPECTS = [
         name: "Göran",
         age: "57",
         image: "Bilder/suspects/Goran.png",
-        text: "Klas smsar Göran efter sin stora vinst på casinot. Jobbade för Uber den kvällen, han hade inte mycket körningar den kvällen och sade att han ofta stod parkerad.",
+        text: "Göran hade blivit av med sitt jobb som kock och jobbade vid tillfället för Uber. Det är genom Görans gamla jobb som han lärde känna Klas och har därefter varit vänner.",
         guilty: true
 
     },
@@ -135,7 +135,7 @@ const SUSPECTS = [
         name: "Erik",
         age: "34",
         image: "Bilder/suspects/Erik.png",
-        text: "Erik ser Klas vinna den stora mängden pengar. Erik stämplar ut samtidigt som Klas och stämplar in en timme senare.",
+        text: "Erik jobbade som bartender inne på casinot och såg när Göran vann stora summor pengar. Enligt kollegor kom han in på jobbet med smutsiga skor och stod inte bakom bardisken hela kvällen. ",
         guilty: false
 
     },
@@ -144,7 +144,7 @@ const SUSPECTS = [
         name: "Robin",
         age: "30",
         image: "Bilder/suspects/Robin.jpg",
-        text: "Precis kommit ut från fängelset för ett liknande mordförsök, han är också dömd för rånförsök och även andra mindre brott. På gatorna är han en känd knarklangare. Robin säger att han var på en fest i centrala Malmö, däremot kan ingen bekräfta att han var på denna fest.",
+        text: "Robin hade vid mord tillfället precis kommit ut från fängelset, dömd för mord- och rånförsök. Han är även känd hos polisen för att sälja droger i centrala Malmö. Enligt Robin själv var han på en fest i närheten, däremot fanns ingen som kunde bekräfta att han var där. ",
         guilty: false
 
     },
@@ -153,7 +153,7 @@ const SUSPECTS = [
         name: "Anna",
         age: "48",
         image: "Bilder/suspects/Anna.png",
-        text: "Gick hem från en AW och såg Klas räkna massor av kontanter bakom ett träd.",
+        text: "Anna gick genom parken efter en afterwork, i samband med att mordet skedde. Hon såg en man, som liknade Klas, göra något underligt. Enligt Anna ska mannen ha sett väldigt glad ut. ",
         guilty: false
 
     }
