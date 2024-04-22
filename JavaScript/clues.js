@@ -1,4 +1,4 @@
-function renderClue(clue){
+function renderClue(clue) {
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
         <h1>${clue.title}</h1>
@@ -31,7 +31,7 @@ function handleOK(id) {
     if (!codeMatch) {
         errorMessage.textContent = "Koden är fel";
     }
-    ifPopup=true;
+    ifPopup = true;
 }
 
 async function addClue(idUser, idClue) {
@@ -47,7 +47,17 @@ async function addClue(idUser, idClue) {
         if (!response.ok) {
             errorMessage.innerHTML = `<span>${data.message}</span>.`;
         } else {
-            window.localStorage.setItem("user", JSON.stringify(data));
+
+            let localUser = {
+                "username": data.username,
+                "email": data.email,
+                "pfp": pfp,
+                "firstTime": data.firstTime,
+                "userId": data.userId,
+                "clues": data.clues
+            }
+
+            window.localStorage.setItem("user", JSON.stringify(localUser));
             user = JSON.parse(localStorage.getItem("user"));
             console.log(user);
         }
@@ -87,9 +97,9 @@ function unlockCluePopUp(id) {
     });
 
     document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
-    document.querySelector("#popUpBackground").addEventListener("click", e => { 
-        document.querySelector("#popUp").classList.add("hidden") 
-        ifPopup=true;
+    document.querySelector("#popUpBackground").addEventListener("click", e => {
+        document.querySelector("#popUp").classList.add("hidden")
+        ifPopup = true;
     });
 }
 function unlockClue() {
@@ -131,7 +141,7 @@ function RenderClues() {
           </div>
           <div id="cluePicture" style="background-image: url('${clue.image}')"></div>
         `;
-            clueBox.addEventListener("click", function() {
+            clueBox.addEventListener("click", function () {
                 renderClue(clue);
             });
         } else {

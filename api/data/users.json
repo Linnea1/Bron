@@ -72,7 +72,9 @@
         "password": "morgan",
         "firstTime": false,
         "pfp": "",
-        "clues": []
+        "clues": [
+            11
+        ]
     },
     {
         "userId": 9,
