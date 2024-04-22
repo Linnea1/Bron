@@ -26,7 +26,7 @@ const CLUES = [
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Exfruns vittnesmål om bråket mellan Kristoffer och Klas.",
         text: "",
-        koordinater: [55.6014166667, 12.9913055556]
+        koordinater: [55.60147185428268, 12.99121296649658]
 
     },
     {
@@ -56,7 +56,7 @@ const CLUES = [
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Ett par var ute på promenad när de hittade Klas kropp i vattenbrynet. Här får du även obduktionsrapporten",
         text: "",
-        koordinater: [55.6026944444, 12.9892222222]
+        koordinater: [55.60277273529414, 12.988879344848087]
 
     },
     {
@@ -97,7 +97,7 @@ const CLUES = [
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Klas sms till Göran",
         text: "",
-        koordinater: [55.60275427257728, 12.991648619320317]
+        koordinater: [55.60286369491501, 12.99134720613196]
 
     },
     {
