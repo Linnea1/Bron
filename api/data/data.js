@@ -107,7 +107,7 @@ const CLUES = [
         image: "Bilder/footprint-in-the-mud-grass-and-mud-texture-photo.jpg",
         shortText: "Här är Görans rörelsemönster under kvällen",
         text: "",
-        koordinater: [55.61363133423364, 12.985233653206148]
+        koordinater: [55.61069245963668, 12.995255796049829]
     },
 ];
 

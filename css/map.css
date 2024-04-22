@@ -9,21 +9,11 @@
     text-decoration: underline;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(0.8);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(0.8);
-    }
-}
-
-
 .gm-style-iw-d {
     color: black;
+}
+
+#outer-circle {
+    transition: radius 0.5s ease;
+    /* Övergångseffekt för radien */
 }

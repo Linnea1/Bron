@@ -133,6 +133,7 @@ async function showPosition(position) {
     const mapOptions = {
         zoom: 19,
         center: { lat: latitude, lng: longitude },
+        gestureHandling: 'greedy'
     };
 
     const mapElement = document.querySelector("#map");
@@ -143,17 +144,6 @@ async function showPosition(position) {
     }
 
     if (!userMarker) {
-        // outerCircle = new google.maps.Circle({
-        //     strokeColor: 'transparent', // Ingen kantlinje synlig
-        //     strokeOpacity: 0,
-        //     fillColor: 'lightblue', // Bakgrundsfärg
-        //     fillOpacity: 0.5, // Genomskinlighet
-        //     map: map,
-        //     center: { lat: latitude, lng: longitude },
-        //     radius: radius * scale, // Storlek på cirkeln baserat på radien och markörens skala
-        //     zIndex: -1,
-        //     id: 'outer-circle'// Placera cirkeln bakom allt annat på kartan
-        // });
 
         userMarker = new google.maps.Marker({
             position: { lat: latitude, lng: longitude },
@@ -168,14 +158,9 @@ async function showPosition(position) {
             }
         });
 
-        // setInterval(function () {
-        //     radius = (radius === 5) ? 10 : 5; // Växla mellan två radiervärden
-        //     outerCircle.setRadius(radius * scale); // Uppdatera radien på cirkeln
-        // }, 1000);
     } else {
         // Uppdatera bara markörens position
         userMarker.setPosition({ lat: latitude, lng: longitude });
-        // outerCircle.setPosition({ lat: latitude, lng: longitude });
     }
 
     const RADIUS = 20;
