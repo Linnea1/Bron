@@ -9,7 +9,7 @@
 }
 
 #story {
-    width: -moz-available;
+    width: 100%;
     height: 20%;
     background-color: #ffffff70;
     padding: 5px;
@@ -45,10 +45,11 @@ button {
     border: none;
     border-radius: 10px;
     color: white;
-    margin: 3vw;
+    margin: 3vw 0vw;
     font-size: 16px;
     width: 100%;
     font-family: Sora;
+    padding: 5px;
 }
 
 img {
