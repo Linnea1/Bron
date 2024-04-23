@@ -16,21 +16,34 @@ function RenderIntro() {
         main.style.position = "absolute"
 
         document.querySelector("main").innerHTML = `
-        <div id="SagaIntro">
-            <h2> Saga: </h2>
-            <h3> Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårat arbete.
+            <div id="SagaIntro"></div>
+        `;
 
-            Så här mycket vet vi hittills: offret heter Klas och han blev mördad  sent på natten igår. Varje liten bit information kan vara den pusselbit  vi behöver för att lösa fallet. </h3>
-        </div>
+        let introText = "Saga: Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårt arbete. Så här mycket vet vi hittills: offret heter Klas och han blev mördad sent på natten igår. Varje liten bit information kan vara den pusselbit vi behöver för att lösa fallet.";
+        let index = 0;
 
-        <button id="next" onclick="RenderOptions()"> Nästa </button>
-    `;
+        function typeWriter() {
+            if (index < introText.length) {
+                document.getElementById("SagaIntro").innerHTML += introText.charAt(index);
+                index++;
+                setTimeout(typeWriter, 10); // Justera fördröjningen här (50 ms för varje bokstav)
+            } else {
+                // När all text är skriven ut, lägg till knappen "Nästa"
+                document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='RenderOptions()'> Nästa </button>";
+            }
+        }
+
+        // Starta skrivaren
+        typeWriter();
     } else {
         RenderOptions()
     }
 }
 
+
 async function RenderOptions() {
+
+    document.querySelector(".sticky-nav").style.opacity = 1;
 
     map = null;
     userMarker = null;
@@ -73,6 +86,13 @@ async function RenderOptions() {
             description: "Vem pekar ledtrådarna på?",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderClues
+        },
+        {
+            title: "Anteckningar",
+            OptionPic: "Bilder/notesBackground.jpg",
+            description: "Samla dina anteckningar här",
+            sagaPic: "Bilder/Saga.jpg",
+            event: RenderNotes
         }
     ];
 

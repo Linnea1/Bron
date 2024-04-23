@@ -102,12 +102,13 @@ function change ($input, $users, $filename, $field, $secondaryField = "password"
 
 $method = $_SERVER["REQUEST_METHOD"];
 
+$filename = "data/users.json";
+    
+$users = json_decode(file_get_contents($filename), true);
+$input = json_decode(file_get_contents("php://input"), true);
+
 if ($method == "PATCH") {
 
-    $filename = "data/users.json";
-    
-    $users = json_decode(file_get_contents($filename), true);
-    $input = json_decode(file_get_contents("php://input"), true);
     
     $username = $input['username']; // take out the two keys that are sent in the request
     
@@ -124,4 +125,74 @@ if ($method == "PATCH") {
     send_JSON(["message"=>"Problems with finding user"], 404); 
     
 }
+
+
+if (isset($_GET["user"])) { 
+
+    
+    $username = $_GET["user"];
+    
+    foreach($users as &$userData){
+        if ($userData["username"] == $username) { // find the correct user
+
+            send_JSON($userData);
+        }
+        
+    }  
+    send_JSON(["message"=>"Problems with finding user"], 404); 
+
+}
+
+if (isset($input['content'])) {
+    $username = $input['user'];
+    $content = $input['content'];
+
+    $id = 1;
+
+    
+    foreach($users as &$userData){
+        if ($userData["username"] == $username) {
+
+            $latestId = 0;
+            foreach ($userData["notes"] as $note) {
+                $latestId = max($latestId, $note["id"]);
+            }
+            
+            // Beräkna nästa id-värde
+            $newId = $latestId + 1;
+            
+            // Lägg till id i den nya anteckningen och öka sedan $latestId för nästa anteckning
+            $content["id"] = $newId;
+            $userData["notes"][] = $content;
+            $latestId++;
+
+            file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+            send_JSON($userData["notes"]);
+        }
+        
+    }  
+}
+
+if ($method == "DELETE") {
+    $username = $input['user'];
+    $id = $input['id'];
+
+    foreach($users as &$userData){
+        if ($userData["username"] == $username) {
+            foreach ($userData["notes"] as $index => $note) {
+                if ($note["id"] == $id) {
+                    array_splice($userData["notes"], $index, 1);
+                    file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+                    send_JSON($userData["notes"]);
+                }
+            }
+            // Om anteckningen med det angivna id inte hittas
+            send_JSON(["message" => "Note with id $id not found for user $username"], 404);
+        }
+    }
+    // Om användaren inte hittas
+    send_JSON(["message" => "User $username not found"], 404);
+}
+
+
 ?>

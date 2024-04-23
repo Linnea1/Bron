@@ -56,7 +56,8 @@ function renderLoginPage() {
                 "pfp": pfp,
                 "firstTime": data.firstTime,
                 "userId": data.userId,
-                "clues":data.clues
+                "notes": data.notes,
+                "clues": data.clues
             }
 
             data.password = password.value;

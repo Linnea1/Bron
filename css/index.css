@@ -40,12 +40,13 @@ main {
     display: flex;
     flex-direction: column;
     padding-bottom: 75px;
+    overflow: scroll;
 }
 
 #SagaIntro {
     color: white;
     font-size: 14px;
-    margin: 10vw;
+    margin: 20vw 10vw;
 }
 
 #next {
@@ -187,15 +188,15 @@ main {
     text-align: center;
 }
 
-.cluePopup div{
+.cluePopup div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-input{
-    width:50px;
-    height:70px;
+input {
+    width: 50px;
+    height: 70px;
     background-color: black;
     color: white;
     font-size: 30px;
@@ -203,7 +204,7 @@ input{
     text-align: center;
 }
 
-button{
+button {
     color: white;
 }
 

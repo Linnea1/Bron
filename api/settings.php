@@ -84,20 +84,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $users[$index]["pfp"] = $correctName;
                     file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
 
-                    // //// change in other databases too
-                    // function changePfp ($dataBase, $key, $filePath, $name){
-                    //     foreach($dataBase as $index => $data){
-                    //         if($data[$key] == $_POST["username"] && !isset($data["deleted"])){
-                    //             $dataBase[$index]["pfp"] = $name;
-
-                    //             file_put_contents($filePath, json_encode($dataBase, JSON_PRETTY_PRINT));
-                    //         }
-                    //     }
-                    // }
-
-                    // changePfp($comments, "author", "data/comments.json", $correctName);
-                    // ////
-
                     send_JSON($filePath . $name);
                     // file_put_contents($filePath, json_encode($dataBase, JSON_PRETTY_PRINT));
                 } else {
@@ -111,5 +97,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     send_JSON(["message"=>"Send a file"], 421);
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "DELETE"){
+    foreach ($users as $index => $user) {
+        if($user["username"] == $input["username"]){
+            array_splice($users, $index, 1); // remove from list
+            file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+
+            send_JSON(["message"=>"User has been deleted"]);
+        }
+    }
+    send_JSON(["message"=>"User could not be deleted"], 400);
+}
+
+send_JSON(["message"=>"Wrong method"], 405);
 
 ?>

@@ -1,0 +1,57 @@
+.bigBox {
+    height: 180vw;
+    width: 90vw;
+    margin: 5vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#story {
+    width: -moz-available;
+    height: 20%;
+    background-color: #ffffff70;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+#noteBox {
+    width: 100%;
+    height: 70%;
+    overflow: scroll;
+}
+
+.note {
+    margin: 5vw 0vw;
+    background-color: #ffffff70;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 2vw;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#story:focus {
+    outline: none !important;
+}
+
+button {
+    height: 12vw;
+    background-color: #242424;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin: 3vw;
+    font-size: 16px;
+    width: 100%;
+    font-family: Sora;
+}
+
+img {
+    height: 5vw;
+    width: 5vw;
+}

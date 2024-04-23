@@ -72,7 +72,7 @@ function popUp(prompt) {
 }
 
 function CluePopUp(id) {
-    ifPopup=false;
+    ifPopup = false;
     document.querySelector("#popUpWindow").innerHTML = `
         <h2> Ledtråd ${id} befinner sig i din närhet! </h2>
         <div> Du kan nu låsa upp ledtråden med hjälp av en kod som finns på plats.</div>
@@ -82,9 +82,9 @@ function CluePopUp(id) {
     `;
 
     document.querySelector("#popUp").classList.remove("hidden");
-    document.querySelector("#cross").addEventListener("click", e => { 
-        document.querySelector("#popUp").classList.add("hidden"); 
-        ifPopup=true;
+    document.querySelector("#cross").addEventListener("click", e => {
+        document.querySelector("#popUp").classList.add("hidden");
+        ifPopup = true;
     })
     // document.querySelector("#prompt").textContent = prompt;
 
@@ -97,21 +97,23 @@ function CluePopUp(id) {
 }
 
 function logout() {
+    document.querySelector("main").innerHTML = ``;
+    document.querySelector(".sticky-nav").style.opacity = 0;
     localStorage.clear();
     renderStartPage();
     location.reload();
 }
 
-function resetButtons(){
+function resetButtons() {
     var navBoxes = document.querySelectorAll('.nav-box');
-    navBoxes.forEach(function(navBox) {
-  
-    var children = navBox.children;
-    
-   
-    for (var i = 0; i < children.length; i++) {
-        
-        children[i].classList.remove('current-page'); 
-    }
-});
+    navBoxes.forEach(function (navBox) {
+
+        var children = navBox.children;
+
+
+        for (var i = 0; i < children.length; i++) {
+
+            children[i].classList.remove('current-page');
+        }
+    });
 }

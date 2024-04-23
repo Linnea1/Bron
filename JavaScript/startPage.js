@@ -4,6 +4,7 @@ function renderStartPage() {
 
     body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
     body.style.backgroundSize = "cover";
+    document.querySelector(".sticky-nav").style.opacity = 0;
 
     let main = document.querySelector("main");
 
