@@ -227,7 +227,7 @@ button {
     margin-right: auto;
     left: 0;
     right: 0;
-    background-color: #ffffffb2;
+    background-color: #ffffffd9;
 }
 
 #loading>img {
@@ -235,6 +235,7 @@ button {
     align-items: center;
     z-index: 2;
     height: 45vw;
+    padding-bottom: 40px;
 }
 
 #loading>div {
