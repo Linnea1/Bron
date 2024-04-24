@@ -36,6 +36,9 @@ async function RenderNotes() {
         let hour = date.getHours();
         let minute = date.getMinutes();
 
+        if (minute < 10) {
+            minute = `0${minute}`;
+        }
 
         let day = date.getDate();
         let month = date.getMonth() + 1;

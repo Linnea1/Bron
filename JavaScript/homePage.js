@@ -120,6 +120,7 @@ async function RenderOptions() {
         `;
 
         divDom.addEventListener("click", option.event);
+
     });
 }
 
@@ -132,6 +133,7 @@ async function renderCurrentLocationView() {
     body.style.backgroundImage = 'none';
     main.innerHTML = `<div id="map"></div>`;
 
+    document.querySelector("#loading").classList.remove("hidden");
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition, showError);
     } else {
@@ -141,6 +143,8 @@ async function renderCurrentLocationView() {
 }
 
 async function showPosition(position) {
+
+    document.querySelector("#loading").classList.add("hidden");
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 

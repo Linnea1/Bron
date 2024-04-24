@@ -1,5 +1,5 @@
 #map {
-    height: 84vh;
+    height: 85vh;
     position: relative;
     z-index: 999;
     transition: center 0.4s ease-in-out;

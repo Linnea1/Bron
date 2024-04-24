@@ -46,7 +46,28 @@
         "password": "oliwer",
         "firstTime": false,
         "pfp": "api\/data\/pictures\/pfp\/1712733284.jpeg",
-        "notes": [],
+        "notes": [
+            {
+                "timeDate": "24\/4\/2024, 12:0",
+                "content": "rgrgrrg",
+                "id": 1
+            },
+            {
+                "timeDate": "24\/4\/2024, 12:1",
+                "content": "rgrgrg",
+                "id": 4
+            },
+            {
+                "timeDate": "24\/4\/2024, 12:02",
+                "content": "ehffd",
+                "id": 5
+            },
+            {
+                "timeDate": "24\/4\/2024, 12:02",
+                "content": "regregvd",
+                "id": 6
+            }
+        ],
         "clues": []
     },
     {
