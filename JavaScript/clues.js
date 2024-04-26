@@ -139,7 +139,7 @@ function RenderClues() {
               <h2>${clue.title}</h2>
               <p id="info">${clue.shortText}</p>
           </div>
-          <div id="cluePicture" style="background-image: url('${clue.Locationimage}')"></div>
+          <div id="cluePicture" style="background-image: url('${clue.Clueimage}')"></div>
         `;
             clueBox.addEventListener("click", function () {
                 renderClue(clue);

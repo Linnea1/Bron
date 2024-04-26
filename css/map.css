@@ -18,3 +18,24 @@
     transition: radius 0.5s ease;
     /* Övergångseffekt för radien */
 }
+
+.gm-style-iw,
+.gm-style-iw-c {
+    padding: 3vw;
+}
+
+.gm-style-iw-d>div {
+    display: flex;
+    margin-right: 2vw;
+}
+
+.DescPic {
+    height: 15vw;
+    width: 15vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.textdiv {
+    padding: 0vw 0vw 2vw 2vw;
+}
