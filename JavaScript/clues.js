@@ -1,6 +1,6 @@
 function renderClue(clue) {
     body.style.backgroundImage = `url('Bilder/concrete.jpg')`;
-    body.style.backgroundSize="cover"
+    body.style.backgroundSize = "cover"
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
         <h1>${clue.title}</h1>
@@ -139,7 +139,7 @@ function RenderClues() {
               <h2>${clue.title}</h2>
               <p id="info">${clue.shortText}</p>
           </div>
-          <div id="cluePicture" style="background-image: url('${clue.image}')"></div>
+          <div id="cluePicture" style="background-image: url('${clue.Locationimage}')"></div>
         `;
             clueBox.addEventListener("click", function () {
                 renderClue(clue);

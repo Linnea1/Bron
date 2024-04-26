@@ -122,9 +122,6 @@ async function RenderOptions() {
         divDom.addEventListener("click", option.event);
 
     });
-
-    resetButtons()
-    document.querySelector(".fa-house").classList.add("current-page");
 }
 
 
@@ -132,9 +129,6 @@ let userMarker;
 let map;
 
 async function renderCurrentLocationView() {
-    resetButtons()
-    document.querySelector(".fa-map").classList.add("current-page");
-
     swapStyleSheet("css/map.css");
     body.style.backgroundImage = 'none';
     main.innerHTML = `<div id="map"></div>`;
@@ -147,6 +141,7 @@ async function renderCurrentLocationView() {
     }
 
 }
+
 
 async function showPosition(position) {
 
@@ -176,7 +171,7 @@ async function showPosition(position) {
                 path: google.maps.SymbolPath.CIRCLE,
                 fillColor: 'blue',
                 fillOpacity: 1,
-                scale: 10, // Justera storleken efter behov
+                scale: 10,
                 strokeColor: 'white',
                 strokeWeight: 2
             },
@@ -189,40 +184,67 @@ async function showPosition(position) {
     }
 
     const RADIUS = 20;
+    let user = JSON.parse(localStorage.getItem("user"));
 
-    // Loopa igenom ledtrådarna och skapa markörer för varje ledtråd
-    CLUES.forEach(clue => {
+    let resourse = await fetching(`api/functions.php?user=${user.username}`);
+    let openInfoWindows = [];
+
+    for (let i = 0; i < CLUES.length; i++) {
+        const clue = CLUES[i];
+
         let clueLat = clue.koordinater[0];
         let clueLng = clue.koordinater[1];
 
-        // Skapa ett nytt markörobjekt med anpassad ikon
+        if (user.clues.includes(clue.id)) {
+            var iconUrl = 'Bilder/Test.png';
+        } else {
+            var iconUrl = 'Bilder/TestTwo.png';
+        }
+
         let marker = new google.maps.Marker({
             position: { lat: clueLat, lng: clueLng },
             map: map,
             icon: {
-                url: 'Bilder/customPin.png', // Ange sökvägen till din anpassade bakgrundsbild
-                scaledSize: new google.maps.Size(40, 40), // Ställ in storleken på din ikon
+                url: iconUrl,
+                scaledSize: new google.maps.Size(40, 50),
             }
         });
 
-        // Skapa en informationsruta för varje markör
-        let infoWindow = new google.maps.InfoWindow({
-            content: `<b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div>`
-        });
-
-        // Lägg till en händelselyssnare för att öppna informationsrutan när markören klickas på
         marker.addListener('click', () => {
-            infoWindow.open(map, marker);
+            openInfoWindows.forEach(infoWindow => {
+                infoWindow.close();
+            });
+            openInfoWindows = [];
+
+            let updatedContent;
+            let infoWindowStyle = '';
+            if (user.clues.includes(clue.id)) {
+                updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
+                infoWindowStyle = 'margin: 3vw;';
+            } else {
+                updatedContent = ` <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>Låst</b> <br><div> ${clue.text}</div> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div> </div>  <br>`;
+                infoWindowStyle = 'margin: 3vw;';
+            }
+
+            let updatedInfoWindow = new google.maps.InfoWindow({
+                content: updatedContent,
+                style: infoWindowStyle
+            });
+            updatedInfoWindow.open(map, marker);
+            openInfoWindows.push(updatedInfoWindow);
         });
 
-        // Beräkna avståndet mellan användarens position och ledtrådens position
         let distance = calculateDistance(latitude, longitude, clueLat, clueLng);
 
-        // Om ledtråden är inom det specificerade radien och popup-meddelanden är aktiverade
         if (distance <= RADIUS && ifPopup) {
-            notifyAndNavigate(clue);
+            let lastClue = clue.id - 1;
+            if (user.clues.includes(lastClue)) {
+                notifyAndNavigate(clue);
+            } else {
+                console.log("Finns inte");
+            }
         }
-    });
+    }
 
     animateMarkerPosition(userMarker, { lat: latitude, lng: longitude }, 2000);
 
