@@ -1,31 +1,35 @@
-.unlockClue{
+.unlockClue {
     width: 38vw;
     background-color: rgb(39, 38, 39);
     color: white;
     border-radius: 10px;
     border: solid white 1px;
-    padding:20px 0;
+    padding: 20px 0;
     margin: auto;
     text-align: center;
 }
-body{
+
+body {
     background-position: center;
     background-size: cover;
 }
-main{
-    height: 100vh;
+
+main {
+    height: 84vh;
     overflow: scroll;
+    align-items: center;
 }
-.clues{
+
+.clues {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
-   padding: 5vw;
-   box-sizing: border-box;
+    padding: 5vw;
+    box-sizing: border-box;
 }
 
-.clueBox{
+.clueBox {
     width: 100%;
     height: 15vh;
     color: white;
@@ -34,13 +38,13 @@ main{
     background-color: rgba(0, 0, 0, 0.660);
 }
 
-.unlocked{
+.unlocked {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 2fr 1fr;
     grid-row: 1fr 1fr;
 }
 
-.locked{
+.locked {
     position: relative;
     text-align: center;
     display: flex;
@@ -53,17 +57,18 @@ main{
     z-index: 2;
     align-self: center;
     justify-self: center;
+    font-size: 4vw;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-.fa-lock{
+.fa-lock {
     font-size: 25px;
 }
 
-#cluePicture{
+#cluePicture {
     width: 12vh;
     height: 12vh;
     grid-row: span 2;
@@ -71,33 +76,48 @@ h1{
     align-self: center;
     justify-self: center;
     background-size: cover;
-    margin:0 15px 0 7.5px;
-}
-
-.clueContent{
-    grid-row: span 2;
-    text-align: center;
-    align-self: center;
-    justify-self: center;
     margin: 0 15px 0 7.5px;
 }
-h2{
+
+.clueContent {
+    grid-row: span 2;
+    /* text-align: center; */
+    align-self: center;
+    justify-self: center;
+    margin: 0px 15px;
+    width: 90%;
+}
+
+h2 {
     font-size: 15px;
 }
 
-.unlockClueContainer{
+#Clueinfo {
+    font-size: 3vw;
+}
+
+.unlockClueContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    gap: 40px;
+    /* gap: 40px; */
+    height: 90%;
+    width: 100%;
 }
 
-.unlockClueContainer p{
-    width: 80vw;
+.unlockClueContainer p {
+    width: 100%;
+    text-align: center;
+    padding-top: 10%;
+    height: 18%;
 }
 
-.unlockImage{
+.unlockClueContainer span {
+    text-decoration: underline;
+}
+
+.unlockImage {
     width: 80vw;
     height: 80vw;
     background-image: url("../Bilder/UnlockClue.jpg");
@@ -106,19 +126,39 @@ h2{
     background-size: cover;
 }
 
-.unlockClueContainer h1{
-    width: 80vw;
+.unlockClueContainer h1 {
+    width: 90%;
+    height: 20vw;
 }
 
-.buttonContainer{
+.buttonContainer {
     display: flex;
     width: 80vw;
 }
 
-.clueImage2{
-    width:80vw;
-    height:80vw;
+.clueImage2 {
+    height: 60vw;
+    width: 60vw;
     border-radius: 50%;
     background-position: center;
     background-size: cover;
+    border: 1px solid black;
+}
+
+button {
+    height: 10vw;
+    background-color: #000000c7;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    width: 90%;
+}
+
+#clueTwo {
+    background-image: url('Bilder/cluesPic/IMG_2457-2.jpg');
+    height: 100vw;
+    width: 80vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2vw;
 }

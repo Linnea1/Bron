@@ -1,14 +1,25 @@
 function renderClue(clue) {
-    body.style.backgroundImage = `url('Bilder/concrete.jpg')`;
-    body.style.backgroundSize = "cover"
+    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    body.style.backgroundSize = "cover";
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
         <h1>${clue.title}</h1>
-        <div class="clueImage2" style="background-image: url('${clue.image}')"></div>
+        <div class="clueImage2" style="background-image: url('${clue.Clueimage}')"></div>
         <p>${clue.shortText}</p>
-        <button onclick="RenderClues()">Fortsätt</button>
+        <div id="picTwo"></div>
     </div>
+    <button onclick="RenderClues()">Tillbaka</button>
   `;
+
+    if (clue.ClueimageTwo !== "") {
+        document.querySelector("#picTwo").innerHTML = `
+            <p> Se ytterligare ledtråd <span> här </span> </p>
+        `;
+
+        document.querySelector("span").addEventListener("click", e => {
+            RenderPopUpPicture(clue)
+        })
+    }
 }
 function handleOK(id) {
     let user = JSON.parse(localStorage.getItem("user"));
@@ -137,10 +148,11 @@ function RenderClues() {
             clueBox.innerHTML = `
           <div class="clueContent">
               <h2>${clue.title}</h2>
-              <p id="info">${clue.shortText}</p>
+              <p id="Clueinfo">${clue.shortText}</p>
           </div>
           <div id="cluePicture" style="background-image: url('${clue.Clueimage}')"></div>
         `;
+
             clueBox.addEventListener("click", function () {
                 renderClue(clue);
             });

@@ -35,8 +35,13 @@ header {
 }
 
 main {
-    width: 100vw;
-    /* min-height: 100vh; */
+
+    max-height: 900px;
+    max-width: 500px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     overflow: scroll;
@@ -68,19 +73,23 @@ main {
 
 .suspects {
     overflow: scroll;
-    height: 100vh;
 }
 
 #suspectBox {
-    padding: 5vw;
     margin: 5vw;
     border-radius: 20px;
     background-color: #03030385;
     color: white;
-    height: 68vw;
+    height: 75vw;
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: 3.5vw;
+}
+
+#NameAndAge {
+    display: flex;
+    align-items: end;
+    height: 100%;
 }
 
 .odd {
@@ -106,6 +115,13 @@ main {
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
+    height: 50%;
+
+}
+
+#info {
+    height: 100%;
+    padding: 0vw 5vw 5vw 5vw;
 }
 
 
@@ -151,7 +167,7 @@ main {
     left: 0;
     right: 0;
     text-align: center;
-    border: 1px solid white;
+    border: 1px solid #ffffff78;
     padding: 10px;
 }
 
@@ -182,7 +198,7 @@ main {
     background-size: cover;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 

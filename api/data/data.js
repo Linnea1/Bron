@@ -137,6 +137,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
         shortText: "Massor av bevis vid mordplatsen.",
+        shortTextTwo: "",
         text: "Leta efter en soptunna vid Korsbron",
         koordinater: [55.60273330679147, 12.989689799850712]
 
@@ -146,9 +147,10 @@ const CLUES = [
         code: 2201,
         title: "Platsen för brottet",
         Locationimage: "Bilder/cluesPic/IMG_2448.jpg",
-        Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
+        Clueimage: "Bilder/cluesPic/IMG_2466-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/IMG_2457-2.jpg",
         shortText: "Utsiktsplats vid Casinot",
+        shortTextTwo: "Skoavtryck och blod hittats på brottsplatsen.",
         text: "Leta vid utsiktsplats vid Casinot",
         koordinater: [55.6018888889, 12.9905555556]
 
@@ -161,6 +163,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
         shortText: "Screenshot från uber-appen.",
+        shortTextTwo: "",
         text: "Leta vid utkanten av parken",
         koordinater: [55.60307051733962, 12.994193590927555]
 
@@ -173,6 +176,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2424-2.jpg",
         ClueimageTwo: "",
         shortText: "Anna ser hur Göran räknar sina pengar",
+        shortTextTwo: "",
         text: "Leta vid vattnet bakom casinot",
         koordinater: [55.603214837494534, 12.991839320922354]
 
@@ -185,6 +189,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
         shortText: "Här är obduktionsrapporten.",
+        shortTextTwo: "",
         text: "Leta vid kommendantbron",
         koordinater: [55.60277273529414, 12.988879344848087]
 
@@ -197,6 +202,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/erikPasserKort.png",
         ClueimageTwo: "",
         shortText: "Ett stämpelkort från personal på casinot. ",
+        shortTextTwo: "",
         text: "Leta vid Casinot",
         koordinater: [55.6026051896978, 12.99257303071663]
 
@@ -209,6 +215,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
         shortText: "Det hölls ett förhör med Klas ex-fru.",
+        shortTextTwo: "",
         text: "Leta vid andra sidan om utsiktsplatsen",
         koordinater: [55.60147185428268, 12.99121296649658]
 
@@ -221,6 +228,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
         shortText: "Visar sig att Klas har Robin som kontakt under namnet Robban, haft kontakt under kvällen.",
+        shortTextTwo: "",
         text: "Leta vid Casinots parkering",
         koordinater: [55.60249199340967, 12.993933693685316]
 
@@ -233,6 +241,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/camera.jpg",
         ClueimageTwo: "",
         shortText: "Här syntes Kristoffer gå förbi vid 22-tiden.",
+        shortTextTwo: "",
         text: "Leta vid Stadsbiblioteket",
         koordinater: [55.60074586831715, 12.993409032961107]
 
@@ -241,10 +250,11 @@ const CLUES = [
         id: 10,
         code: 5040,
         title: "Förhör med Erik",
-        Locationimage: "Bilder/cluesPic/IMG_2485-2.jpg",
-        Clueimage: "Bilder/cluesPic/IMG_2438-2.jpg",
+        Locationimage: "Bilder/cluesPic/IMG_2438-2.jpg",
+        Clueimage: "Bilder/cluesPic/securitycamera.jpg",
         ClueimageTwo: "",
         shortText: "Förhöret med Erik tog en vändning. ",
+        shortTextTwo: "",
         text: "Leta vid lekplatsen bakom Casinot",
         koordinater: [55.60286369491501, 12.99134720613196]
 

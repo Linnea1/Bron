@@ -86,14 +86,6 @@ function CluePopUp(id) {
         document.querySelector("#popUp").classList.add("hidden");
         ifPopup = true;
     })
-    // document.querySelector("#prompt").textContent = prompt;
-
-    // let button = document.createElement("button");
-    // button.textContent = "OK";
-    // button.classList = "OK";
-    // document.querySelector("#popUpWindow").append(button);
-    // document.querySelector("span").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
-    // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
 
 function logout() {
@@ -116,4 +108,19 @@ function resetButtons() {
             children[i].classList.remove('current-page');
         }
     });
+}
+
+
+function RenderPopUpPicture(clue) {
+    document.querySelector("#popUpWindow").innerHTML = `
+        <h2> Ytterligare ledtråd</h2>
+        <div id="clueTwo" style="background-image: url('${clue.ClueimageTwo}')"></div>
+        <p id="clueTwoText"> ${clue.shortTextTwo} </p>
+        <br>
+    `;
+
+    document.querySelector("#popUp").classList.remove("hidden");
+    document.querySelector("#cross").addEventListener("click", e => {
+        document.querySelector("#popUp").classList.add("hidden");
+    })
 }

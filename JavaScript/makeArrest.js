@@ -13,7 +13,7 @@ async function RenderMakeArrest() {
 
     document.querySelector(".bigBox").innerHTML = `
 
-        <h2> Gissa misstänkt </h2>
+        <h1> Gissa misstänkt </h1>
         <div class="PictureBox">
             <div id="profilePic"></div>
         </div>
