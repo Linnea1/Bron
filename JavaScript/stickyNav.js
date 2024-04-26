@@ -11,6 +11,10 @@ function stickyNav() {
         <i class="fa-solid fa-person"></i>
         <p class="nav-icon-name text-suspects"></p>
       </li>
+      <li class="nav-map nav-box" onclick="renderCurrentLocationView()">
+        <i class="fa-solid fa-map"></i>
+        <p class="nav-icon-name text-home"></p>
+      </li>
       <li class="nav-clues nav-box" onclick="RenderClues()">
         <i class="fa-solid fa-clipboard-question"></i>
         <p class="nav-icon-name text-clue"></p>

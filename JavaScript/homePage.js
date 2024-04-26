@@ -122,6 +122,9 @@ async function RenderOptions() {
         divDom.addEventListener("click", option.event);
 
     });
+
+    resetButtons()
+    document.querySelector(".fa-house").classList.add("current-page");
 }
 
 
@@ -129,6 +132,9 @@ let userMarker;
 let map;
 
 async function renderCurrentLocationView() {
+    resetButtons()
+    document.querySelector(".fa-map").classList.add("current-page");
+
     swapStyleSheet("css/map.css");
     body.style.backgroundImage = 'none';
     main.innerHTML = `<div id="map"></div>`;

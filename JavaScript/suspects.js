@@ -15,6 +15,7 @@ function RenderSuspects() {
     let evenOrOdd = 0;
 
     main.innerHTML = `
+        <h1>Misstänkta</h1>
         <div class="suspects"></div>
     `;
 

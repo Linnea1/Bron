@@ -1,4 +1,6 @@
 function renderClue(clue) {
+    body.style.backgroundImage = `url('Bilder/concrete.jpg')`;
+    body.style.backgroundSize="cover"
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
         <h1>${clue.title}</h1>
@@ -123,8 +125,6 @@ function RenderClues() {
       <div class="clues"></div>
     `;
 
-    let main = body.querySelector("main");
-
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 
@@ -149,8 +149,7 @@ function RenderClues() {
             document.querySelector(".clues").append(clueBox)
             clueBox.setAttribute("class", "clueBox locked")
             clueBox.innerHTML = `
-          <div class="overlay"></div>
-          <h2>Ledtråden låst</h2>
+            <i class="fa-solid fa-lock"></i>
         `;
         }
     });

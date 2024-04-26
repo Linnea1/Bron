@@ -39,8 +39,8 @@ main {
     /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
-    padding-bottom: 75px;
     overflow: scroll;
+    padding-bottom: 75px;
 }
 
 #SagaIntro {
@@ -180,6 +180,10 @@ main {
     height: 6vw;
     width: 6vw;
     background-size: cover;
+}
+
+h1{
+    text-align: center;
 }
 
 #message {
