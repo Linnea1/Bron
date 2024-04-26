@@ -136,7 +136,7 @@ const CLUES = [
         Locationimage: "Bilder/cluesPic/IMG_2473-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
-        shortText: "Leta efter en soptunna vid Korsbron",
+        shortText: "Massor av bevis vid mordplatsen.",
         text: "Leta efter en soptunna vid Korsbron",
         koordinater: [55.60273330679147, 12.989689799850712]
 
@@ -160,7 +160,7 @@ const CLUES = [
         Locationimage: "Bilder/cluesPic/IMG_2415-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         ClueimageTwo: "",
-        shortText: "Leta vid utkanten av parken",
+        shortText: "Screenshot från uber-appen.",
         text: "Leta vid utkanten av parken",
         koordinater: [55.60307051733962, 12.994193590927555]
 
@@ -244,8 +244,8 @@ const CLUES = [
         Locationimage: "Bilder/cluesPic/IMG_2485-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2438-2.jpg",
         ClueimageTwo: "",
-        shortText: "Förhör med Erik",
-        text: "Förhöret med Erik tog en vändning. ",
+        shortText: "Förhöret med Erik tog en vändning. ",
+        text: "Leta vid lekplatsen bakom Casinot",
         koordinater: [55.60286369491501, 12.99134720613196]
 
     }

@@ -30,7 +30,7 @@
 }
 
 .DescPic {
-    height: 15vw;
+    height: 17vw;
     width: 15vw;
     background-size: cover;
     background-repeat: no-repeat;
@@ -38,4 +38,6 @@
 
 .textdiv {
     padding: 0vw 0vw 2vw 2vw;
+    width: 50vw;
+    height: 18vw;
 }
