@@ -107,10 +107,11 @@ h2 {
 }
 
 .unlockClueContainer p {
-    width: 100%;
+    width: 80%;
     text-align: center;
     padding-top: 10%;
-    height: 18%;
+    height: 10%;
+    font-size: 4vw;
 }
 
 .unlockClueContainer span {
@@ -124,6 +125,11 @@ h2 {
     background-position: center;
     border-radius: 50%;
     background-size: cover;
+}
+
+#picTwo p {
+    width: 100%;
+    font-size: 4vw;
 }
 
 .unlockClueContainer h1 {
@@ -156,9 +162,19 @@ button {
 
 #clueTwo {
     background-image: url('Bilder/cluesPic/IMG_2457-2.jpg');
-    height: 100vw;
-    width: 80vw;
+    height: 120vw;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 2vw;
+    /* margin: 0% 2.5%; */
+}
+
+#clueFirst {
+    background-image: url('Bilder/cluesPic/IMG_2457-2.jpg');
+    height: 120vw;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* margin: 0% 2.5%; */
 }

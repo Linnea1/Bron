@@ -37,7 +37,7 @@ header {
 main {
 
     max-height: 900px;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     height: 100%;
     width: 100%;
@@ -158,7 +158,7 @@ main {
 #popUpWindow {
     position: absolute;
     background-color: #000000c7;
-    width: 80%;
+    width: 90%;
     border-radius: 10px;
     box-shadow: 0 0 20px #41000d47;
 

@@ -10,6 +10,9 @@ function renderClue(clue) {
     </div>
     <button onclick="RenderClues()">Tillbaka</button>
   `;
+    document.querySelector(".clueImage2").addEventListener("click", e => {
+        RenderPopUpPictureFirst(clue)
+    })
 
     if (clue.ClueimageTwo !== "") {
         document.querySelector("#picTwo").innerHTML = `
@@ -17,7 +20,7 @@ function renderClue(clue) {
         `;
 
         document.querySelector("span").addEventListener("click", e => {
-            RenderPopUpPicture(clue)
+            RenderPopUpPictureSecond(clue)
         })
     }
 }
