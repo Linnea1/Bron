@@ -131,30 +131,30 @@
 const CLUES = [
     {
         id: 1,
+        code: 2201,
+        title: "Platsen för brottet",
+        Locationimage: "Bilder/cluesPic/IMG_2448.jpg",
+        Clueimage: "Bilder/cluesPic/IMG_2466-2.jpg",
+        ClueimageTwo: "Bilder/cluesPic/IMG_2457-2.jpg",
+        ClueText: "Blod vid mordplatsen",
+        shortText: "Massor av bevis vid mordplatsen.",
+        shortTextTwo: "Skoavtryck hittats på brottsplatsen.",
+        text: "Leta vid utsiktsplats vid Casinot",
+        koordinater: [55.6018888889, 12.9905555556]
+
+    },
+    {
+        id: 2,
         code: 6435,
         title: "Mordvapnet",
         Locationimage: "Bilder/cluesPic/IMG_2473-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2473-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/mordvapen.jpg",
         ClueText: "Soptunna där mordvapnet hittades.",
-        shortText: "Massor av bevis vid mordplatsen.",
+        shortText: "Detta är den kniven som polisen tagit i beslag, den låg i soptunnan.",
         shortTextTwo: "Bild på mordvapnet",
         text: "Leta efter en soptunna vid Korsbron",
         koordinater: [55.60273330679147, 12.989689799850712]
-
-    },
-    {
-        id: 2,
-        code: 2201,
-        title: "Platsen för brottet",
-        Locationimage: "Bilder/cluesPic/IMG_2448.jpg",
-        Clueimage: "Bilder/cluesPic/IMG_2466-2.jpg",
-        ClueimageTwo: "Bilder/cluesPic/IMG_2457-2.jpg",
-        ClueText: "Blod på brottsplatsen.",
-        shortText: "Utsiktsplats vid Casinot",
-        shortTextTwo: "Skoavtryck hittats på brottsplatsen.",
-        text: "Leta vid utsiktsplats vid Casinot",
-        koordinater: [55.6018888889, 12.9905555556]
 
     },
     {
@@ -179,8 +179,8 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2424-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/Konversation_Klas_Goran.jpg",
         ClueText: "",
-        shortText: "Anna ser hur Göran räknar sina pengar.",
-        shortTextTwo: "Konversation mellan Klas och Göran samma dag som mordet begicks.",
+        shortText: "Här stod Anna när hon såg en man räkna pengar och det verkar även som att Klas skickat sms denna kvällen.",
+        shortTextTwo: "Konversation mellan Klas och Göran.",
         text: "Leta vid vattnet bakom casinot",
         koordinater: [55.603214837494534, 12.991839320922354]
 
@@ -235,7 +235,7 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2500-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/SamtalslistaRobban.jpg",
         ClueText: "",
-        shortText: "Visar sig att Klas har Robin som kontakt under namnet Robban, haft kontakt under kvällen.",
+        shortText: "Denna samtalshistorik är intressant. ",
         shortTextTwo: "Samtalshistoriken på Klas telefon.",
         text: "Leta vid Casinots parkering",
         koordinater: [55.60249199340967, 12.993933693685316]
