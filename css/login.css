@@ -43,13 +43,14 @@ main {
 }
 
 input {
-    height: 10vw;
+    height: 9vw;
     width: 90%;
     background-color: #242424;
     border: 1px solid white;
     border-radius: 10px;
     color: white;
     margin: 5px 0px;
+    font-size: 3.5vw;
 }
 
 #register {
@@ -81,4 +82,5 @@ label {
     text-align: left;
     margin-left: 5%;
     margin-top: 2%;
+    font-size: 3.5vw;
 }
