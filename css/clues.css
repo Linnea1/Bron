@@ -69,8 +69,8 @@ h1 {
 }
 
 #cluePicture {
-    width: 12vh;
-    height: 12vh;
+    width: 30vw;
+    height: 30vw;
     grid-row: span 2;
     border-radius: 50%;
     align-self: center;
