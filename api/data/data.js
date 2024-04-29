@@ -244,7 +244,7 @@ const CLUES = [
     {
         id: 9,
         code: 8414,
-        title: "Övervakningskameror",
+        title: "Övervakningskamera",
         Locationimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         Clueimage: "Bilder/cluesPic/camera.jpg",
         ClueimageTwo: "",
