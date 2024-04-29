@@ -145,7 +145,7 @@ async function renderCurrentLocationView() {
 
 async function showPosition(position) {
 
-    document.querySelector("#loading").classList.add("hidden");
+    // document.querySelector("#loading").classList.add("hidden");
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 

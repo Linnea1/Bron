@@ -257,7 +257,7 @@ button {
     align-items: center;
     z-index: 2;
     height: 45vw;
-    padding-bottom: 40px;
+    padding-bottom: 200px;
 }
 
 #loading>div {
