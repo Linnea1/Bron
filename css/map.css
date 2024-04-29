@@ -41,3 +41,7 @@
     width: 50vw;
     height: 18vw;
 }
+
+#map div:focus {
+    outline: none !important;
+}

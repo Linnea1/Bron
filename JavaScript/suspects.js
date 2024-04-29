@@ -35,13 +35,13 @@ function RenderSuspects() {
         if (evenOrOdd %= 2) {
             SuspectxBox.classList.add("odd");
             SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
-                <div id ="suspectPicture"></div>
+                <p id ="suspectPicture"></p>
                 <div id ="NameAndAge"></div>
             `;
         } else {
             SuspectxBox.classList.add("even");
             SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
-                <div id ="NameAndAge"></div>
+                <p id ="NameAndAge"></p>
                 <div id ="suspectPicture"></div>
             `;
         }
@@ -51,7 +51,7 @@ function RenderSuspects() {
         pic.style.height = "105px";
         pic.style.width = "105px";
         pic.style.backgroundSize = "cover";
-        pic.style.borderRadius = "50px";
+        pic.style.borderRadius = "50%";
 
         for (const index in clue) {
             if (index === "suspectId" || index === "image" || index === "guilty") {

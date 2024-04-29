@@ -12,11 +12,11 @@
 .picSaga {
     height: 22vw;
     width: 22vw;
-    border-radius: 50px;
+    border-radius: 50%;
     background-size: contain;
-    left: -15px;
+    left: -20px;
     position: absolute;
-    bottom: -15px;
+    bottom: -13px;
     z-index: 1;
 }
 
@@ -33,11 +33,13 @@
     padding-left: 110px;
     color: black;
     width: 50vw;
+    font-size: 3.5vw;
 }
 
 .title {
     padding: 0;
     margin: 0;
+    font-size: 5vw;
 }
 
 .optionPic {
@@ -47,17 +49,17 @@
     background-size: cover;
 }
 
-.cluePopup div{
+.cluePopup div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-input{
-    width:50px;
-    height:70px;
+input {
+    width: 50px;
+    height: 70px;
 }
 
-button{
+button {
     color: white;
 }

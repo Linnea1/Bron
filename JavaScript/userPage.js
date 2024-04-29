@@ -15,7 +15,7 @@ async function RenderUserPage() {
     body.querySelector("nav").innerHTML = `${stickyNav()}`;
 
     document.querySelector(".bigBox").innerHTML = `
-        <h2> Profil </h2>
+        <h1> Profil </h1>
         <div class="PictureBox">
             <div id="profilePic"></div>
             <div id="edit" onclick="RenderChangeProfilePicture()"  style="background-image: url('Bilder/edit.png')"></div>
