@@ -1,9 +1,9 @@
 {
     "name": "Korsa Bron",
-    "short_name": "Bron",
-    "start_url": "www.maumt.se/wdu/ht22/students/BronTest/Bron/index.html",
+    "short_name": "Korsa Bron",
+    "start_url": "https://www.maumt.se/wdu/ht22/students/Bron/index.html",
     "display": "fullscreen",
-    "background_color": "#610738",
+    "background_color": "#272627",
     "description": "Lös mordmysteriumet",
     "icons": [
         {
