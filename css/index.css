@@ -43,7 +43,7 @@ header {
     max-width: 500px;
     height: 100%;
     width: 100%;
-    padding-bottom: 200px;
+    padding-bottom: 75px;
 }
 
 
@@ -57,12 +57,7 @@ main {
 
     display: flex;
     flex-direction: column;
-<<<<<<< Updated upstream
-    overflow: hidden;
-    padding-bottom: 75px;
-=======
     overflow: scroll;
->>>>>>> Stashed changes
 }
 
 #SagaIntro {
