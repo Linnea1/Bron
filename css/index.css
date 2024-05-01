@@ -90,7 +90,6 @@ main {
 }
 
 .suspects {
-    overflow: scroll;
     padding-bottom: 15%;
 }
 
