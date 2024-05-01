@@ -1,8 +1,8 @@
 function renderStartPage() {
 
     swapStyleSheet("css/startPage.css");
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/firstBackground.png')`;
 
-    body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
     body.style.backgroundSize = "cover";
     document.querySelector(".sticky-nav").style.opacity = 0;
 

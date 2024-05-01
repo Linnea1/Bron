@@ -1,40 +1,42 @@
 .option {
-    padding: 5vw 0vw;
+    padding: 2vw 0vw;
     margin: 5vw 8vw;
-    border-radius: 20px 20px 0px 20px;
+    border-radius: 20px 20px 20px 20px;
     color: white;
-    height: 40vw;
+    height: 30vw;
     position: relative;
     background-position: center;
     background-size: cover;
 }
-main{
+
+main {
     overflow: scroll;
 }
+
 .picSaga {
-    height: 22vw;
-    width: 22vw;
-    border-radius: 50%;
+    height: 19vw;
+    width: 19vw;
+    border-radius: 10%;
     background-size: contain;
     left: -20px;
     position: absolute;
-    bottom: -13px;
+    bottom: -20px;
     z-index: 1;
 }
 
 .description {
-    background-color: #ffffffba;
-    height: 40%;
+    background-color: #ffffffd9;
+    height: 35%;
     width: 100%;
-    bottom: -10px;
+    bottom: -5px;
     position: absolute;
-    border-radius: 0px 0px 0px 20px;
+    border-radius: 0px 0px 5px 20px;
 }
 
 .description p {
-    padding-left: 110px;
+    padding-left: 70px;
     color: black;
-    width: 50vw;
+    width: 70vw;
     font-size: 3.5vw;
 }
 
@@ -45,10 +47,11 @@ main{
 }
 
 .optionPic {
-    border-radius: 20px 20px 0px 20px;
-    height: 100%;
+    border-radius: 5px 5px 5px 5px;
+    height: 90%;
     width: 100%;
     background-size: cover;
+    background-position: center;
 }
 
 .cluePopup div {

@@ -4,6 +4,7 @@ async function RenderUserPage() {
     swapStyleSheet("css/profile.css");
 
     document.querySelector("#profilePicture").style.backgroundImage = "";
+    document.querySelector(".wrapper").style.backgroundImage = "none";
 
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
@@ -15,7 +16,7 @@ async function RenderUserPage() {
     body.querySelector("nav").innerHTML = `${stickyNav()}`;
 
     document.querySelector(".bigBox").innerHTML = `
-        <h1> Profil </h1>
+        <h1> PROFIL </h1>
         <div class="PictureBox">
             <div id="profilePic"></div>
             <div id="edit" onclick="RenderChangeProfilePicture()"  style="background-image: url('Bilder/edit.png')"></div>
@@ -147,7 +148,7 @@ async function RenderChangeProfilePicture() {
 
     main.querySelector(".bigBox").innerHTML = `
 
-        <h2> Byt profilbild </h2>
+        <h2> BYT PROFILBILD </h2>
         <div class="PictureBox">
             <div id="profilePic"></div>
         </div>

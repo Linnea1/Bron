@@ -135,10 +135,11 @@ function unlockClue() {
 function RenderClues() {
     swapStyleSheet("css/clues.css");
     document.querySelector("main").innerHTML = `
-      <h1>Ledtrådar</h1>
+      <h1>LEDTRÅDAR</h1>
       <div class="clues"></div>
     `;
 
+    document.querySelector(".wrapper").style.backgroundImage = "none";
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 

@@ -1,4 +1,4 @@
-function toggleFullscreen(){
+function toggleFullscreen() {
     body.requestFullscreen();
 }
 

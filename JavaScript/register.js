@@ -5,7 +5,7 @@ function renderRegisterPage() {
     main.innerHTML = `
     <h2 class="title">Bron</h2>
         <div id="infoText">
-            <h2> Registrera </h2>
+            <h2> REGISTRERA </h2>
         </div>
 
         <form id="registerForm">

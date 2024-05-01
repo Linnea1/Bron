@@ -9,13 +9,15 @@ function RenderSuspects() {
         document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
     }
 
+    document.querySelector(".wrapper").style.backgroundImage = "none";
+
     body.style.backgroundImage = `url('Bilder/istockphoto-1462731789-640x640.jpg')`;
     body.style.backgroundSize = "cover";
 
     let evenOrOdd = 0;
 
     main.innerHTML = `
-        <h1>Misstänkta</h1>
+        <h1>MISSTÄNKTA</h1>
         <div class="suspects"></div>
     `;
 

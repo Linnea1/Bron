@@ -6,6 +6,7 @@ function RenderIntro() {
 
     if (user.firstTime) {
 
+        document.querySelector(".wrapper").style.backgroundImage = "none";
 
         basicHeader()
         let main = body.querySelector("main");
@@ -61,33 +62,33 @@ async function RenderOptions() {
         }
     }
 
-    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/firstBackground.png')`;
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/bluredBackground.png')`;
     document.querySelector("main").style.backgroundImage = "";
 
     let options = [
         {
-            title: "Nästa Steg",
+            title: "NÄSTA STEG",
             OptionPic: "Bilder/MapSlottsparken.png",
             description: "Gå till platserna markerade på kartan",
             sagaPic: "Bilder/Saga.jpg",
             event: renderCurrentLocationView
         },
         {
-            title: "Misstänkta",
-            OptionPic: "Bilder/suspectsBackground.png",
+            title: "MISSTÄNKTA",
+            OptionPic: "Bilder/suspectsBkg.jpg",
             description: "Dessa är de personer som är misstänkta",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderSuspects
         },
         {
-            title: "Mina ledtrådar",
+            title: "LEDTRÅDAR",
             OptionPic: "Bilder/cluesBackground.png",
             description: "Vem pekar ledtrådarna på?",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderClues
         },
         {
-            title: "Anteckningar",
+            title: "ANTECKNINGAR",
             OptionPic: "Bilder/notesBackground.jpg",
             description: "Samla dina anteckningar här",
             sagaPic: "Bilder/Saga.jpg",
@@ -102,9 +103,9 @@ async function RenderOptions() {
     main.innerHTML = `
 
     `;
-   
 
-   
+
+
 
     options.forEach(option => {
         let divDom = document.createElement("div");
@@ -124,9 +125,9 @@ async function RenderOptions() {
 
     });
     let divDom = document.createElement("p");
-        divDom.textContent="full"
-        main.append(divDom);
-        divDom.addEventListener("click",toggleFullscreen)
+    divDom.textContent = "full"
+    main.append(divDom);
+    divDom.addEventListener("click", toggleFullscreen)
 
     stickyNav();
     resetButtons()
@@ -155,6 +156,7 @@ async function renderCurrentLocationView() {
 
 
 async function showPosition(position) {
+    document.querySelector(".wrapper").style.backgroundImage = "none";
 
     document.querySelector("#loading").classList.add("hidden");
     const latitude = position.coords.latitude;
@@ -171,7 +173,7 @@ async function showPosition(position) {
     // Skapa kartan om den inte redan finns
     if (!map) {
         map = new google.maps.Map(mapElement, mapOptions);
-    }else{
+    } else {
         map = null;
     }
 
@@ -193,7 +195,7 @@ async function showPosition(position) {
 
     } else {
         // Uppdatera bara markörens position
-        userMarker=null;
+        userMarker = null;
         userMarker.setPosition({ lat: latitude, lng: longitude });
     }
 

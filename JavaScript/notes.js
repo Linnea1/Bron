@@ -3,6 +3,8 @@ async function RenderNotes() {
     basicHeader()
     swapStyleSheet("css/notes.css");
 
+    document.querySelector(".wrapper").style.backgroundImage = "none";
+
     let user = JSON.parse(localStorage.getItem("user"));
 
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
@@ -11,9 +13,10 @@ async function RenderNotes() {
 
     main.innerHTML = `
         <div class="bigBox">
+        <h1> ANTECKNINGAR </h1>
             <div id="noteBox"></div>
             <textarea id="story" name="story" rows="auto" cols="auto"></textarea>
-            <button> Save </button>
+            <button> SPARA </button>
         </div>
     `;
 

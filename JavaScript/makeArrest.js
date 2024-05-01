@@ -4,6 +4,8 @@ async function RenderMakeArrest() {
 
     swapStyleSheet("css/arrest.css");
 
+    document.querySelector(".wrapper").style.backgroundImage = "none";
+
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
 
@@ -13,7 +15,7 @@ async function RenderMakeArrest() {
 
     document.querySelector(".bigBox").innerHTML = `
 
-        <h1> Gissa misstänkt </h1>
+        <h1> GISSA MISSTÄNKT</h1>
         <div class="PictureBox">
             <div id="profilePic"></div>
         </div>

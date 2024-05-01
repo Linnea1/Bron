@@ -7,7 +7,7 @@ function renderLoginPage() {
         <h2 class="title">Bron</h2>
         <div>
             <div id="infoText">
-                <h2> Logga in </h2>
+                <h2> LOGGA IN </h2>
             </div>
 
             <form id="loginForm">
@@ -31,11 +31,11 @@ function renderLoginPage() {
     let username = main.querySelector("#username");
     let password = main.querySelector("#password");
 
-    function toggleFullscreen(){
+    function toggleFullscreen() {
         body.requestFullscreen();
     }
 
-    main.querySelector("#login").addEventListener("click",toggleFullscreen)
+    main.querySelector("#login").addEventListener("click", toggleFullscreen)
     main.querySelector("#login").addEventListener("click", async function (event) {
         event.preventDefault();
         let errorMessage = main.querySelector("#message");
