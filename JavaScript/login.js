@@ -1,6 +1,7 @@
 function renderLoginPage() {
     swapStyleSheet("css/login.css");
     let main = document.querySelector("main");
+    let body = document.querySelector("body");
     main.innerHTML = `
 
         <h2 class="title">Bron</h2>
@@ -30,6 +31,11 @@ function renderLoginPage() {
     let username = main.querySelector("#username");
     let password = main.querySelector("#password");
 
+    function toggleFullscreen(){
+        body.requestFullscreen();
+    }
+
+    main.querySelector("#login").addEventListener("click",toggleFullscreen)
     main.querySelector("#login").addEventListener("click", async function (event) {
         event.preventDefault();
         let errorMessage = main.querySelector("#message");

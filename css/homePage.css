@@ -8,7 +8,9 @@
     background-position: center;
     background-size: cover;
 }
-
+main{
+    overflow: scroll;
+}
 .picSaga {
     height: 22vw;
     width: 22vw;

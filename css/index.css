@@ -17,6 +17,10 @@ body {
     font-size: 14px;
     background-color: rgb(39, 38, 39);
     position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: auto;
 }
 
 #profilePicture {
@@ -34,6 +38,15 @@ header {
     justify-content: end;
 }
 
+.wrapper{
+    max-height: 900px;
+    max-width: 500px;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 200px;
+}
+
+
 main {
 
     max-height: 900px;
@@ -44,8 +57,12 @@ main {
 
     display: flex;
     flex-direction: column;
+<<<<<<< Updated upstream
     overflow: hidden;
     padding-bottom: 75px;
+=======
+    overflow: scroll;
+>>>>>>> Stashed changes
 }
 
 #SagaIntro {

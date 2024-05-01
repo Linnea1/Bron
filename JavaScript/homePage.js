@@ -1,7 +1,7 @@
 let ifPopup = true;
 
 function RenderIntro() {
-
+    toggleFullscreen()
     let user = JSON.parse(localStorage.getItem("user"));
 
     if (user.firstTime) {
@@ -42,7 +42,6 @@ function RenderIntro() {
 
 
 async function RenderOptions() {
-
     document.querySelector(".sticky-nav").style.opacity = 1;
 
     map = null;
@@ -62,7 +61,7 @@ async function RenderOptions() {
         }
     }
 
-    body.style.backgroundImage = `url('Bilder/firstBackground.png')`;
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/firstBackground.png')`;
     document.querySelector("main").style.backgroundImage = "";
 
     let options = [
@@ -101,14 +100,16 @@ async function RenderOptions() {
     let main = document.querySelector("main");
 
     main.innerHTML = `
-        <div class="options"></div>
+
     `;
-    stickyNav();
+   
+
+   
 
     options.forEach(option => {
         let divDom = document.createElement("div");
         divDom.classList.add("option");
-        document.querySelector(".options").append(divDom);
+        main.append(divDom);
 
         divDom.innerHTML = `
             <h2 class="title">${option.title}</h2>
@@ -122,6 +123,14 @@ async function RenderOptions() {
         divDom.addEventListener("click", option.event);
 
     });
+    let divDom = document.createElement("p");
+        divDom.textContent="full"
+        main.append(divDom);
+        divDom.addEventListener("click",toggleFullscreen)
+
+    stickyNav();
+    resetButtons()
+    document.querySelector(".fa-house").classList.add("current-page");
 }
 
 
@@ -130,6 +139,8 @@ let map;
 
 async function renderCurrentLocationView() {
     swapStyleSheet("css/map.css");
+    resetButtons()
+    document.querySelector(".fa-map").classList.add("current-page");
     body.style.backgroundImage = 'none';
     main.innerHTML = `<div id="map"></div>`;
 
@@ -160,6 +171,8 @@ async function showPosition(position) {
     // Skapa kartan om den inte redan finns
     if (!map) {
         map = new google.maps.Map(mapElement, mapOptions);
+    }else{
+        map = null;
     }
 
     if (!userMarker) {
@@ -180,6 +193,7 @@ async function showPosition(position) {
 
     } else {
         // Uppdatera bara markörens position
+        userMarker=null;
         userMarker.setPosition({ lat: latitude, lng: longitude });
     }
 

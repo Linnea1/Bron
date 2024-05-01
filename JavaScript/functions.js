@@ -1,3 +1,7 @@
+function toggleFullscreen(){
+    body.requestFullscreen();
+}
+
 async function fetching(URL, method, body) {
     let response = await fetch(URL, {
         method: method,

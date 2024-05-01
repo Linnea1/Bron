@@ -22,23 +22,24 @@
 </head>
 
 <body>
-    <div id="popUp" class="hidden">
-        <div id="popUpBackground"></div>
-        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
-        <div id="popUpWindow">
-            <p id="prompt"></p>
+    <div class="wrapper"> 
+        <div id="popUp" class="hidden">
+            <div id="popUpBackground"></div>
+            <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
+            <div id="popUpWindow">
+                <p id="prompt"></p>
+            </div>
         </div>
+    
+        <div id="loading" class="hidden">
+            <img src="Bilder/loadingnobkg.gif" alt="">
+            <div></div>
+        </div>
+    
+        <header class="stickyHeader"></header>
+        <main></main>
+        <nav class="sticky-nav"></nav>
     </div>
-
-    <div id="loading" class="hidden">
-        <img src="Bilder/loadingnobkg.gif" alt="">
-        <div></div>
-    </div>
-
-    <header class="stickyHeader"></header>
-    <main></main>
-    <nav class="sticky-nav"></nav>
-
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTGJUZrCgUh2lwLEqeVu2TEJVI2TKL1HM&loading=async&callback=renderHomePage">
         </script>
@@ -51,9 +52,9 @@
     <script src="JavaScript/suspects.js"></script>
     <script src="JavaScript/notes.js"></script>
     <script src="JavaScript/userPage.js"></script>
-    <script src="JavaScript/stickyNav.js"></script>
     <script src="JavaScript/makeArrest.js"></script>
     <script src="JavaScript/functions.js"></script>
+    <script src="JavaScript/stickyNav.js"></script>
     <script src="JavaScript/index.js"></script>
 </body>
 
