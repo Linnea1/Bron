@@ -94,6 +94,11 @@ main {
     padding-bottom: 15%;
 }
 
+.suspects #suspectBox:last-child {
+    margin-bottom: 15%;
+}
+
+
 #suspectBox {
     margin: 5vw;
     border-radius: 20px;
