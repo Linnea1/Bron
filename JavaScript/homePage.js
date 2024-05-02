@@ -124,11 +124,6 @@ async function RenderOptions() {
         divDom.addEventListener("click", option.event);
 
     });
-    let divDom = document.createElement("p");
-    divDom.textContent = "full"
-    main.append(divDom);
-    divDom.addEventListener("click", toggleFullscreen)
-
     stickyNav();
     resetButtons()
     document.querySelector(".fa-house").classList.add("current-page");
@@ -139,6 +134,13 @@ let userMarker;
 let map;
 
 async function renderCurrentLocationView() {
+    if(map){
+        map = null;
+    }
+    if(userMarker){
+        userMarker = null;
+    }
+
     swapStyleSheet("css/map.css");
     resetButtons()
     document.querySelector(".fa-map").classList.add("current-page");
@@ -173,9 +175,7 @@ async function showPosition(position) {
     // Skapa kartan om den inte redan finns
     if (!map) {
         map = new google.maps.Map(mapElement, mapOptions);
-    } else {
-        map = null;
-    }
+    } 
 
     if (!userMarker) {
 
@@ -195,7 +195,6 @@ async function showPosition(position) {
 
     } else {
         // Uppdatera bara markörens position
-        userMarker = null;
         userMarker.setPosition({ lat: latitude, lng: longitude });
     }
 
