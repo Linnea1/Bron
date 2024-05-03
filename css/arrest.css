@@ -92,11 +92,12 @@ button {
 }
 
 .pictureOfSaga {
-    height: 22vw;
-    width: 22vw;
+    height: 26vw;
+    width: 26vw;
     border-radius: 50%;
     background-size: contain;
-    margin-left: 10px;
+    margin-top: 15px;
+    grid-row: 1/3;
 }
 
 .content {
@@ -122,15 +123,14 @@ h2 {
 
 #first p {
     text-align: left;
-    padding-left: 5px;
+    /* padding-left: 5px; */
     margin-bottom: 0;
 }
 
 #second {
-    grid-column: 1/3;
-    text-align: center;
+    grid-column: 2/3;
+    text-align: initial;
     grid-row: 2;
-    margin: 10px 10px;
 
 }
 
@@ -139,11 +139,11 @@ h2 {
 }
 
 #second p:nth-child(2) {
-    margin-top: 5px;
+    margin-top: 7px;
 }
 
 #popUpWindow {
-    height: 75vw;
+    height: 55vw;
 }
 
 .OK {

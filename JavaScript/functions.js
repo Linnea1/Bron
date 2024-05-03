@@ -36,6 +36,7 @@ function swapStyleSheet(styleSheet) {
 function ArrestPopUp(prompt) {
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#popUpWindow").innerHTML = `
+        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
 
         <h2> ${prompt.title}</h2>
         <div class="content">
@@ -78,6 +79,8 @@ function popUp(prompt) {
 function CluePopUp(id) {
     ifPopup = false;
     document.querySelector("#popUpWindow").innerHTML = `
+        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
+
         <h2> Ledtråd ${id} befinner sig i din närhet! </h2>
         <div> Du kan nu låsa upp ledtråden med hjälp av en kod som finns på plats.</div>
         <br>
@@ -117,6 +120,7 @@ function resetButtons() {
 
 function RenderPopUpPictureFirst(clue) {
     document.querySelector("#popUpWindow").innerHTML = `
+        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
         <h2> Ledtrådens plats </h2>
         <div id="clueFirst" style="background-image: url('${clue.Clueimage}')"></div>
         <p id="clueTwoText"> ${clue.ClueText} </p>
@@ -139,6 +143,7 @@ function RenderPopUpPictureFirst(clue) {
 
 function RenderPopUpPictureSecond(clue) {
     document.querySelector("#popUpWindow").innerHTML = `
+        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
         <h2> Ytterligare ledtråd</h2>
         <div id="clueTwo" style="background-image: url('${clue.ClueimageTwo}')"></div>
         <p id="clueTwoText"> ${clue.shortTextTwo} </p>

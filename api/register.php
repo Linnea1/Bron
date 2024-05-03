@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // make sure its the right method
     }
 
     if(!preg_match("/(@)(.)/", $input["email"])){ // checking that the email has @ and .
-        send_JSON(["message"=>"Please enter a valid email"], 401);
+        send_JSON(["message"=>"Skriv in en giltlig email adress"], 401);
     }
 
     //////////////

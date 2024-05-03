@@ -134,10 +134,10 @@ let userMarker;
 let map;
 
 async function renderCurrentLocationView() {
-    if(map){
+    if (map) {
         map = null;
     }
-    if(userMarker){
+    if (userMarker) {
         userMarker = null;
     }
 
@@ -175,7 +175,7 @@ async function showPosition(position) {
     // Skapa kartan om den inte redan finns
     if (!map) {
         map = new google.maps.Map(mapElement, mapOptions);
-    } 
+    }
 
     if (!userMarker) {
 
@@ -225,29 +225,31 @@ async function showPosition(position) {
             }
         });
 
-        marker.addListener('click', () => {
-            openInfoWindows.forEach(infoWindow => {
-                infoWindow.close();
-            });
-            openInfoWindows = [];
+        (function (clue) {
+            marker.addListener('click', () => {
+                openInfoWindows.forEach(infoWindow => {
+                    infoWindow.close();
+                });
+                openInfoWindows = [];
 
-            let updatedContent;
-            let infoWindowStyle = '';
-            if (user.clues.includes(clue.id)) {
-                updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
-                infoWindowStyle = 'margin: 3vw;';
-            } else {
-                updatedContent = ` <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>Låst</b> <br><div> ${clue.text}</div> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div> </div>  <br>`;
-                infoWindowStyle = 'margin: 3vw;';
-            }
+                let updatedContent;
+                let infoWindowStyle = '';
+                if (user.clues.includes(clue.id)) {
+                    updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
+                    infoWindowStyle = 'margin: 3vw;';
+                } else {
+                    updatedContent = ` <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>Låst</b> <br><div> ${clue.text}</div> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div> </div>  <br>`;
+                    infoWindowStyle = 'margin: 3vw;';
+                }
 
-            let updatedInfoWindow = new google.maps.InfoWindow({
-                content: updatedContent,
-                style: infoWindowStyle
+                let updatedInfoWindow = new google.maps.InfoWindow({
+                    content: updatedContent,
+                    style: infoWindowStyle
+                });
+                updatedInfoWindow.open(map, marker);
+                openInfoWindows.push(updatedInfoWindow);
             });
-            updatedInfoWindow.open(map, marker);
-            openInfoWindows.push(updatedInfoWindow);
-        });
+        })(clue); // Anropa funktionen omedelbart med aktuell ledtråd
 
         let distance = calculateDistance(latitude, longitude, clueLat, clueLng);
 
@@ -259,6 +261,7 @@ async function showPosition(position) {
                 console.log("Finns inte");
             }
         }
+
     }
 
     animateMarkerPosition(userMarker, { lat: latitude, lng: longitude }, 2000);
@@ -318,54 +321,3 @@ function animateMarkerPosition(marker, newPosition, duration) {
 
     animate();
 }
-
-// function addYourLocationButton(map, marker) {
-//     var controlDiv = document.createElement('div');
-
-//     var firstChild = document.createElement('button');
-//     firstChild.style.backgroundColor = '#fff';
-//     firstChild.style.border = 'none';
-//     firstChild.style.outline = 'none';
-//     firstChild.style.width = '28px';
-//     firstChild.style.height = '28px';
-//     firstChild.style.borderRadius = '2px';
-//     firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
-//     firstChild.style.cursor = 'pointer';
-//     firstChild.style.marginRight = '10px';
-//     firstChild.style.padding = '0px';
-//     firstChild.title = 'Your Location';
-//     controlDiv.appendChild(firstChild);
-
-//     var secondChild = document.createElement('div');
-//     secondChild.style.margin = '5px';
-//     secondChild.style.width = '18px';
-//     secondChild.style.height = '18px';
-//     secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
-//     secondChild.style.backgroundSize = '180px 18px';
-//     secondChild.style.backgroundPosition = '0px 0px';
-//     secondChild.style.backgroundRepeat = 'no-repeat';
-//     secondChild.id = 'you_location_img';
-//     firstChild.appendChild(secondChild);
-
-//     firstChild.addEventListener('click', function () {
-//         var imgX = '0';
-//         var animationInterval = setInterval(function () {
-//             if (imgX == '-18') imgX = '0';
-//             else imgX = '-18';
-//         }, 500);
-//         if (navigator.geolocation) {
-//             navigator.geolocation.getCurrentPosition(function (position) {
-//                 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-//                 marker.setPosition(latlng);
-//                 map.setCenter(latlng);
-//                 clearInterval(animationInterval);
-//             });
-//         }
-//         else {
-//             clearInterval(animationInterval);
-//         }
-//     });
-
-//     controlDiv.index = 1;
-//     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
-// }

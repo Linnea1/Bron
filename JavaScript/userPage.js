@@ -13,7 +13,7 @@ async function RenderUserPage() {
         <div class="bigBox"></div>
     `;
 
-    body.querySelector("nav").innerHTML = `${stickyNav()}`;
+    // body.querySelector("nav").innerHTML = `${stickyNav()}`;
 
     document.querySelector(".bigBox").innerHTML = `
         <h1> PROFIL </h1>
