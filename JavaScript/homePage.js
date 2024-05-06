@@ -277,9 +277,12 @@ async function showPosition(position) {
             if (user.clues.includes(lastClue) || user.clues.length === 0) {
                 notifyAndNavigate(clue);
                 audio.play();
-                if ("vibrate" in navigator) {
-                    navigator.vibrate([200, 100, 200]); // Anpassa vibrationens mönster efter behov
+
+                const vibrate = () => {
+                    window.navigator.vibrate([200, 100, 200])
                 }
+                vibrate()
+
             } else {
                 console.log("Finns inte");
             }
@@ -318,8 +321,10 @@ function showError(error) {
 
 function notifyAndNavigate(clue) {
     let user = JSON.parse(localStorage.getItem("user"));
+    const audio = new Audio('Bilder/audio/police_tone.mp3');
     console.log(user.clues)
     if (!user.clues.includes(clue.id)) {
+        audio.play();
         CluePopUp(clue.id)
     }
 
