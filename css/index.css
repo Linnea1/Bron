@@ -304,7 +304,7 @@ button {
     right: 10px;
     border-radius: 50%;
     z-index: 6;
-    background-image: url("/Bilder/notesIcon.png");
+    background-image: url("../Bilder/notesIcon.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 65%;

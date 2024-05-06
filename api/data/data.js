@@ -280,7 +280,7 @@ const CLUES = [
         shortText: "Förhöret med Erik tog en vändning.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
         text: "Leta vid lekplatsen bakom Ericas",
-        koordinater: [56.946697901986134, 12.536156298492374]
+        koordinater: [56.947250893608576, 12.535837108458423]
 
     }
 ];

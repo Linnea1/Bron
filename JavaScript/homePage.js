@@ -276,7 +276,7 @@ async function showPosition(position) {
             let lastClue = clue.id - 1;
             if (user.clues.includes(lastClue) || user.clues.length === 0) {
                 notifyAndNavigate(clue);
-                audio.play();
+                // audio.play();
 
                 const vibrate = () => {
                     window.navigator.vibrate([200, 100, 200])
