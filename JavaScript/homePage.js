@@ -239,7 +239,7 @@ async function showPosition(position) {
 
                 let updatedContent;
                 let infoWindowStyle = '';
-                if (user.clues.includes(clue.id)) {
+                if (user.clues.includes(clue.id) || user.clues.length === 0) {
                     updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.id}. ${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
                     infoWindowStyle = 'margin: 3vw;';
                 } else {
