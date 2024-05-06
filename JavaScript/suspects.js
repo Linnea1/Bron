@@ -1,6 +1,7 @@
 function RenderSuspects() {
     basicHeader()
 
+    document.querySelector("#notes").style.opacity = 1;
     let user = JSON.parse(localStorage.getItem("user"));
 
     if (user.pfp !== "") {

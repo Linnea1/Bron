@@ -3,6 +3,9 @@ let ifPopup = true;
 function RenderIntro() {
     toggleFullscreen()
     let user = JSON.parse(localStorage.getItem("user"));
+    document.querySelector(".wrapper").style.height = "100%";
+    document.querySelector(".wrapper").style.paddingBottom = "75px";
+    document.querySelector(".sticky-nav").style.height = "60px";
 
     if (user.firstTime) {
 
@@ -44,6 +47,8 @@ function RenderIntro() {
 
 async function RenderOptions() {
     document.querySelector(".sticky-nav").style.opacity = 1;
+    document.querySelector("#notes").style.opacity = 1;
+    document.querySelector("main").style.height = "84vh";
 
     map = null;
     userMarker = null;
@@ -63,6 +68,7 @@ async function RenderOptions() {
     }
 
     // document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/bluredBackground.png')`;
+    document.querySelector(".wrapper").style.backgroundImage = `none`;
     document.querySelector(".wrapper").style.backgroundColor = "#3e4c4f";
     document.querySelector("main").style.backgroundImage = "";
 
@@ -87,13 +93,6 @@ async function RenderOptions() {
             description: "Vem pekar ledtrådarna på?",
             sagaPic: "Bilder/Saga.jpg",
             event: RenderClues
-        },
-        {
-            title: "ANTECKNINGAR",
-            OptionPic: "Bilder/notesBackground.jpg",
-            description: "Samla dina anteckningar här",
-            sagaPic: "Bilder/Saga.jpg",
-            event: RenderNotes
         }
     ];
 
@@ -106,21 +105,33 @@ async function RenderOptions() {
     `;
 
 
+    /*
+    
+        {
+            title: "ANTECKNINGAR",
+            OptionPic: "Bilder/notesBackground.jpg",
+            description: "Samla dina anteckningar här",
+            sagaPic: "Bilder/Saga.jpg",
+            event: RenderNotes
+        }
+    */
+
 
 
     options.forEach(option => {
+
         let divDom = document.createElement("div");
         divDom.classList.add("option");
         main.append(divDom);
 
         divDom.innerHTML = `
-            <h2 class="title">${option.title}</h2>
-            <div class="optionPic" style="background-image: url('${option.OptionPic}')"></div>
-            <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
-            <div class="description"> 
-                <p>${option.description}</p>
-            </div>
-        `;
+                <h2 class="title">${option.title}</h2>
+                <div class="optionPic" style="background-image: url('${option.OptionPic}')"></div>
+                <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
+                <div class="description"> 
+                    <p>${option.description}</p>
+                </div>
+            `;
 
         divDom.addEventListener("click", option.event);
 
@@ -143,6 +154,8 @@ async function renderCurrentLocationView() {
     }
 
     swapStyleSheet("css/map.css");
+    document.querySelector("#notes").style.opacity = 0;
+    document.querySelector("main").style.height = "100%";
     resetButtons()
     document.querySelector(".fa-map").classList.add("current-page");
     body.style.backgroundImage = 'none';
@@ -200,7 +213,7 @@ async function showPosition(position) {
     }
 
 
-    const RADIUS = 40;
+    const RADIUS = 30;
     let user = JSON.parse(localStorage.getItem("user"));
     console.log(user.clues.length);
 
@@ -257,11 +270,16 @@ async function showPosition(position) {
         })(clue); // Anropa funktionen omedelbart med aktuell ledtråd
 
         let distance = calculateDistance(latitude, longitude, clueLat, clueLng);
+        const audio = new Audio('Bilder/audio/police_tone.mp3');
 
         if (distance <= RADIUS && ifPopup) {
             let lastClue = clue.id - 1;
             if (user.clues.includes(lastClue) || user.clues.length === 0) {
                 notifyAndNavigate(clue);
+                audio.play();
+                if ("vibrate" in navigator) {
+                    navigator.vibrate([200, 100, 200]); // Anpassa vibrationens mönster efter behov
+                }
             } else {
                 console.log("Finns inte");
             }

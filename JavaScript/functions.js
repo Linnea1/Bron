@@ -98,6 +98,7 @@ function CluePopUp(id) {
 function logout() {
     document.querySelector("main").innerHTML = ``;
     document.querySelector(".sticky-nav").style.opacity = 0;
+    document.querySelector("#notes").style.opacity = 0;
     localStorage.clear();
     renderStartPage();
     location.reload();

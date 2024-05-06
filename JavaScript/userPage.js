@@ -5,6 +5,7 @@ async function RenderUserPage() {
 
     document.querySelector("#profilePicture").style.backgroundImage = "";
     document.querySelector(".wrapper").style.backgroundImage = "none";
+    document.querySelector("#notes").style.opacity = 0;
 
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";

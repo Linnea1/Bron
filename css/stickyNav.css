@@ -1,12 +1,13 @@
 .sticky-nav {
-    height: 60px;
+    /* height: 60px; */
+    height: 8%;
     width: 100%;
     background-color: rgb(39, 38, 39);
     position: fixed;
     /* Change position to fixed */
     bottom: 0;
     /* Stick it to the bottom of the screen */
-    z-index: 7;
+    z-index: 10;
 }
 
 .sticky-nav ul {

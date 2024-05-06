@@ -3,6 +3,7 @@ async function RenderMakeArrest() {
     basicHeader()
 
     swapStyleSheet("css/arrest.css");
+    document.querySelector("#notes").style.opacity = 1;
 
     document.querySelector(".wrapper").style.backgroundImage = "none";
 

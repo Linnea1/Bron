@@ -102,7 +102,7 @@ h2 {
     /* justify-content: center; */
     align-items: center;
     /* gap: 40px; */
-    height: 90%;
+    height: 75%;
     width: 100%;
 }
 
@@ -110,8 +110,9 @@ h2 {
     width: 80%;
     text-align: center;
     padding-top: 10%;
-    height: 10%;
+    height: 9%;
     font-size: 4vw;
+    margin-bottom: 0px;
 }
 
 .unlockClueContainer span {

@@ -4,6 +4,7 @@ async function RenderNotes() {
     swapStyleSheet("css/notes.css");
 
     document.querySelector(".wrapper").style.backgroundImage = "none";
+    document.querySelector("#notes").style.opacity = 0;
 
     let user = JSON.parse(localStorage.getItem("user"));
 
