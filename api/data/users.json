@@ -212,5 +212,29 @@
         "pfp": "",
         "notes": [],
         "clues": []
+    },
+    {
+        "userId": 13,
+        "email": "111@hej.se",
+        "username": "111",
+        "password": "111",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": [
+            1
+        ]
+    },
+    {
+        "userId": 14,
+        "email": "casino@hej.se",
+        "username": "casino",
+        "password": "casino",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": [
+            1
+        ]
     }
 ]
