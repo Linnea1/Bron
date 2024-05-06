@@ -31,11 +31,6 @@ function renderLoginPage() {
     let username = main.querySelector("#username");
     let password = main.querySelector("#password");
 
-    function toggleFullscreen() {
-        body.requestFullscreen();
-    }
-
-    main.querySelector("#login").addEventListener("click", toggleFullscreen)
     main.querySelector("#login").addEventListener("click", async function (event) {
         event.preventDefault();
         let errorMessage = main.querySelector("#message");

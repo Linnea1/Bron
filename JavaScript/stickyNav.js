@@ -31,7 +31,7 @@ function stickyNav() {
     box.addEventListener("click", (e) => {
       toggleFullscreen();
     })
-  });
+  });s
   */
 }
 

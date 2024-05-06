@@ -62,12 +62,13 @@ async function RenderOptions() {
         }
     }
 
-    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/bluredBackground.png')`;
+    // document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/bluredBackground.png')`;
+    document.querySelector(".wrapper").style.backgroundColor = "#3e4c4f";
     document.querySelector("main").style.backgroundImage = "";
 
     let options = [
         {
-            title: "NÄSTA STEG",
+            title: "KARTA",
             OptionPic: "Bilder/MapSlottsparken.png",
             description: "Gå till platserna markerade på kartan",
             sagaPic: "Bilder/Saga.jpg",
@@ -235,10 +236,10 @@ async function showPosition(position) {
                 let updatedContent;
                 let infoWindowStyle = '';
                 if (user.clues.includes(clue.id)) {
-                    updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
+                    updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.id}. ${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
                     infoWindowStyle = 'margin: 3vw;';
                 } else {
-                    updatedContent = ` <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>Låst</b> <br><div> ${clue.text}</div> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div> </div>  <br>`;
+                    updatedContent = ` <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.id}. Låst</b> <br><div> ${clue.text}</div> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div> </div>  <br>`;
                     infoWindowStyle = 'margin: 3vw;';
                 }
 

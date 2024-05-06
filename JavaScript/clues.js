@@ -56,32 +56,34 @@ async function addClue(idUser, idClue) {
         userId: idUser
     };
 
+    let errorMessage = document.querySelector("#message");
+
     try {
         let response = await fetching("api/clues.php", "POST", body);
         let data = await response.json();
 
-        if (!response.ok) {
-            errorMessage.innerHTML = `<span>${data.message}</span>.`;
-        } else {
+        console.log(data);
 
-            let localUser = {
-                "username": data.username,
-                "email": data.email,
-                "pfp": pfp,
-                "firstTime": data.firstTime,
-                "userId": data.userId,
-                "clues": data.clues
-            }
 
-            window.localStorage.setItem("user", JSON.stringify(localUser));
-            user = JSON.parse(localStorage.getItem("user"));
-            console.log(user);
+        let localUser = {
+            "username": data.username,
+            "email": data.email,
+            "pfp": data.pfp,
+            "firstTime": data.firstTime,
+            "userId": data.userId,
+            "clues": data.clues
         }
-    } catch (error) {
-        errorMessage.textContent = error.message;
-    } finally {
+
+        window.localStorage.setItem("user", JSON.stringify(localUser));
+        user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
+
+
         document.querySelector("#popUp").classList.add("hidden");
         RenderClues();
+
+    } catch (error) {
+        errorMessage.textContent = error.message;
     }
 }
 
@@ -112,7 +114,7 @@ function unlockCluePopUp(id) {
         });
     });
 
-    document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
+    // document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
     document.querySelector("#popUpBackground").addEventListener("click", e => {
         document.querySelector("#popUp").classList.add("hidden")
         ifPopup = true;
