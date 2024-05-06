@@ -278,11 +278,6 @@ async function showPosition(position) {
                 notifyAndNavigate(clue);
                 // audio.play();
 
-                const vibrate = () => {
-                    window.navigator.vibrate([200, 100, 200])
-                }
-                vibrate()
-
             } else {
                 console.log("Finns inte");
             }
