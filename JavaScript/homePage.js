@@ -199,11 +199,15 @@ async function showPosition(position) {
         userMarker.setPosition({ lat: latitude, lng: longitude });
     }
 
-    const RADIUS = 20;
+
+    const RADIUS = 40;
     let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user.clues.length);
 
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
     let openInfoWindows = [];
+
+
 
     for (let i = 0; i < CLUES.length; i++) {
         const clue = CLUES[i];
@@ -256,7 +260,7 @@ async function showPosition(position) {
 
         if (distance <= RADIUS && ifPopup) {
             let lastClue = clue.id - 1;
-            if (user.clues.includes(lastClue)) {
+            if (user.clues.includes(lastClue) || user.clues.length === 0) {
                 notifyAndNavigate(clue);
             } else {
                 console.log("Finns inte");
