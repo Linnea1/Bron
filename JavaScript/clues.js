@@ -155,7 +155,7 @@ function RenderClues() {
             clueBox.setAttribute("class", "clueBox unlocked");
             clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
             clueBox.innerHTML = `
-          <div class="clueContent">
+          <div class="clueContent unlockedClueContent">
               <h2>${clue.title}</h2>
               <i class="fa-solid fa-arrow-right"></i>
           </div>
@@ -167,10 +167,17 @@ function RenderClues() {
         } else {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
-            clueBox.setAttribute("class", "clueBox locked")
+            clueBox.setAttribute(`class`, `clueBox locked clue${clue.id}`);
             clueBox.innerHTML = `
             <i class="fa-solid fa-lock"></i>
+            <div class="clueContent lockedClueContent">
+              <h2>Ledtråd ${clue.id}</h2>
+              <p class="unlock"><u>Lås upp</u></p>
+          </div>
         `;
+            clueBox.querySelector(".unlock").addEventListener("click", function () {
+                unlockCluePopUp(clue.id)
+            });
         }
     });
 

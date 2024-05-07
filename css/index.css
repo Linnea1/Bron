@@ -240,7 +240,7 @@ h1 {
     align-items: center;
 }
 
-input {
+.popup-input {
     width: 50px;
     height: 70px;
     background-color: black;
