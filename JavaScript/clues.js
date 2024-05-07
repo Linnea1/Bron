@@ -150,13 +150,13 @@ function RenderClues() {
             let clueBox = document.createElement("div");
             let parent = document.querySelector(".clues");
             parent.append(clueBox)
-            clueBox.setAttribute("class", "clueBox unlocked")
+            clueBox.setAttribute("class", "clueBox unlocked");
+            clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
             clueBox.innerHTML = `
           <div class="clueContent">
               <h2>${clue.title}</h2>
-              <p id="Clueinfo">${clue.shortText}</p>
+              <i class="fa-solid fa-arrow-right"></i>
           </div>
-          <div id="cluePicture" style="background-image: url('${clue.Clueimage}')"></div>
         `;
 
             clueBox.addEventListener("click", function () {

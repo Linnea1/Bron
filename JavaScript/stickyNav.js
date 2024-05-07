@@ -25,14 +25,6 @@ function stickyNav() {
       </li>
     </ul>
   `;
-
-  /*
-  document.querySelectorAll(".fullscreen").forEach(box => {
-    box.addEventListener("click", (e) => {
-      toggleFullscreen();
-    })
-  });s
-  */
 }
 
 
