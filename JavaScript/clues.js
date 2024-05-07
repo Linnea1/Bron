@@ -1,12 +1,13 @@
 function renderClue(clue) {
+    document.querySelector("#notes").style.opacity = 1;
     body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     body.style.backgroundSize = "cover";
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
         <h1>${clue.title}</h1>
         <div class="clueImage2" style="background-image: url('${clue.Clueimage}')"></div>
-        <p>${clue.shortText}</p>
         <div id="picTwo"></div>
+        <p>${clue.shortText}</p>
     </div>
     <button onclick="RenderClues()">Tillbaka</button>
   `;
@@ -135,6 +136,7 @@ function unlockClue() {
 }
 
 function RenderClues() {
+    document.querySelector("#notes").style.opacity = 1;
     swapStyleSheet("css/clues.css");
     document.querySelector("main").innerHTML = `
       <h1>LEDTRÅDAR</h1>
@@ -185,6 +187,7 @@ function RenderClues() {
     resetButtons()
     document.querySelector(".fa-clipboard-question").classList.add("current-page");
     document.querySelector(".text-clue").classList.add("current-page");
+    document.querySelector("#notes").style.opacity = 1;
 }
 
 

@@ -1,10 +1,15 @@
 function renderStartPage() {
 
     swapStyleSheet("css/startPage.css");
-    document.querySelector(".wrapper").style.backgroundColor = "`url('Bilder/firstBackground.png')`";
+    document.querySelector(".wrapper").style.backgroundColor = "none";
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/firstBackground.png')`;
 
     body.style.backgroundSize = "cover";
     document.querySelector(".sticky-nav").style.opacity = 0;
+    document.querySelector("#notes").style.opacity = 0;
+    document.querySelector(".wrapper").style.height = "100vh";
+    document.querySelector(".wrapper").style.paddingBottom = "0px";
+    document.querySelector(".sticky-nav").style.height = "0px";
 
     let main = document.querySelector("main");
 
