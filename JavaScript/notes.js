@@ -11,7 +11,6 @@ async function RenderNotes() {
 
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
     let firstresponse = await resourse.json()
-    console.log(firstresponse.notes);
 
     main.innerHTML = `
         <div class="bigBox">
@@ -21,8 +20,6 @@ async function RenderNotes() {
             <button> SPARA </button>
         </div>
     `;
-
-    console.log(user.notes);
 
     if (firstresponse.notes !== "") {
 
@@ -35,7 +32,6 @@ async function RenderNotes() {
     main.querySelector("button").addEventListener("click", async (e) => {
 
         let text = main.querySelector("textarea").value;
-        console.log(text);
 
         const date = new Date();
         let hour = date.getHours();
@@ -51,7 +47,6 @@ async function RenderNotes() {
 
         let currentDate = `${day}/${month}/${year}`;
         let timeAndDate = `${currentDate}, ${hour}:${minute}`;
-        console.log(timeAndDate);
 
         if (text !== "") {
 
@@ -75,8 +70,6 @@ async function RenderNotes() {
 
                 main.querySelector("textarea").value = "";
             }
-
-            console.log(resourse);
         }
 
     })
@@ -126,7 +119,6 @@ async function RenderInsideNotes(response) {
 
             let response = await fetching("api/functions.php", "DELETE", chosenNote);
             let resourse = await response.json();
-            console.log(resourse);
 
             if (response.ok) {
                 let updatedResource = await fetching(`api/functions.php?user=${user.username}`);

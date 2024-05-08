@@ -64,9 +64,6 @@ async function addClue(idUser, idClue) {
         let response = await fetching("api/clues.php", "POST", body);
         let data = await response.json();
 
-        console.log(data);
-
-
         let localUser = {
             "username": data.username,
             "email": data.email,
@@ -78,8 +75,6 @@ async function addClue(idUser, idClue) {
 
         window.localStorage.setItem("user", JSON.stringify(localUser));
         user = JSON.parse(localStorage.getItem("user"));
-        console.log(user);
-
 
         document.querySelector("#popUp").classList.add("hidden");
         RenderClues();

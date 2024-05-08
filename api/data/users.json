@@ -275,7 +275,9 @@
         "firstTime": false,
         "pfp": "",
         "notes": [],
-        "clues": []
+        "clues": [
+            1
+        ]
     },
     {
         "userId": 17,

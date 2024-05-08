@@ -220,9 +220,8 @@ async function showPosition(position) {
     }
 
 
-    const RADIUS = 100;
+    const RADIUS = 30;
     let user = JSON.parse(localStorage.getItem("user"));
-    console.log(user.clues.length);
 
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
     let openInfoWindows = [];
@@ -259,7 +258,7 @@ async function showPosition(position) {
 
                 let updatedContent;
                 let infoWindowStyle = '';
-                if (user.clues.includes(clue.id) || user.clues.length === 0) {
+                if (user.clues.includes(clue.id)) {
                     updatedContent = `  <div class="DescPic" style="background-image: url('${clue.Locationimage}')"></div> <div class="textdiv"> <b>${clue.id}. ${clue.title}</b><br>${clue.shortText}</b><br> <div id="GoTo" onclick="RenderClues(${clue.id})"> Gå till ledtrådar</div></div> <br>`;
                     infoWindowStyle = 'margin: 3vw;';
                 } else {
@@ -331,7 +330,6 @@ function showError(error) {
 function notifyAndNavigate(clue) {
     let user = JSON.parse(localStorage.getItem("user"));
     const audio = new Audio('Bilder/audio/police_tone.mp3');
-    console.log(user.clues)
     if (!user.clues.includes(clue.id)) {
         audio.play();
         CluePopUp(clue.id)

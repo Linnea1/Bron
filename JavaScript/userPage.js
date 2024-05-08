@@ -128,7 +128,6 @@ async function RenderUserPage() {
                 localStorage.setItem("user", JSON.stringify(resourse));
             }
             if (response.status === 400) {
-                console.log(resourse);
                 main.querySelector("#message").textContent = resourse.message;
             }
         } catch (e) {
