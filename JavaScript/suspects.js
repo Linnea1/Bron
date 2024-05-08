@@ -10,10 +10,11 @@ function RenderSuspects() {
         document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
     }
 
-    document.querySelector(".wrapper").style.backgroundImage = "none";
+    // document.querySelector(".wrapper").style.backgroundImage = "none";
 
-    body.style.backgroundImage = `url('Bilder/istockphoto-1462731789-640x640.jpg')`;
-    body.style.backgroundSize = "cover";
+    // body.style.backgroundImage = `url('Bilder/istockphoto-1462731789-640x640.jpg')`;
+    // body.style.backgroundSize = "cover";
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
 
     let evenOrOdd = 0;
 
@@ -54,7 +55,7 @@ function RenderSuspects() {
         pic.style.height = "105px";
         pic.style.width = "105px";
         pic.style.backgroundSize = "cover";
-        pic.style.borderRadius = "50%";
+        pic.style.borderRadius = "8%";
 
         for (const index in clue) {
             if (index === "suspectId" || index === "image" || index === "guilty") {

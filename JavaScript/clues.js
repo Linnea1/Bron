@@ -1,6 +1,7 @@
 function renderClue(clue) {
     document.querySelector("#notes").style.opacity = 1;
-    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     body.style.backgroundSize = "cover";
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
@@ -143,9 +144,10 @@ function RenderClues() {
       <div class="clues"></div>
     `;
 
-    document.querySelector(".wrapper").style.backgroundImage = "none";
-    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
-    body.style.backgroundSize = "cover";
+    // document.querySelector(".wrapper").style.backgroundImage = "none";
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
+    // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    // body.style.backgroundSize = "cover";
 
     CLUES.forEach(clue => {
         if (isClueUnlocked(clue.id)) {

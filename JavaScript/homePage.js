@@ -67,9 +67,9 @@ async function RenderOptions() {
         }
     }
 
-    // document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/bluredBackground.png')`;
-    document.querySelector(".wrapper").style.backgroundImage = `none`;
-    document.querySelector(".wrapper").style.backgroundColor = "#3e4c4f";
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
+    // document.querySelector(".wrapper").style.backgroundImage = `none`;
+    // document.querySelector(".wrapper").style.backgroundColor = "#3e4c4f";
     document.querySelector("main").style.backgroundImage = "";
 
     let options = [
@@ -213,7 +213,7 @@ async function showPosition(position) {
     }
 
 
-    const RADIUS = 30;
+    const RADIUS = 100;
     let user = JSON.parse(localStorage.getItem("user"));
     console.log(user.clues.length);
 

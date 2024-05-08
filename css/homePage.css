@@ -34,7 +34,7 @@ main {
 }
 
 .description p {
-    padding-left: 80px;
+    padding-left: 70px;
     color: rgb(255, 255, 255);
     width: 70vw;
     font-size: 3.5vw;
@@ -63,6 +63,7 @@ main {
 input {
     width: 50px;
     height: 70px;
+    font-family: Titillium;
 }
 
 button {

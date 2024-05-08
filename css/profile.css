@@ -46,7 +46,6 @@ main {
 #profilePic {
     height: 100%;
     width: 100%;
-    border: 1px solid black;
     border-radius: 50%;
     background-position: center;
     background-size: cover;
@@ -73,6 +72,7 @@ input {
     border-radius: 10px;
     color: white;
     font-size: 3.5vw;
+    font-family: Titillium;
 }
 
 h1 {
@@ -80,16 +80,18 @@ h1 {
 }
 
 #delete {
-    border: 1px solid #C01232;
+    /* border: 1px solid #C01232; */
     margin-left: 5px;
 }
 
 button {
     height: 10vw;
-    background-color: #000000c7;
-    border: 1px solid white;
+    background-color: #242424;
+    border: none;
     border-radius: 10px;
     color: white;
+    font-size: 3.5vw;
+    font-family: Titillium;
 }
 
 #save {

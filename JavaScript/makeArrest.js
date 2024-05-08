@@ -5,10 +5,11 @@ async function RenderMakeArrest() {
     swapStyleSheet("css/arrest.css");
     document.querySelector("#notes").style.opacity = 1;
 
-    document.querySelector(".wrapper").style.backgroundImage = "none";
+    // document.querySelector(".wrapper").style.backgroundImage = "none";
 
-    body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
-    body.style.backgroundSize = "cover";
+    // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    // body.style.backgroundSize = "cover";
+    document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
 
     main.innerHTML = `
         <div class="bigBox"></div>
