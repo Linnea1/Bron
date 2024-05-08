@@ -128,6 +128,7 @@
 //Alla ska ha text
 //shortText = vart man ska leta i preview.
 //text = information om ledtrådarna
+
 const CLUES = [
     {
         id: 1,

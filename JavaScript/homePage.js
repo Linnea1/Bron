@@ -1,4 +1,5 @@
 let ifPopup = true;
+let cluesUnlocked = false;
 
 function RenderIntro() {
     let user = JSON.parse(localStorage.getItem("user"));
@@ -150,6 +151,7 @@ async function RenderOptions() {
 let userMarker;
 let map;
 
+
 async function renderCurrentLocationView() {
     if (map) {
         map = null;
@@ -278,13 +280,20 @@ async function showPosition(position) {
         const audio = new Audio('Bilder/audio/police_tone.mp3');
 
         if (distance <= RADIUS && ifPopup) {
-            let lastClue = clue.id - 1;
-            if (user.clues.includes(lastClue) || user.clues.length === 0) {
-                notifyAndNavigate(clue);
-                // audio.play();
-
+            let previousClue = clue.id - 1;
+            if (previousClue === 0) {
+                if (user.clues.length === 0) {
+                    notifyAndNavigate(clue);
+                    // audio.play();
+                } else {
+                    console.log("Kan inte låsa upp den här ledtråden ännu.");
+                }
             } else {
-                console.log("Finns inte");
+                if (user.clues.includes(previousClue)) {
+                    notifyAndNavigate(clue);
+                } else {
+                    console.log("Kan inte låsa upp den här ledtråden ännu.");
+                }
             }
         }
 
