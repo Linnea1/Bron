@@ -77,6 +77,8 @@ button {
     width: 21vw;
     border-radius: 50%;
     background-size: contain;
+    border: 1px solid black;
+    background-position: center;
 }
 
 .chosen {
