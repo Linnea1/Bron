@@ -9,7 +9,7 @@
     background-size: cover;
 }
 
-body{
+body {
     background-size: cover;
 }
 
@@ -38,7 +38,7 @@ main {
 }
 
 .description p {
-    padding-left: 70px;
+    padding-left: 20vw;
     color: rgb(255, 255, 255);
     width: 70vw;
     font-size: 3.5vw;

@@ -45,7 +45,7 @@ header {
 }
 
 .wrapper {
-    max-height: 900px;
+    max-height: 950px;
     max-width: 500px;
     height: 100%;
     width: 100%;
@@ -83,8 +83,8 @@ main {
     border-radius: 20px;
     color: white;
     position: absolute;
-    bottom: 70px;
-    right: 20px;
+    bottom: 15vh;
+    right: 5vw;
 }
 
 #next:hover {
@@ -304,8 +304,8 @@ button {
     width: 16vw;
     background-color: #9bc0c8;
     position: fixed;
-    bottom: 75px;
-    right: 10px;
+    bottom: 10vh;
+    right: 3vw;
     border-radius: 50%;
     z-index: 6;
     background-image: url("../Bilder/notesIcon.png");

@@ -2,9 +2,12 @@ let ifPopup = true;
 
 function RenderIntro() {
     let user = JSON.parse(localStorage.getItem("user"));
-    document.querySelector(".wrapper").style.height = "100%";
+    document.querySelector(".wrapper").style.height = "92vh;";
     document.querySelector(".wrapper").style.paddingBottom = "75px";
     document.querySelector(".sticky-nav").style.height = "60px";
+
+    document.querySelector(".sticky-nav").style.opacity = 0;
+    document.querySelector("#notes").style.opacity = 0;
 
     if (user.firstTime) {
 
@@ -70,7 +73,7 @@ async function RenderOptions() {
     }
 
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
-    // document.querySelector(".wrapper").style.backgroundImage = `none`;
+    document.querySelector("body").style.backgroundImage = `none`;
     // document.querySelector(".wrapper").style.backgroundColor = "#3e4c4f";
     document.querySelector("main").style.backgroundImage = "";
 
