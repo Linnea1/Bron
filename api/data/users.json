@@ -252,6 +252,69 @@
         "firstTime": false,
         "pfp": "",
         "notes": [],
+        "clues": [
+            1,
+            2
+        ]
+    },
+    {
+        "userId": 15,
+        "email": "test123.@com",
+        "username": "123",
+        "password": "123",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
+    },
+    {
+        "userId": 16,
+        "email": "hejhoppp@.com",
+        "username": "1234",
+        "password": "1234",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
+    },
+    {
+        "userId": 17,
+        "email": "1233@.com",
+        "username": "1233",
+        "password": "1233",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
+    },
+    {
+        "userId": 18,
+        "email": "122@.",
+        "username": "122",
+        "password": "122",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
+    },
+    {
+        "userId": 19,
+        "email": "122@1",
+        "username": "1111",
+        "password": "1111",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
+    },
+    {
+        "userId": 20,
+        "email": "222@@",
+        "username": "222",
+        "password": "222",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
         "clues": []
     }
 ]

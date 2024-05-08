@@ -9,6 +9,10 @@
     background-size: cover;
 }
 
+body{
+    background-size: cover;
+}
+
 main {
     overflow: scroll;
 }

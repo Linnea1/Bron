@@ -1,7 +1,6 @@
 let ifPopup = true;
 
 function RenderIntro() {
-    toggleFullscreen()
     let user = JSON.parse(localStorage.getItem("user"));
     document.querySelector(".wrapper").style.height = "100%";
     document.querySelector(".wrapper").style.paddingBottom = "75px";
@@ -21,7 +20,10 @@ function RenderIntro() {
 
         document.querySelector("main").innerHTML = `
             <div id="SagaIntro"></div>
+            <audio id="audioPlayer" src="Bilder/audio/voiceover.mp3" style="display: none;"></audio>
         `;
+        const audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.play()
 
         let introText = "Saga: Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårt arbete. Så här mycket vet vi hittills: offret heter Klas och han blev mördad sent på natten igår. Varje liten bit information kan vara den pusselbit vi behöver för att lösa fallet.";
         let index = 0;
@@ -30,7 +32,7 @@ function RenderIntro() {
             if (index < introText.length) {
                 document.getElementById("SagaIntro").innerHTML += introText.charAt(index);
                 index++;
-                setTimeout(typeWriter, 10); // Justera fördröjningen här (50 ms för varje bokstav)
+                setTimeout(typeWriter, 80); // Justera fördröjningen här (50 ms för varje bokstav)
             } else {
                 // När all text är skriven ut, lägg till knappen "Nästa"
                 document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='RenderOptions()'> Nästa </button>";
