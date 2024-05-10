@@ -303,7 +303,7 @@ button {
 #notes {
     height: 16vw;
     width: 16vw;
-    background-color: #9bc0c8;
+    background-color: rgb(67, 89, 186);
     position: fixed;
     bottom: 10vh;
     right: 3vw;
@@ -313,5 +313,4 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 65%;
-    border: 1px solid black;
 }

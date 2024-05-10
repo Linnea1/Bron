@@ -165,11 +165,14 @@ function RenderClues() {
             let clueBox = document.createElement("div");
             document.querySelector(".clues").append(clueBox)
             clueBox.setAttribute(`class`, `clueBox locked clue${clue.id}`);
+            clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
             clueBox.innerHTML = `
-            <i class="fa-solid fa-lock"></i>
-            <div class="clueContent lockedClueContent">
-              <h2>Ledtråd ${clue.id}</h2>
-              <p class="unlock"><u>Lås upp</u></p>
+            <div class="lockedOverlay">
+                <i class="fa-solid fa-lock"></i>
+                <div class="clueContent lockedClueContent">
+                <h2>Ledtråd ${clue.id}</h2>
+                <p class="unlock"><u>Lås upp</u></p>
+            </div>
           </div>
         `;
             clueBox.querySelector(".unlock").addEventListener("click", function () {
