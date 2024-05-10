@@ -93,7 +93,7 @@ main {
 }
 
 .suspects {
-    padding-bottom: 15%;
+    /*padding-bottom: 15%;*/
 }
 
 .suspects #suspectBox:last-child {
@@ -124,7 +124,7 @@ main {
 
 .odd {
     /* border: 1px solid #2772C1; */
-    text-align: right;
+    /*text-align: right;*/
 }
 
 /* .odd #suspectPicture {
