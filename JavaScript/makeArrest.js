@@ -1,5 +1,6 @@
 async function RenderMakeArrest() {
 
+    stopExecution=true;
     basicHeader()
 
     swapStyleSheet("css/arrest.css");

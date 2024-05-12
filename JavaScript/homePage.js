@@ -55,6 +55,7 @@ async function RenderOptions() {
     document.querySelector(".sticky-nav").style.opacity = 1;
     document.querySelector("#notes").style.opacity = 1;
     document.querySelector("main").style.height = "84vh";
+    stopExecution=true;
 
     map = null;
     userMarker = null;
@@ -153,6 +154,7 @@ let map;
 
 
 async function renderCurrentLocationView() {
+    stopExecution=false;
     if (map) {
         map = null;
     }
@@ -179,6 +181,9 @@ async function renderCurrentLocationView() {
 
 
 async function showPosition(position) {
+    if (stopExecution) {
+        return;
+    }
     document.querySelector(".wrapper").style.backgroundImage = "none";
 
     document.querySelector("#loading").classList.add("hidden");

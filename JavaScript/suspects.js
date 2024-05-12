@@ -1,6 +1,6 @@
 function RenderSuspects() {
     basicHeader()
-
+    stopExecution=true;
     document.querySelector("#notes").style.opacity = 1;
     let user = JSON.parse(localStorage.getItem("user"));
 

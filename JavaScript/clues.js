@@ -132,6 +132,7 @@ function unlockClue() {
 }
 
 function RenderClues() {
+    stopExecution=true;
     document.querySelector("#notes").style.opacity = 1;
     swapStyleSheet("css/clues.css");
     document.querySelector("main").innerHTML = `

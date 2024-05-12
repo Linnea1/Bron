@@ -1,6 +1,6 @@
 async function RenderUserPage() {
     let user = JSON.parse(localStorage.getItem("user"));
-
+    stopExecution=true;
     swapStyleSheet("css/profile.css");
 
     document.querySelector("#profilePicture").style.backgroundImage = "";

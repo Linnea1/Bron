@@ -1,5 +1,6 @@
 
 async function RenderNotes() {
+    stopExecution=true;
     basicHeader()
     swapStyleSheet("css/notes.css");
 
