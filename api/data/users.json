@@ -344,5 +344,17 @@
             2,
             3
         ]
+    },
+    {
+        "userId": 23,
+        "email": "ny@.com",
+        "username": "nyy",
+        "password": "nyy",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [],
+        "clues": [
+            1
+        ]
     }
 ]

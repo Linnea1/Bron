@@ -180,12 +180,24 @@ function RenderClues() {
         let parent=clueBox.querySelector(".lockedClueContent")
             if (previousClue === 0) {
                 if (user.clues.length === 0) {
-                    let unlockIcon=document.createElement("i");
-                    unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
-                    parent.append(unlockIcon);
+                    let unlockIcon = $('<i>').addClass('fa-solid fa-unlock unlock lock');
 
-                    clueBox.querySelector(".unlock").addEventListener("click", function () {
-                        unlockCluePopUp(clue.id)
+                    $(parent).append(unlockIcon);
+                    
+                    var times = 80;
+                    var duration = 300;
+                    for (var i = 0; i < times; i++) {
+                        unlockIcon.animate({
+                            rotate: '-10deg' // Twist to the left
+                        }, duration)
+                        .animate({
+                            rotate: '10deg' // Twist to the right
+                        }, duration)
+                    
+                    }
+                    
+                    unlockIcon.on("click", function() {
+                        unlockCluePopUp(clue.id);
                     });
                 } else {
                     let unlockIcon=document.createElement("i");
