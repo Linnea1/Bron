@@ -4,6 +4,8 @@ async function RenderNotes() {
     basicHeader()
     swapStyleSheet("css/notes.css");
 
+    resetButtons()
+
     // document.querySelector(".wrapper").style.backgroundImage = "none";
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     document.querySelector("#notes").style.opacity = 0;

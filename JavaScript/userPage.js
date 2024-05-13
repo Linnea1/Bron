@@ -3,6 +3,8 @@ async function RenderUserPage() {
     stopExecution=true;
     swapStyleSheet("css/profile.css");
 
+    resetButtons()
+
     document.querySelector("#profilePicture").style.backgroundImage = "";
     // document.querySelector(".wrapper").style.backgroundImage = "none";
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
