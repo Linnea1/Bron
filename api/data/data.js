@@ -161,7 +161,7 @@ const CLUES = [
     {
         id: 3,
         code: 2753,
-        title: "Här hittades Klas kropp & obduktionsrapport",
+        title: "Klas kropp & obduktionsrapport",
         Locationimage: "Bilder/cluesPic/IMG_2485-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2485-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/Obduktion.png",
