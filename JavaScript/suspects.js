@@ -1,4 +1,4 @@
-function RenderSuspects() {
+function RenderSuspects(value) {
     basicHeader()
     stopExecution = true;
     document.querySelector("#notes").style.opacity = 1;
@@ -13,73 +13,152 @@ function RenderSuspects() {
 
     let evenOrOdd = 0;
 
-    main.innerHTML = `
-        <h1>MISSTÄNKTA</h1>
-        <div class="suspects"></div>
-    `;
+    if (value) {
 
-    SUSPECTS.forEach(clue => {
-        let SuspectxBox = document.createElement("div");
-        document.querySelector(".suspects").append(SuspectxBox)
-        SuspectxBox.setAttribute("id", "suspectBox")
-        SuspectxBox.innerHTML = `
-            <div id="info">
-                <div id ="PicNameAndAge">
-                </div>
-                <div id ="text"></div>
-            </div>
+        main.classList.add("slide-left");
+        setTimeout(() => {
+
+            main.innerHTML = `
+                <h1>MISSTÄNKTA</h1>
+                <div class="suspects"></div>
+            `;
+
+            SUSPECTS.forEach(clue => {
+                let SuspectxBox = document.createElement("div");
+                document.querySelector(".suspects").append(SuspectxBox)
+                SuspectxBox.setAttribute("id", "suspectBox")
+                SuspectxBox.innerHTML = `
+                    <div id="info">
+                        <div id ="PicNameAndAge">
+                        </div>
+                        <div id ="text"></div>
+                    </div>
+                `;
+
+                evenOrOdd++
+                if (evenOrOdd %= 2) {
+                    SuspectxBox.classList.add("odd");
+                    SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+                        <p id ="suspectPicture"></p>
+                        <div id ="NameAndAge"></div>
+                    `;
+                } else {
+                    SuspectxBox.classList.add("even");
+                    SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+                        <p id ="NameAndAge"></p>
+                        <div id ="suspectPicture"></div>
+                    `;
+                }
+
+                let pic = SuspectxBox.querySelector("#suspectPicture");
+                pic.style.backgroundImage = `url('${clue.image}')`;
+                pic.style.height = "105px";
+                pic.style.width = "105px";
+                pic.style.backgroundSize = "cover";
+                pic.style.borderRadius = "8%";
+
+                for (const index in clue) {
+                    if (index === "suspectId" || index === "image" || index === "guilty") {
+                        continue;
+                    }
+
+                    switch (index) {
+                        case "name":
+                            SuspectxBox.querySelector("#NameAndAge").innerHTML += `
+                        <h2 id="${index}">${clue[index]}, </h2>
+                    `;
+                            break;
+
+                        case "age":
+                            SuspectxBox.querySelector("#NameAndAge").textContent += `
+                        ${clue[index]} år
+                    `;
+                            break;
+
+                        case "text":
+                            SuspectxBox.querySelector("#text").innerHTML += `
+                    <p id="${index}">${clue[index]} </p>
+                    `;
+                            break;
+                    }
+
+                }
+
+            });
+
+            main.classList.remove("slide-left");
+
+        }, 300);
+    } else {
+
+        main.innerHTML = `
+            <h1>MISSTÄNKTA</h1>
+            <div class="suspects"></div>
         `;
 
-        evenOrOdd++
-        if (evenOrOdd %= 2) {
-            SuspectxBox.classList.add("odd");
-            SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+        SUSPECTS.forEach(clue => {
+            let SuspectxBox = document.createElement("div");
+            document.querySelector(".suspects").append(SuspectxBox)
+            SuspectxBox.setAttribute("id", "suspectBox")
+            SuspectxBox.innerHTML = `
+                <div id="info">
+                    <div id ="PicNameAndAge">
+                    </div>
+                    <div id ="text"></div>
+                </div>
+            `;
+
+            evenOrOdd++
+            if (evenOrOdd %= 2) {
+                SuspectxBox.classList.add("odd");
+                SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
                 <p id ="suspectPicture"></p>
                 <div id ="NameAndAge"></div>
             `;
-        } else {
-            SuspectxBox.classList.add("even");
-            SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+            } else {
+                SuspectxBox.classList.add("even");
+                SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
                 <p id ="NameAndAge"></p>
                 <div id ="suspectPicture"></div>
             `;
-        }
-
-        let pic = SuspectxBox.querySelector("#suspectPicture");
-        pic.style.backgroundImage = `url('${clue.image}')`;
-        pic.style.height = "105px";
-        pic.style.width = "105px";
-        pic.style.backgroundSize = "cover";
-        pic.style.borderRadius = "8%";
-
-        for (const index in clue) {
-            if (index === "suspectId" || index === "image" || index === "guilty") {
-                continue;
             }
 
-            switch (index) {
-                case "name":
-                    SuspectxBox.querySelector("#NameAndAge").innerHTML += `
+            let pic = SuspectxBox.querySelector("#suspectPicture");
+            pic.style.backgroundImage = `url('${clue.image}')`;
+            pic.style.height = "105px";
+            pic.style.width = "105px";
+            pic.style.backgroundSize = "cover";
+            pic.style.borderRadius = "8%";
+
+            for (const index in clue) {
+                if (index === "suspectId" || index === "image" || index === "guilty") {
+                    continue;
+                }
+
+                switch (index) {
+                    case "name":
+                        SuspectxBox.querySelector("#NameAndAge").innerHTML += `
                         <h2 id="${index}">${clue[index]}, </h2>
                     `;
-                    break;
+                        break;
 
-                case "age":
-                    SuspectxBox.querySelector("#NameAndAge").textContent += `
+                    case "age":
+                        SuspectxBox.querySelector("#NameAndAge").textContent += `
                         ${clue[index]} år
                     `;
-                    break;
+                        break;
 
-                case "text":
-                    SuspectxBox.querySelector("#text").innerHTML += `
+                    case "text":
+                        SuspectxBox.querySelector("#text").innerHTML += `
                     <p id="${index}">${clue[index]} </p>
                     `;
-                    break;
+                        break;
+                }
+
             }
 
-        }
-
-    });
+        });
+    }
     resetButtons()
     document.querySelector(".fa-person").classList.add("current-page");
     document.querySelector(".text-suspects").classList.add("current-page");

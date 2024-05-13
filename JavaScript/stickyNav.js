@@ -7,15 +7,15 @@ function stickyNav() {
         <i class="fa-solid fa-house"></i>
         <p class="nav-icon-name text-home"></p>
       </li>
-      <li class="nav-suspects nav-box fullscreen" onclick="RenderSuspects()">
+      <li class="nav-suspects nav-box fullscreen" onclick="RenderSuspects(false)">
         <i class="fa-solid fa-person"></i>
         <p class="nav-icon-name text-suspects"></p>
       </li>
-      <li class="nav-map nav-box" onclick="renderCurrentLocationView()">
-        <i class="fa-solid fa-map"></i>
+      <li class="nav-map nav-box" onclick="renderCurrentLocationView(false)">
+      <i class="fa-solid fa-map"></i>
         <p class="nav-icon-name text-home"></p>
-      </li>
-      <li class="nav-clues nav-box fullscreen" onclick="RenderClues()">
+        </li>
+      <li class="nav-clues nav-box fullscreen" onclick="RenderClues(false)">
         <i class="fa-solid fa-clipboard-question"></i>
         <p class="nav-icon-name text-clue"></p>
       </li>

@@ -101,7 +101,6 @@ async function RenderOptions() {
                 let resourse = await fetching("api/functions.php", "PATCH", user);
                 let data = await resourse.json();
                 if (resourse) {
-                    console.log(resourse);
 
                     let localUser = {
                         "username": data.username,
@@ -172,7 +171,17 @@ async function RenderOptions() {
                 </div>
             `;
 
-        divDom.addEventListener("click", option.event);
+        // divDom.addEventListener("click", option.event);
+        divDom.addEventListener("click", function () {
+            // Lägg till klassen 'swiped' för att trigga övergångseffekten på den övergripande containern
+            main.classList.add("swiped");
+
+            // Återställ klassen 'swiped' efter att övergångseffekten är klar
+            setTimeout(() => {
+                main.classList.remove("swiped");
+                option.event(true);
+            }, 200);
+        });
 
     });
     stickyNav();
@@ -185,28 +194,65 @@ let userMarker;
 let map;
 
 
-async function renderCurrentLocationView() {
-    stopExecution = false;
-    if (map) {
-        map = null;
-    }
-    if (userMarker) {
-        userMarker = null;
-    }
+async function renderCurrentLocationView(value) {
 
-    swapStyleSheet("css/map.css");
-    document.querySelector("#notes").style.opacity = 0;
-    document.querySelector("main").style.height = "100%";
-    resetButtons()
-    document.querySelector(".fa-map").classList.add("current-page");
-    body.style.backgroundImage = 'none';
-    main.innerHTML = `<div id="map"></div>`;
+    if (value) {
 
-    document.querySelector("#loading").classList.remove("hidden");
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition, showError);
+        main.classList.add("slide-left");
+        // Vänta en kort stund för att låta CSS-övergången utföras
+        setTimeout(() => {
+
+            stopExecution = false;
+            if (map) {
+                map = null;
+            }
+            if (userMarker) {
+                userMarker = null;
+            }
+
+            swapStyleSheet("css/map.css");
+            document.querySelector("#notes").style.opacity = 0;
+            document.querySelector("main").style.height = "100%";
+            resetButtons()
+            document.querySelector(".fa-map").classList.add("current-page");
+            body.style.backgroundImage = 'none';
+            main.innerHTML = `<div id="map"></div>`;
+
+            document.querySelector("#loading").classList.remove("hidden");
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+
+            main.classList.remove("slide-left");
+
+        }, 150);
+
+
     } else {
-        alert("Geolocation is not supported by this browser.");
+        stopExecution = false;
+        if (map) {
+            map = null;
+        }
+        if (userMarker) {
+            userMarker = null;
+        }
+
+        swapStyleSheet("css/map.css");
+        document.querySelector("#notes").style.opacity = 0;
+        document.querySelector("main").style.height = "100%";
+        resetButtons()
+        document.querySelector(".fa-map").classList.add("current-page");
+        body.style.backgroundImage = 'none';
+        main.innerHTML = `<div id="map"></div>`;
+
+        document.querySelector("#loading").classList.remove("hidden");
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
     }
 
 }

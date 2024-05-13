@@ -3,29 +3,47 @@ function renderClue(clue) {
     // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     // body.style.backgroundSize = "cover";
-    document.querySelector("main").innerHTML = `
-    <div class="unlockClueContainer">
-        <h1>${clue.title}</h1>
-        <div class="clueImage2" style="background-image: url('${clue.Clueimage}')"></div>
-        <div id="picTwo"></div>
-        <p>${clue.shortText}</p>
-    </div>
-    <button onclick="RenderClues()">Tillbaka</button>
-  `;
-    document.querySelector(".clueImage2").addEventListener("click", e => {
-        RenderPopUpPictureFirst(clue)
-    })
-
-    if (clue.ClueimageTwo !== "") {
-        document.querySelector("#picTwo").innerHTML = `
-            <p> Se ytterligare ledtråd <span> här </span> </p>
+    let mainContainer = document.querySelector("main");
+    mainContainer.classList.add("slide-left");
+    // Vänta en kort stund för att låta CSS-övergången utföras
+    setTimeout(() => {
+        mainContainer.innerHTML = `
+            <div class="unlockClueContainer">
+                <h1>${clue.title}</h1>
+                <div class="clueImage2" style="background-image: url('${clue.Clueimage}')"></div>
+                <div id="picTwo"></div>
+                <p>${clue.shortText}</p>
+            </div>
+            <button onclick="renderClueWithSlideBack()" class="back-button">Tillbaka</button>
         `;
+        // Ta bort övergångs-CSS-klassen efter att övergångseffekten är klar
+        mainContainer.classList.remove("slide-left");
 
-        document.querySelector("span").addEventListener("click", e => {
-            RenderPopUpPictureSecond(clue)
+        document.querySelector(".clueImage2").addEventListener("click", e => {
+            RenderPopUpPictureFirst(clue)
         })
-    }
+        if (clue.ClueimageTwo !== "") {
+            document.querySelector("#picTwo").innerHTML = `
+                <p> Se ytterligare ledtråd <span> här </span> </p>
+            `;
+
+            document.querySelector("span").addEventListener("click", e => {
+                RenderPopUpPictureSecond(clue)
+            })
+        }
+    }, 300);
+
+
 }
+function renderClueWithSlideBack() {
+    let mainContainer = document.querySelector("main");
+    mainContainer.classList.add("slide-right"); // Använd slide-right klassen för spegelvänd effekt
+    setTimeout(() => {
+        mainContainer.classList.remove("slide-right");
+        RenderClues(false); // Lägg till denna rad för att rendera ledtrådarna igen
+    }, 300);
+}
+
 function handleOK(id) {
     let user = JSON.parse(localStorage.getItem("user"));
 
@@ -87,6 +105,7 @@ async function addClue(idUser, idClue) {
 function unlockCluePopUp(id) {
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#popUpWindow").innerHTML = `
+    <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
       <div class="cluePopup">
           <div class="inputContainer">
               <input class="popup-input" id="input1" maxlength="1">
@@ -99,6 +118,7 @@ function unlockCluePopUp(id) {
       </div>
     `;
 
+    document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
     var inputs = document.querySelectorAll('.popup-input');
     inputs.forEach(function (input, index) {
         input.addEventListener('input', function () {
@@ -111,7 +131,6 @@ function unlockCluePopUp(id) {
         });
     });
 
-    // document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
     document.querySelector("#popUpBackground").addEventListener("click", e => {
         document.querySelector("#popUp").classList.add("hidden")
         ifPopup = true;
@@ -131,87 +150,183 @@ function unlockClue() {
     `;
 }
 
-function RenderClues() {
+function RenderClues(value) {
     let user = JSON.parse(localStorage.getItem("user"));
-    stopExecution=true;
+    stopExecution = true;
     document.querySelector("#notes").style.opacity = 1;
-    swapStyleSheet("css/clues.css");
-    document.querySelector("main").innerHTML = `
-      <h1>LEDTRÅDAR</h1>
-      <div class="clues"></div>
-    `;
 
-    // document.querySelector(".wrapper").style.backgroundImage = "none";
+    basicHeader()
+
+    if (user.pfp !== "") {
+        document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
+    } else {
+        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+    }
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
-    // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
-    // body.style.backgroundSize = "cover";
 
-    CLUES.forEach(clue => {
-        if (isClueUnlocked(clue.id)) {
+    let main = document.querySelector("main");
+
+    if (value) {
+
+        main.classList.add("slide-left");
+        setTimeout(() => {
+
+            swapStyleSheet("css/clues.css");
+            main.innerHTML = `
+                <h1>LEDTRÅDAR</h1>
+                <div class="clues"></div>
+            `;
+
+            document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
+
+            CLUES.forEach(clue => {
+                let clueBox = document.createElement("div");
+                let parent = document.querySelector(".clues");
+                parent.append(clueBox)
+                if (isClueUnlocked(clue.id)) {
+                    clueBox.setAttribute("class", "clueBox unlocked");
+                    clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
+                    clueBox.innerHTML = `
+                    <div class="clueContent unlockedClueContent">
+                        <h2>${clue.title}</h2>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                `;
+
+                    clueBox.addEventListener("click", function () {
+                        parent.classList.add("swiped");
+
+                        setTimeout(() => {
+                            parent.classList.remove("swiped");
+                        }, 300);
+                        renderClue(clue);
+                    });
+                } else {
+                    clueBox.setAttribute(`class`, `clueBox locked clue${clue.id}`);
+                    clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
+                    clueBox.innerHTML = `
+                    <div class="lockedOverlay">
+                        
+                        <div class="clueContent lockedClueContent">
+                            <h2>Ledtråd ${clue.id}</h2>
+                        </div>
+                    </div>
+                `;
+                    let previousClue = clue.id - 1;
+                    let parent = clueBox.querySelector(".lockedClueContent")
+                    if (previousClue === 0) {
+                        if (user.clues.length === 0) {
+                            let unlockIcon = document.createElement("i");
+                            unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
+                            parent.append(unlockIcon);
+
+                            clueBox.querySelector(".unlock").addEventListener("click", function () {
+                                unlockCluePopUp(clue.id)
+                            });
+                        } else {
+                            let unlockIcon = document.createElement("i");
+                            unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
+                            parent.append(unlockIcon);
+                        }
+                    } else {
+                        if (user.clues.includes(previousClue)) {
+                            let unlockIcon = document.createElement("i");
+                            unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
+                            parent.append(unlockIcon);
+
+                            clueBox.querySelector(".unlock").addEventListener("click", function () {
+                                unlockCluePopUp(clue.id)
+                            });
+                        } else {
+                            let unlockIcon = document.createElement("i");
+                            unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
+                            parent.append(unlockIcon);
+                        }
+                    }
+
+                }
+            });
+            main.classList.remove("slide-left");
+
+        }, 300);
+
+    } else {
+        swapStyleSheet("css/clues.css");
+        main.innerHTML = `
+            <h1>LEDTRÅDAR</h1>
+            <div class="clues"></div>
+        `;
+
+        document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
+
+        CLUES.forEach(clue => {
             let clueBox = document.createElement("div");
             let parent = document.querySelector(".clues");
             parent.append(clueBox)
-            clueBox.setAttribute("class", "clueBox unlocked");
-            clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
-            clueBox.innerHTML = `
-          <div class="clueContent unlockedClueContent">
-              <h2>${clue.title}</h2>
-              <i class="fa-solid fa-arrow-right"></i>
-          </div>
+            if (isClueUnlocked(clue.id)) {
+                clueBox.setAttribute("class", "clueBox unlocked");
+                clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
+                clueBox.innerHTML = `
+            <div class="clueContent unlockedClueContent">
+                <h2>${clue.title}</h2>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
         `;
 
-            clueBox.addEventListener("click", function () {
-                renderClue(clue);
-            });
-        } else {
-            let clueBox = document.createElement("div");
-            document.querySelector(".clues").append(clueBox)
-            clueBox.setAttribute(`class`, `clueBox locked clue${clue.id}`);
-            clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
-            clueBox.innerHTML = `
-            <div class="lockedOverlay">
-                
-                <div class="clueContent lockedClueContent">
-                    <h2>Ledtråd ${clue.id}</h2>
-                </div>
-          </div>
-        `;
-        let previousClue = clue.id - 1;
-        let parent=clueBox.querySelector(".lockedClueContent")
-            if (previousClue === 0) {
-                if (user.clues.length === 0) {
-                    let unlockIcon=document.createElement("i");
-                    unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
-                    parent.append(unlockIcon);
-
-                    clueBox.querySelector(".unlock").addEventListener("click", function () {
-                        unlockCluePopUp(clue.id)
-                    });
-                } else {
-                    let unlockIcon=document.createElement("i");
-                    unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
-                    parent.append(unlockIcon);
-                    console.log("Kan inte låsa upp den här ledtråden ännu.");
-                }
+                clueBox.addEventListener("click", function () {
+                    parent.classList.add("swiped");
+                    setTimeout(() => {
+                        parent.classList.remove("swiped");
+                    }, 300);
+                    renderClue(clue);
+                });
             } else {
-                if (user.clues.includes(previousClue)) {
-                    let unlockIcon=document.createElement("i");
-                    unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
-                    parent.append(unlockIcon);
+                clueBox.setAttribute(`class`, `clueBox locked clue${clue.id}`);
+                clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
+                clueBox.innerHTML = `
+                    <div class="lockedOverlay">
+                        
+                        <div class="clueContent lockedClueContent">
+                            <h2>Ledtråd ${clue.id}</h2>
+                        </div>
+                    </div>
+                `;
+                let previousClue = clue.id - 1;
+                let parent = clueBox.querySelector(".lockedClueContent")
+                if (previousClue === 0) {
+                    if (user.clues.length === 0) {
+                        let unlockIcon = document.createElement("i");
+                        unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
+                        parent.append(unlockIcon);
 
-                    clueBox.querySelector(".unlock").addEventListener("click", function () {
-                        unlockCluePopUp(clue.id)
-                    });
+                        clueBox.querySelector(".unlock").addEventListener("click", function () {
+                            unlockCluePopUp(clue.id)
+                        });
+                    } else {
+                        let unlockIcon = document.createElement("i");
+                        unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
+                        parent.append(unlockIcon);
+                    }
                 } else {
-                    let unlockIcon=document.createElement("i");
-                    unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
-                    parent.append(unlockIcon);
-                    console.log("Kan inte låsa upp den här ledtråden ännu.");
+                    if (user.clues.includes(previousClue)) {
+                        let unlockIcon = document.createElement("i");
+                        unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
+                        parent.append(unlockIcon);
+
+                        clueBox.querySelector(".unlock").addEventListener("click", function () {
+                            unlockCluePopUp(clue.id)
+                        });
+                    } else {
+                        let unlockIcon = document.createElement("i");
+                        unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
+                        parent.append(unlockIcon);
+                    }
                 }
+
             }
-            
-        }
-    });
+        });
+
+    }
 
     function isClueUnlocked(clueId) {
         let user = JSON.parse(localStorage.getItem("user"));

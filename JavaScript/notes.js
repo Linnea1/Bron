@@ -1,6 +1,12 @@
 
 async function RenderNotes() {
-    stopExecution=true;
+
+    main.classList.add("slide-up");
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    // Vänta en kort stund för att låta CSS-övergången utföras
+
+    stopExecution = true;
     basicHeader()
     swapStyleSheet("css/notes.css");
 
@@ -10,10 +16,9 @@ async function RenderNotes() {
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     document.querySelector("#notes").style.opacity = 0;
 
-    let user = JSON.parse(localStorage.getItem("user"));
-
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
     let firstresponse = await resourse.json()
+
 
     main.innerHTML = `
         <div class="bigBox">
@@ -69,7 +74,7 @@ async function RenderNotes() {
                 let updatedResource = await fetching(`api/functions.php?user=${user.username}`);
                 let updatedResponse = await updatedResource.json();
                 document.getElementById("noteBox").innerHTML = "";
-                RenderInsideNotes(updatedResponse);
+                RenderInsideNotes(updatedResponse, user);
 
                 main.querySelector("textarea").value = "";
             }
@@ -81,7 +86,7 @@ async function RenderNotes() {
 
 
 
-async function RenderInsideNotes(response) {
+async function RenderInsideNotes(response, user) {
     for (const note of response.notes) {
 
         let divdom = document.createElement("div");
