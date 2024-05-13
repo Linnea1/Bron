@@ -3,8 +3,9 @@ let cluesUnlocked = false;
 
 function RenderIntro() {
     let user = JSON.parse(localStorage.getItem("user"));
-    document.querySelector(".wrapper").style.height = "92vh;";
-    document.querySelector(".wrapper").style.paddingBottom = "75px";
+    document.querySelector(".wrapper").style.height = "94vh;";
+    // document.querySelector(".wrapper").style.paddingBottom = "75px";
+    // document.querySelector(".main").style.height = "0";
     document.querySelector(".sticky-nav").style.height = "60px";
 
     document.querySelector(".sticky-nav").style.opacity = 0;
