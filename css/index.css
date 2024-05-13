@@ -200,7 +200,7 @@ main {
     left: 0;
     right: 0;
     text-align: center;
-    border: 1px solid #ffffff78;
+    /* border: 1px solid #ffffff78; */
     padding: 10px;
 }
 
