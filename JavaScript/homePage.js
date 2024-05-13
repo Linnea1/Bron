@@ -83,15 +83,6 @@ async function RenderOptions() {
 
     if (user.firstTime) {
 
-        // try {
-        //     let resourse = await fetching("api/functions.php", "PATCH", user);
-        //     if (resourse) {
-        //         console.log(resourse);
-        //     }
-        // } catch (error) {
-        //     popUp(error);
-        // }
-
         let infoContent = [
             {
                 tipsTitle: "Min karta bara laddar, varför?",

@@ -180,9 +180,6 @@ function RenderPopUpPictureSecond(clue) {
     if (clue.ClueimageTwo === "Bilder/cluesPic/erikPasserKortPic.png") {
         document.querySelector("#clueTwo").style.height = "60vw";
     }
-    // else {
-    //     document.querySelector("#clueTwo").style.height = "130vw";
-    // }
 
     if (clue.ClueimageTwo === "Bilder/cluesPic/mordvapen.jpg") {
         document.querySelector("#clueTwo").style.height = "100vw";
