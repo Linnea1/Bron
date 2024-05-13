@@ -75,10 +75,8 @@ h1 {
     text-align: center;
 }
 
-.fa-lock {
-    font-size: 25px;
-    grid-area: 2;
-    align-self: center;
+.lock {
+    font-size: 20px;
 }
 
 .clueContent {

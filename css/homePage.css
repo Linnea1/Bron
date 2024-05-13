@@ -18,11 +18,11 @@ main {
 }
 
 .picSaga {
-    height: 22vw;
-    width: 22vw;
+    height: 20vw;
+    width: 20vw;
     border-radius: 50%;
     background-size: contain;
-    left: -20px;
+    left: -15px;
     position: absolute;
     bottom: -20px;
     z-index: 1;

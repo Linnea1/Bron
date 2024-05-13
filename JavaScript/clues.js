@@ -132,6 +132,7 @@ function unlockClue() {
 }
 
 function RenderClues() {
+    let user = JSON.parse(localStorage.getItem("user"));
     stopExecution=true;
     document.querySelector("#notes").style.opacity = 1;
     swapStyleSheet("css/clues.css");
@@ -169,16 +170,46 @@ function RenderClues() {
             clueBox.style.backgroundImage = `url('${clue.Clueimage}')`;
             clueBox.innerHTML = `
             <div class="lockedOverlay">
-                <i class="fa-solid fa-lock"></i>
+                
                 <div class="clueContent lockedClueContent">
-                <h2>Ledtråd ${clue.id}</h2>
-                <p class="unlock"><u>Lås upp</u></p>
-            </div>
+                    <h2>Ledtråd ${clue.id}</h2>
+                </div>
           </div>
         `;
-            clueBox.querySelector(".unlock").addEventListener("click", function () {
-                unlockCluePopUp(clue.id)
-            });
+        let previousClue = clue.id - 1;
+        let parent=clueBox.querySelector(".lockedClueContent")
+            if (previousClue === 0) {
+                if (user.clues.length === 0) {
+                    let unlockIcon=document.createElement("i");
+                    unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
+                    parent.append(unlockIcon);
+
+                    clueBox.querySelector(".unlock").addEventListener("click", function () {
+                        unlockCluePopUp(clue.id)
+                    });
+                } else {
+                    let unlockIcon=document.createElement("i");
+                    unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
+                    parent.append(unlockIcon);
+                    console.log("Kan inte låsa upp den här ledtråden ännu.");
+                }
+            } else {
+                if (user.clues.includes(previousClue)) {
+                    let unlockIcon=document.createElement("i");
+                    unlockIcon.setAttribute(`class`, `fa-solid fa-unlock unlock lock`);
+                    parent.append(unlockIcon);
+
+                    clueBox.querySelector(".unlock").addEventListener("click", function () {
+                        unlockCluePopUp(clue.id)
+                    });
+                } else {
+                    let unlockIcon=document.createElement("i");
+                    unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
+                    parent.append(unlockIcon);
+                    console.log("Kan inte låsa upp den här ledtråden ännu.");
+                }
+            }
+            
         }
     });
 
