@@ -133,21 +133,21 @@ async function RenderOptions() {
         {
             title: "KARTA",
             OptionPic: "Bilder/MapSlottsparken.png",
-            description: "Gå till platserna markerade på kartan",
+            description: '"Gå till platserna markerade på kartan"',
             sagaPic: "Bilder/Saga.jpg",
             event: renderCurrentLocationView
         },
         {
             title: "MISSTÄNKTA",
             OptionPic: "Bilder/suspectsBkg.jpg",
-            description: "Dessa är de personer som är misstänkta",
+            description: '"Dessa är de personer som är misstänkta"',
             sagaPic: "Bilder/Saga.jpg",
             event: RenderSuspects
         },
         {
             title: "LEDTRÅDAR",
             OptionPic: "Bilder/cluesBackground.png",
-            description: "Vem pekar ledtrådarna på?",
+            description: '"Vem pekar ledtrådarna på?"',
             sagaPic: "Bilder/Saga.jpg",
             event: RenderClues
         }
