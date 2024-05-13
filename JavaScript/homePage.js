@@ -52,6 +52,9 @@ function RenderIntro() {
 }
 
 function moreInfo() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.src = "Bilder/audio/voiceover2.mp3";
+    audioPlayer.play()
     document.querySelector("#SagaIntro").innerHTML = "";
     let introTextTwo = "Saga: Använd kartan för att hitta ledtrådarna som kommer att guida dig genom mysteriet kring Klas öde. Utforska varje plats för att avslöja bit för bit av det stora pusslet och närma dig sanningen om vem som ligger bakom Klas död. För att öppna dessa hemligheter krävs det att du hittar varje plats unika kod. Börja din färd vid mordplatsen, där den första ledtråden väntar på att bli upptäckt. ";
     let indexTwo = 0;
@@ -129,21 +132,21 @@ async function RenderOptions() {
         {
             title: "KARTA",
             OptionPic: "Bilder/MapSlottsparken.png",
-            description: "Gå till platserna markerade på kartan",
+            description: '"Gå till platserna markerade på kartan"',
             sagaPic: "Bilder/Saga.jpg",
             event: renderCurrentLocationView
         },
         {
             title: "MISSTÄNKTA",
             OptionPic: "Bilder/suspectsBkg.jpg",
-            description: "Dessa är de personer som är misstänkta",
+            description: '"Dessa är de personer som är misstänkta"',
             sagaPic: "Bilder/Saga.jpg",
             event: RenderSuspects
         },
         {
             title: "LEDTRÅDAR",
             OptionPic: "Bilder/cluesBackground.png",
-            description: "Vem pekar ledtrådarna på?",
+            description: '"Vem pekar ledtrådarna på?"',
             sagaPic: "Bilder/Saga.jpg",
             event: RenderClues
         }
