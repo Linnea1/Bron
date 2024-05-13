@@ -44,8 +44,8 @@ function ArrestPopUp(prompt) {
                 </div>
                 <div id="second"> 
                     <p> ${prompt.direction}</p>
-                    <p onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
                     <p id="enket"></p>
+                    <p onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
                 </div>
         </div>
 

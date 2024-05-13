@@ -370,7 +370,7 @@ async function showPosition(position) {
             if (previousClue === 0) {
                 if (user.clues.length === 0) {
                     notifyAndNavigate(clue);
-                    // audio.play();
+                    audio.play();
                 } else {
                     console.log("Kan inte låsa upp den här ledtråden ännu.");
                 }
@@ -418,7 +418,7 @@ function notifyAndNavigate(clue) {
     let user = JSON.parse(localStorage.getItem("user"));
     const audio = new Audio('Bilder/audio/police_tone.mp3');
     if (!user.clues.includes(clue.id)) {
-        audio.play();
+        // audio.play();
         CluePopUp(clue.id)
     }
 

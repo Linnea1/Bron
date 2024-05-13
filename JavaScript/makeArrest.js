@@ -5,11 +5,6 @@ async function RenderMakeArrest() {
 
     swapStyleSheet("css/arrest.css");
     document.querySelector("#notes").style.opacity = 1;
-
-    // document.querySelector(".wrapper").style.backgroundImage = "none";
-
-    // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
-    // body.style.backgroundSize = "cover";
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
 
     main.innerHTML = `
@@ -110,7 +105,7 @@ function RenderAnswere(suspect) {
                 let message = {
                     title: "Rätt svar!",
                     text: "Tack vare din hjälp, kunde mördaren fångas och frid kan återigen inta Malmö.",
-                    direction: "Du har nu klarat av spelet. Återgå till startsidan för att spela en gång till",
+                    direction: "Du har nu klarat av spelet. Återgå till startsidan för att spela en gång till.",
                     NameOfPAge: "Hem",
                     NameOfEnket: "https://forms.gle/kVKgD1xSbve8XL3F8",
                     link: "RenderOptions()"
