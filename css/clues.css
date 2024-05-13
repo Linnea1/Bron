@@ -58,7 +58,7 @@ main {
     border-radius: 5px;
 }
 
-.locked{
+.locked {
     background-size: cover;
     text-align: center;
 }
@@ -120,7 +120,7 @@ h2 {
     /* justify-content: center; */
     align-items: center;
     /* gap: 40px; */
-    height: 75%;
+    height: 85%;
     width: 100%;
 }
 
@@ -164,7 +164,7 @@ h2 {
 .clueImage2 {
     height: 60vw;
     width: 60vw;
-    border-radius: 50%;
+    border-radius: 2%;
     background-position: center;
     background-size: cover;
     border: 1px solid black;

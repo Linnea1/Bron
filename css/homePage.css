@@ -20,11 +20,11 @@ main {
 .picSaga {
     height: 22vw;
     width: 22vw;
-    border-radius: 10%;
+    border-radius: 50%;
     background-size: contain;
     left: -20px;
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     z-index: 1;
 }
 
@@ -32,9 +32,10 @@ main {
     background-color: rgba(0, 0, 0, 0.660);
     height: 35%;
     width: 100%;
-    bottom: -1vh;
+    bottom: -4.1vw;
     position: absolute;
     border-radius: 0px 0px 5px 20px;
+    display: flex;
 }
 
 .description p {
@@ -42,12 +43,16 @@ main {
     color: rgb(255, 255, 255);
     width: 70vw;
     font-size: 3.5vw;
+    align-items: center;
+    display: flex;
+    height: 50%;
 }
 
 .title {
     padding: 0;
     margin: 0;
     font-size: 5vw;
+    margin-bottom: 2vw;
 }
 
 .optionPic {
@@ -72,4 +77,9 @@ input {
 
 button {
     color: white;
+}
+
+.description i {
+    margin-top: 7%;
+    margin-right: 3%;
 }

@@ -128,7 +128,7 @@
 //Alla ska ha text
 //shortText = vart man ska leta i preview.
 //text = information om ledtrådarna
-
+//CLUES med nya och rätt id
 const CLUES = [
     {
         id: 1,
@@ -160,7 +160,7 @@ const CLUES = [
     },
     {
         id: 3,
-        code: 3286,
+        code: 2753,
         title: "Här hittades Klas kropp & obduktionsrapport",
         Locationimage: "Bilder/cluesPic/IMG_2485-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2485-2.jpg",
@@ -174,7 +174,7 @@ const CLUES = [
     },
     {
         id: 4,
-        code: 9782,
+        code: 9063,
         title: "Bråk mellan Kristoffer och Klas",
         Locationimage: "Bilder/cluesPic/IMG_2491-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2491-2.jpg",
@@ -188,7 +188,7 @@ const CLUES = [
     },
     {
         id: 5,
-        code: 8414,
+        code: 3286,
         title: "Övervakningskamera",
         Locationimage: "Bilder/cluesPic/IMG_2494-2.jpg",
         Clueimage: "Bilder/cluesPic/camera.jpg",
@@ -202,7 +202,7 @@ const CLUES = [
     },
     {
         id: 6,
-        code: 2840,
+        code: 2009,
         title: "Samtalshistorik ",
         Locationimage: "Bilder/cluesPic/IMG_2500-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2500-2.jpg",
@@ -216,7 +216,7 @@ const CLUES = [
     },
     {
         id: 7,
-        code: 2753,
+        code: 9782,
         title: "Görans rörelsemönster",
         Locationimage: "Bilder/cluesPic/IMG_2415-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2415-2.jpg",
@@ -230,7 +230,7 @@ const CLUES = [
     },
     {
         id: 8,
-        code: 2009,
+        code: 2840,
         title: "Eriks stämpelkort",
         Locationimage: "Bilder/cluesPic/IMG_2407-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2407-2.jpg",
@@ -244,7 +244,7 @@ const CLUES = [
     },
     {
         id: 9,
-        code: 9063,
+        code: 8414,
         title: "Annas POV & Klas sms till Göran",
         Locationimage: "Bilder/cluesPic/IMG_2424-2.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2424-2.jpg",
@@ -286,6 +286,7 @@ const CLUES = [
     }
 ];
 
+//CLUES med gamla id
 // const CLUES = [
 //     {
 //         id: 1,
@@ -298,7 +299,7 @@ const CLUES = [
 //         shortText: "Massor av bevis vid mordplatsen.",
 //         shortTextTwo: "Skoavtryck hittats på brottsplatsen.",
 //         text: "Leta vid utsiktsplats vid Casinot",
-//         koordinater: [56.94715129715971, 12.535932563650194]
+//         koordinater: [55.6018888889, 12.9905555556]
 
 //     },
 //     {
@@ -312,39 +313,11 @@ const CLUES = [
 //         shortText: "Detta är den kniven som polisen tagit i beslag, den låg i soptunnan.",
 //         shortTextTwo: "Bild på mordvapnet",
 //         text: "Leta efter en soptunna vid Korsbron",
-//         koordinater: [56.94715129715971, 12.535932563650194]
+//         koordinater: [55.60273330679147, 12.989689799850712]
 
 //     },
 //     {
 //         id: 3,
-//         code: 2753,
-//         title: "Görans rörelsemönster",
-//         Locationimage: "Bilder/cluesPic/IMG_2415-2.jpg",
-//         Clueimage: "Bilder/cluesPic/IMG_2415-2.jpg",
-//         ClueimageTwo: "Bilder/cluesPic/GoranRorelsemonster.png",
-//         ClueText: "",
-//         shortText: "Görans rörelsemönster. Screenshot från uber-appen.",
-//         shortTextTwo: "Dekalerna visar vart han har stannat.",
-//         text: "Leta vid utkanten av parken",
-//         koordinater: [56.94715129715971, 12.535932563650194]
-
-//     },
-//     {
-//         id: 4,
-//         code: 9063,
-//         title: "Annas POV & Klas sms till Göran",
-//         Locationimage: "Bilder/cluesPic/IMG_2424-2.jpg",
-//         Clueimage: "Bilder/cluesPic/IMG_2424-2.jpg",
-//         ClueimageTwo: "Bilder/cluesPic/Konversation_Klas_Goran.jpg",
-//         ClueText: "",
-//         shortText: "Här stod Anna när hon såg en man räkna pengar och det verkar även som att Klas skickat sms denna kvällen.",
-//         shortTextTwo: "Konversation mellan Klas och Göran.",
-//         text: "Leta vid vattnet bakom casinot",
-//         koordinater: [56.94715129715971, 12.535932563650194]
-
-//     },
-//     {
-//         id: 5,
 //         code: 3286,
 //         title: "Här hittades Klas kropp & obduktionsrapport",
 //         Locationimage: "Bilder/cluesPic/IMG_2485-2.jpg",
@@ -354,25 +327,11 @@ const CLUES = [
 //         shortText: "Här är obduktionsrapporten.",
 //         shortTextTwo: "Obduktionsrapporten från Rättmedicinalverket.",
 //         text: "Leta vid kommendantbron",
-//         koordinater: [56.94715129715971, 12.535932563650194]
+//         koordinater: [55.60277273529414, 12.988879344848087]
 
 //     },
 //     {
-//         id: 6,
-//         code: 2009,
-//         title: "Eriks stämpelkort",
-//         Locationimage: "Bilder/cluesPic/IMG_2407-2.jpg",
-//         Clueimage: "Bilder/cluesPic/IMG_2407-2.jpg",
-//         ClueimageTwo: "Bilder/cluesPic/erikPasserKortPic.png",
-//         ClueText: "",
-//         shortText: "Ett stämpelkort från personal på casinot. ",
-//         shortTextTwo: "Erik är anställd på Casinot",
-//         text: "Leta vid Casinot",
-//         koordinater: [56.947091731858706, 12.535834405119699]
-
-//     },
-//     {
-//         id: 7,
+//         id: 4,
 //         code: 9782,
 //         title: "Bråk mellan Kristoffer och Klas",
 //         Locationimage: "Bilder/cluesPic/IMG_2491-2.jpg",
@@ -382,25 +341,11 @@ const CLUES = [
 //         shortText: "Det hölls ett förhör med Klas ex-fru.",
 //         shortTextTwo: "Förhörsprotokollet från Polisen.",
 //         text: "Leta vid andra sidan om utsiktsplatsen",
-//         koordinater: [56.947091731858706, 12.535834405119699]
+//         koordinater: [55.60147185428268, 12.99121296649658]
 
 //     },
 //     {
-//         id: 8,
-//         code: 2840,
-//         title: "Samtalshistorik ",
-//         Locationimage: "Bilder/cluesPic/IMG_2500-2.jpg",
-//         Clueimage: "Bilder/cluesPic/IMG_2500-2.jpg",
-//         ClueimageTwo: "Bilder/cluesPic/SamtalslistaRobban.jpg",
-//         ClueText: "",
-//         shortText: "Denna samtalshistorik är intressant. ",
-//         shortTextTwo: "Samtalshistoriken på Klas telefon.",
-//         text: "Leta vid Casinots parkering",
-//         koordinater: [56.947091731858706, 12.535834405119699]
-
-//     },
-//     {
-//         id: 9,
+//         id: 5,
 //         code: 8414,
 //         title: "Övervakningskamera",
 //         Locationimage: "Bilder/cluesPic/IMG_2494-2.jpg",
@@ -410,7 +355,63 @@ const CLUES = [
 //         shortText: "Här syntes Kristoffer gå förbi vid 22-tiden.",
 //         shortTextTwo: "",
 //         text: "Leta vid Stadsbiblioteket",
-//         koordinater: [56.947091731858706, 12.535834405119699]
+//         koordinater: [55.60074586831715, 12.993409032961107]
+
+//     },
+//     {
+//         id: 6,
+//         code: 2840,
+//         title: "Samtalshistorik ",
+//         Locationimage: "Bilder/cluesPic/IMG_2500-2.jpg",
+//         Clueimage: "Bilder/cluesPic/IMG_2500-2.jpg",
+//         ClueimageTwo: "Bilder/cluesPic/SamtalslistaRobban.jpg",
+//         ClueText: "",
+//         shortText: "Denna samtalshistorik är intressant. ",
+//         shortTextTwo: "Samtalshistoriken på Klas telefon.",
+//         text: "Leta vid Casinots parkering",
+//         koordinater: [55.60249199340967, 12.993933693685316]
+
+//     },
+//     {
+//         id: 7,
+//         code: 2753,
+//         title: "Görans rörelsemönster",
+//         Locationimage: "Bilder/cluesPic/IMG_2415-2.jpg",
+//         Clueimage: "Bilder/cluesPic/IMG_2415-2.jpg",
+//         ClueimageTwo: "Bilder/cluesPic/GoranRorelsemonster.png",
+//         ClueText: "",
+//         shortText: "Görans rörelsemönster. Screenshot från uber-appen.",
+//         shortTextTwo: "Dekalerna visar vart han har stannat.",
+//         text: "Leta vid utkanten av parken",
+//         koordinater: [55.60307051733962, 12.994193590927555]
+
+//     },
+//     {
+//         id: 8,
+//         code: 2009,
+//         title: "Eriks stämpelkort",
+//         Locationimage: "Bilder/cluesPic/IMG_2407-2.jpg",
+//         Clueimage: "Bilder/cluesPic/IMG_2407-2.jpg",
+//         ClueimageTwo: "Bilder/cluesPic/erikPasserKortPic.png",
+//         ClueText: "",
+//         shortText: "Ett stämpelkort från personal på casinot. ",
+//         shortTextTwo: "Erik är anställd på Casinot",
+//         text: "Leta vid Casinot",
+//         koordinater: [55.6026051896978, 12.99257303071663]
+
+//     },
+//     {
+//         id: 9,
+//         code: 9063,
+//         title: "Annas POV & Klas sms till Göran",
+//         Locationimage: "Bilder/cluesPic/IMG_2424-2.jpg",
+//         Clueimage: "Bilder/cluesPic/IMG_2424-2.jpg",
+//         ClueimageTwo: "Bilder/cluesPic/Konversation_Klas_Goran.jpg",
+//         ClueText: "",
+//         shortText: "Här stod Anna när hon såg en man räkna pengar och det verkar även som att Klas skickat sms denna kvällen.",
+//         shortTextTwo: "Konversation mellan Klas och Göran.",
+//         text: "Leta vid vattnet bakom casinot",
+//         koordinater: [55.603214837494534, 12.991839320922354]
 
 //     },
 //     {
@@ -424,7 +425,7 @@ const CLUES = [
 //         shortText: "Förhöret med Erik tog en vändning.",
 //         shortTextTwo: "Förhörsprotokollet från Polisen.",
 //         text: "Leta vid lekplatsen bakom Casinot",
-//         koordinater: [56.947091731858706, 12.535834405119699]
+//         koordinater: [55.60286369491501, 12.99134720613196]
 
 //     },
 //     {
@@ -438,11 +439,10 @@ const CLUES = [
 //         shortText: "Förhöret med Erik tog en vändning.",
 //         shortTextTwo: "Förhörsprotokollet från Polisen.",
 //         text: "Leta vid lekplatsen bakom Ericas",
-//         koordinater: [56.947091731858706, 12.535834405119699]
+//         koordinater: [56.947250893608576, 12.535837108458423]
 
 //     }
 // ];
-
 const SUSPECTS = [
     {
         suspectId: 1,

@@ -149,3 +149,12 @@ h2 {
 .OK {
     margin-top: 35px;
 }
+
+.EnketLink {
+    text-decoration: underline;
+
+}
+
+.EnketLink:hover {
+    cursor: pointer;
+}
