@@ -72,20 +72,23 @@ main {
 #SagaIntro {
     color: white;
     font-size: 14px;
-    margin: 20vw 10vw;
+    margin: 35vw 10vw;
 }
 
 #next {
     width: 100px;
     height: 50px;
     font-size: 16px;
-    background-color: #03030385;
-    border: 1px solid white;
-    border-radius: 20px;
-    color: white;
+    background-color: #242424;
+    border: 1px solid #ffffff6b;
     position: absolute;
     bottom: 15vh;
     right: 5vw;
+
+    border-radius: 10px;
+    color: white;
+    font-size: 3.5vw;
+    font-family: Titillium;
 }
 
 #next:hover {
@@ -301,8 +304,8 @@ button {
 
 
 #notes {
-    height: 16vw;
-    width: 16vw;
+    height: 15vw;
+    width: 15vw;
     background-color: rgb(67, 89, 186);
     position: fixed;
     bottom: 10vh;
@@ -313,4 +316,12 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 65%;
+}
+
+#tipsText {
+    margin: 0px 5px;
+}
+
+#tipsTitle {
+    margin: 10px 2.5px 5px 2.5px;
 }

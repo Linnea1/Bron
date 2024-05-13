@@ -45,11 +45,15 @@ function ArrestPopUp(prompt) {
                 <div id="second"> 
                     <p> ${prompt.direction}</p>
                     <p onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
+                    <p id="enket"></p>
                 </div>
         </div>
 
     `;
 
+    if (prompt.NameOfEnket !== "") {
+        document.querySelector("#enket").innerHTML = `Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <span class="EnketLink"><a href="${prompt.NameOfEnket}" target="_blank">${prompt.NameOfEnket}</a></span>`;
+    }
     document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
     document.querySelector("#second p:nth-child(2)").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
     document.querySelector("span").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
@@ -64,6 +68,31 @@ function popUp(prompt) {
 
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#prompt").textContent = prompt;
+
+    let button = document.createElement("button");
+    button.textContent = "OK";
+    button.classList = "OK";
+    document.querySelector("#popUpWindow").append(button);
+    document.querySelector(".OK").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+}
+function popUpInfo(prompt) {
+
+    document.querySelector("#popUpWindow").innerHTML = `
+         <h2> Eventuella frågor som kan uppstå </h2>
+         <br>
+         <p id="prompt"></p>
+    `;
+
+    document.querySelector("#popUp").classList.remove("hidden");
+    prompt.forEach(x => {
+
+        document.querySelector("#prompt").innerHTML += `
+            <h3 id="tipsTitle"> ${x.tipsTitle} </h3>
+            <p id="tipsText"> ${x.tipsText} </p>
+            <br>
+        `;
+    })
 
     let button = document.createElement("button");
     button.textContent = "OK";
@@ -151,9 +180,6 @@ function RenderPopUpPictureSecond(clue) {
     if (clue.ClueimageTwo === "Bilder/cluesPic/erikPasserKortPic.png") {
         document.querySelector("#clueTwo").style.height = "60vw";
     }
-    // else {
-    //     document.querySelector("#clueTwo").style.height = "130vw";
-    // }
 
     if (clue.ClueimageTwo === "Bilder/cluesPic/mordvapen.jpg") {
         document.querySelector("#clueTwo").style.height = "100vw";

@@ -2,7 +2,7 @@ function renderClue(clue) {
     document.querySelector("#notes").style.opacity = 1;
     // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
-    body.style.backgroundSize = "cover";
+    // body.style.backgroundSize = "cover";
     document.querySelector("main").innerHTML = `
     <div class="unlockClueContainer">
         <h1>${clue.title}</h1>

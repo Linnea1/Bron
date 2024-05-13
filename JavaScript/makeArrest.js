@@ -1,6 +1,6 @@
 async function RenderMakeArrest() {
 
-    stopExecution=true;
+    stopExecution = true;
     basicHeader()
 
     swapStyleSheet("css/arrest.css");
@@ -112,6 +112,7 @@ function RenderAnswere(suspect) {
                     text: "Tack vare din hjälp, kunde mördaren fångas och frid kan återigen inta Malmö.",
                     direction: "Du har nu klarat av spelet. Återgå till startsidan för att spela en gång till",
                     NameOfPAge: "Hem",
+                    NameOfEnket: "https://forms.gle/kVKgD1xSbve8XL3F8",
                     link: "RenderOptions()"
                 }
 
@@ -123,6 +124,7 @@ function RenderAnswere(suspect) {
                     text: `${suspect.id} var inte mördaren och  mördaren är fortfarande på fri fot.`,
                     direction: "Återgå till ledtrådarna och fortsätt att spela för att hjälpa mig sätta dit mördaren.",
                     NameOfPAge: "Ledtrådar",
+                    NameOfEnket: "",
                     link: "RenderClues()"
                 }
 

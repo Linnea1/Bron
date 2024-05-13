@@ -117,7 +117,7 @@ if ($method == "PATCH") {
 
             $userData["firstTime"] = false; //update the array of favourites 
             file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-            send_JSON($user);
+            send_JSON($userData);
             // send_JSON($userData);
         }
         

@@ -1,6 +1,6 @@
 function RenderSuspects() {
     basicHeader()
-    stopExecution=true;
+    stopExecution = true;
     document.querySelector("#notes").style.opacity = 1;
     let user = JSON.parse(localStorage.getItem("user"));
 
@@ -9,11 +9,6 @@ function RenderSuspects() {
     } else {
         document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
     }
-
-    // document.querySelector(".wrapper").style.backgroundImage = "none";
-
-    // body.style.backgroundImage = `url('Bilder/istockphoto-1462731789-640x640.jpg')`;
-    // body.style.backgroundSize = "cover";
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
 
     let evenOrOdd = 0;

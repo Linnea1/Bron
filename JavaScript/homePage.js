@@ -37,9 +37,10 @@ function RenderIntro() {
                 document.getElementById("SagaIntro").innerHTML += introText.charAt(index);
                 index++;
                 setTimeout(typeWriter, 80); // Justera fördröjningen här (50 ms för varje bokstav)
-            } else {
+            }
+            else {
                 // När all text är skriven ut, lägg till knappen "Nästa"
-                document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='RenderOptions()'> Nästa </button>";
+                document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='moreInfo()'> Fortsätt </button>";
             }
         }
 
@@ -50,12 +51,29 @@ function RenderIntro() {
     }
 }
 
+function moreInfo() {
+    document.querySelector("#SagaIntro").innerHTML = "";
+    let introTextTwo = "Saga: Använd kartan för att hitta ledtrådarna som kommer att guida dig genom mysteriet kring Klas öde. Utforska varje plats för att avslöja bit för bit av det stora pusslet och närma dig sanningen om vem som ligger bakom Klas död. För att öppna dessa hemligheter krävs det att du hittar varje plats unika kod. Börja din färd vid mordplatsen, där den första ledtråden väntar på att bli upptäckt. ";
+    let indexTwo = 0;
+
+    function typeWriterTwo() {
+        if (indexTwo < introTextTwo.length) {
+            document.getElementById("SagaIntro").innerHTML += introTextTwo.charAt(indexTwo);
+            indexTwo++;
+            setTimeout(typeWriterTwo, 80); // Justera fördröjningen här (50 ms för varje bokstav)
+        } else {
+            // När all text är skriven ut, lägg till knappen "Nästa"
+            document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='RenderOptions()'> Nästa </button>";
+        }
+    }
+    typeWriterTwo();
+}
 
 async function RenderOptions() {
     document.querySelector(".sticky-nav").style.opacity = 1;
     document.querySelector("#notes").style.opacity = 1;
     document.querySelector("main").style.height = "84vh";
-    stopExecution=true;
+    stopExecution = true;
 
     map = null;
     userMarker = null;
@@ -64,14 +82,43 @@ async function RenderOptions() {
     let user = JSON.parse(localStorage.getItem("user"));
 
     if (user.firstTime) {
-        try {
-            let resourse = await fetching("api/functions.php", "PATCH", user);
-            if (resourse) {
-                console.log(resourse);
+
+        let infoContent = [
+            {
+                tipsTitle: "Min karta bara laddar, varför?",
+                tipsText: "Om kartan bara står och laddar kan det hjälpa att ladda om sidan. Varför den står och laddar kan bero på att det är dåligt internet, eller om servern bråkar."
+            },
+            {
+                tipsTitle: "Min position uppdateras inte på kartan & kan därför inte låsa upp nästa ledtråd",
+                tipsText: "I Slottsparken kan det finnas blindspots vilket gör att din plats inte uppdateras eller är korrekt. Men ingen fara! Du kan fortfarande låsa upp nästa ledtråd med hjälp av koden som finns på plats. Gå in på LEDTRÅDAR och tryck på lås upp på önskad ledtråd."
             }
-        } catch (error) {
-            popUp(error);
-        }
+        ]
+
+        popUpInfo(infoContent)
+
+        document.querySelector(".OK").addEventListener("click", async e => {
+            try {
+                let resourse = await fetching("api/functions.php", "PATCH", user);
+                let data = await resourse.json();
+                if (resourse) {
+                    console.log(resourse);
+
+                    let localUser = {
+                        "username": data.username,
+                        "email": data.email,
+                        "pfp": data.pfp,
+                        "firstTime": data.firstTime,
+                        "userId": data.userId,
+                        "notes": data.notes,
+                        "clues": data.clues
+                    }
+
+                    window.localStorage.setItem("user", JSON.stringify(localUser));
+                }
+            } catch (error) {
+                popUp(error);
+            }
+        });
     }
 
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
@@ -107,23 +154,7 @@ async function RenderOptions() {
 
     let main = document.querySelector("main");
 
-    main.innerHTML = `
-
-    `;
-
-
-    /*
-    
-        {
-            title: "ANTECKNINGAR",
-            OptionPic: "Bilder/notesBackground.jpg",
-            description: "Samla dina anteckningar här",
-            sagaPic: "Bilder/Saga.jpg",
-            event: RenderNotes
-        }
-    */
-
-
+    main.innerHTML = ``;
 
     options.forEach(option => {
 
@@ -137,6 +168,7 @@ async function RenderOptions() {
                 <div class="picSaga" style="background-image: url('${option.sagaPic}')"></div>
                 <div class="description"> 
                     <p>${option.description}</p>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             `;
 
@@ -154,7 +186,7 @@ let map;
 
 
 async function renderCurrentLocationView() {
-    stopExecution=false;
+    stopExecution = false;
     if (map) {
         map = null;
     }

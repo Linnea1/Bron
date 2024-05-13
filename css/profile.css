@@ -96,6 +96,8 @@ button {
 
 #save {
     width: 90%;
+    height: 10vw;
+    padding: 2vw;
 }
 
 .smallButtons {
