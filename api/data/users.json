@@ -252,18 +252,7 @@
         "password": "444",
         "firstTime": false,
         "pfp": "",
-        "notes": [
-            {
-                "timeDate": "14\/5\/2024, 16:58",
-                "content": "hej",
-                "id": 1
-            },
-            {
-                "timeDate": "14\/5\/2024, 16:58",
-                "content": "hej",
-                "id": 2
-            }
-        ],
+        "notes": [],
         "clues": [
             1
         ]
