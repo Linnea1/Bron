@@ -88,6 +88,7 @@ async function addClue(idUser, idClue) {
             "pfp": data.pfp,
             "firstTime": data.firstTime,
             "userId": data.userId,
+            "notes": data.notes,
             "clues": data.clues
         }
 

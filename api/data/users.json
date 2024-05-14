@@ -244,5 +244,28 @@
         "clues": [
             1
         ]
+    },
+    {
+        "userId": 16,
+        "email": "444@hej",
+        "username": "444",
+        "password": "444",
+        "firstTime": false,
+        "pfp": "",
+        "notes": [
+            {
+                "timeDate": "14\/5\/2024, 16:58",
+                "content": "hej",
+                "id": 1
+            },
+            {
+                "timeDate": "14\/5\/2024, 16:58",
+                "content": "hej",
+                "id": 2
+            }
+        ],
+        "clues": [
+            1
+        ]
     }
 ]
