@@ -228,131 +228,16 @@
             8,
             9,
             10,
-            11
-        ]
-    },
-    {
-        "userId": 13,
-        "email": "111@hej.se",
-        "username": "111",
-        "password": "111",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": [
+            11,
             1,
-            2
-        ]
-    },
-    {
-        "userId": 14,
-        "email": "casino@hej.se",
-        "username": "casino",
-        "password": "casino",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": [
-            1,
-            2
+            1
         ]
     },
     {
         "userId": 15,
-        "email": "test123.@com",
-        "username": "123",
-        "password": "123",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": []
-    },
-    {
-        "userId": 16,
-        "email": "hejhoppp@.com",
-        "username": "1234",
-        "password": "1234",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": [
-            1
-        ]
-    },
-    {
-        "userId": 17,
-        "email": "1233@.com",
-        "username": "1233",
-        "password": "1233",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": []
-    },
-    {
-        "userId": 18,
-        "email": "122@.",
+        "email": "122@hej.se",
         "username": "122",
         "password": "122",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": [
-            1,
-            2
-        ]
-    },
-    {
-        "userId": 19,
-        "email": "122@1",
-        "username": "1111",
-        "password": "1111",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": []
-    },
-    {
-        "userId": 20,
-        "email": "222@@",
-        "username": "222",
-        "password": "222",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": [
-            1
-        ]
-    },
-    {
-        "userId": 21,
-        "email": "1111@.com",
-        "username": "hejHoppp",
-        "password": "hejHoppp",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": []
-    },
-    {
-        "userId": 22,
-        "email": "1122@.com",
-        "username": "1122",
-        "password": "1122",
-        "firstTime": false,
-        "pfp": "",
-        "notes": [],
-        "clues": [
-            1,
-            2,
-            3
-        ]
-    },
-    {
-        "userId": 23,
-        "email": "ny@.com",
-        "username": "nyy",
-        "password": "nyy",
         "firstTime": false,
         "pfp": "",
         "notes": [],

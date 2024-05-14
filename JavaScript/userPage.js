@@ -1,6 +1,6 @@
 async function RenderUserPage() {
     let user = JSON.parse(localStorage.getItem("user"));
-    stopExecution=true;
+    stopExecution = true;
     swapStyleSheet("css/profile.css");
 
     resetButtons()
@@ -51,7 +51,7 @@ async function RenderUserPage() {
     if (user.pfp !== "") {
         document.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
     } else {
-        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/userIconPic.jpg')`;
     }
 
     let saveButton = main.querySelector("#save");

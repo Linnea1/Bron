@@ -37,10 +37,9 @@ function RenderIntro() {
             if (index < introText.length) {
                 document.getElementById("SagaIntro").innerHTML += introText.charAt(index);
                 index++;
-                setTimeout(typeWriter, 80); // Justera fördröjningen här (50 ms för varje bokstav)
+                setTimeout(typeWriter, 80);
             }
             else {
-                // När all text är skriven ut, lägg till knappen "Nästa"
                 document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='moreInfo()'> Fortsätt </button>";
             }
         }
@@ -73,7 +72,7 @@ function moreInfo() {
     typeWriterTwo();
 }
 
-async function RenderOptions() {
+async function RenderOptions(value) {
     document.querySelector(".sticky-nav").style.opacity = 1;
     document.querySelector("#notes").style.opacity = 1;
     document.querySelector("main").style.height = "84vh";
@@ -184,13 +183,46 @@ async function RenderOptions() {
             setTimeout(() => {
                 main.classList.remove("swiped");
                 option.event(true);
-            }, 200);
+            }, 300);
         });
 
     });
     stickyNav();
     resetButtons()
     document.querySelector(".fa-house").classList.add("current-page");
+
+    if (user.done) {
+        console.log("true");
+
+        let feedbackText = `Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>`;
+
+        popUp(feedbackText)
+
+
+        document.querySelector(".OK").addEventListener("click", async e => {
+            try {
+                let resourse = await fetching("api/functions.php", "PATCH", user.userId);
+                let data = await resourse.json();
+                if (resourse) {
+
+                    let localUser = {
+                        "username": data.username,
+                        "email": data.email,
+                        "pfp": data.pfp,
+                        "firstTime": data.firstTime,
+                        "userId": data.userId,
+                        "notes": data.notes,
+                        "clues": data.clues
+                    }
+
+                    window.localStorage.setItem("user", JSON.stringify(localUser));
+                }
+            } catch (error) {
+                popUp(error);
+            }
+        });
+    }
+
 }
 
 
@@ -231,7 +263,7 @@ async function renderCurrentLocationView(value) {
 
             main.classList.remove("slide-left");
 
-        }, 150);
+        }, 300);
 
 
     } else {

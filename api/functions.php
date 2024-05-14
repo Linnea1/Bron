@@ -92,7 +92,7 @@ function change ($input, $users, $filename, $field, $secondaryField = "password"
             changeUsername($comments, "author", "data/comments.json", $input);
             changeUsername($recipes, "author", "data/recipes.json", $input);
             }
-            ///
+            
 
             send_JSON(["message"=>"Successfully updated $field!"]);
         }

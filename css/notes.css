@@ -1,5 +1,5 @@
 .bigBox {
-    height: 180vw;
+    height: 100%;
     width: 90vw;
     margin: 0vw 5vw;
     border-radius: 10px;
@@ -10,7 +10,7 @@
 
 #story {
     width: 100%;
-    height: 20%;
+    height: 15%;
     background-color: #ffffff70;
     padding: 5px;
     border-radius: 10px;
@@ -20,7 +20,7 @@
 
 #noteBox {
     width: 100%;
-    height: 70%;
+    height: 60%;
     overflow: scroll;
 }
 
@@ -55,4 +55,14 @@ button {
 img {
     height: 5vw;
     width: 5vw;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+#infoText {
+    margin-top: 5%;
+    text-align: center;
+    height: 5%;
 }

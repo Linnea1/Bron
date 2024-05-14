@@ -20,7 +20,7 @@ function basicHeader() {
     if (user.pfp !== "") {
         document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
     } else {
-        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/userIconPic.jpg')`;
     }
 
 }
@@ -39,25 +39,67 @@ function ArrestPopUp(prompt) {
         <div class="content">
             <div class="pictureOfSaga" style="background-image: url('Bilder/Saga.jpg')"></div>
                 <div id="first">
-                    <p>Saga:</p> 
-                    <p>${prompt.text}</p>
+                    <p id="firstTextSaga"></p>
                 </div>
                 <div id="second"> 
-                    <p> ${prompt.direction}</p>
+                    <p id="instructions"></p>
                     <p id="enket"></p>
-                    <p onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
+                    <p></p>
                 </div>
         </div>
 
     `;
 
-    if (prompt.NameOfEnket !== "") {
-        document.querySelector("#enket").innerHTML = `Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <span class="EnketLink"><a href="${prompt.NameOfEnket}" target="_blank">${prompt.NameOfEnket}</a></span>`;
+    let introText = prompt.text;
+    let index = 0;
+
+
+    function typeWriter() {
+        if (index < introText.length) {
+            document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
+            index++;
+            setTimeout(typeWriter, 80);
+        }
+        else {
+            document.getElementById("second").innerHTML = `
+                <p id="instructions"> ${prompt.direction}</p>
+                <p id="link" onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
+                <div id="enket">
+                    <p></p>
+                </div>
+            `;
+
+            document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
+            document.querySelector("#second p:nth-child(2)").addEventListener("click", e => {
+
+                if (prompt.value) {
+                    document.querySelector("#popUp").classList.remove("hidden");
+                    document.querySelector("#popUpWindow").innerHTML = `
+                        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
+                        <h2> Vi vill ha just din hjälp </h2>
+                        <p>
+                            Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>
+                        </p>
+                    `;
+                    document.querySelector("#cross").addEventListener("click", () => {
+                        document.querySelector("#popUp").classList.add("hidden");
+                    });
+                }
+                else {
+                    document.querySelector("#popUp").classList.add("hidden");
+                }
+
+                // e.preventDefault(); e.stopPropagation();
+
+            });
+            document.querySelector(".underscore").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
+            document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+        }
     }
-    document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
-    document.querySelector("#second p:nth-child(2)").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
-    document.querySelector("span").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
-    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+
+    // Starta skrivaren
+    typeWriter();
+
 }
 
 function popUp(prompt) {
@@ -73,9 +115,11 @@ function popUp(prompt) {
     button.textContent = "OK";
     button.classList = "OK";
     document.querySelector("#popUpWindow").append(button);
-    document.querySelector(".OK").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    document.querySelector(".OK").addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); document.querySelector("#popUp").classList.add("hidden") });
     document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
+
+
 function popUpInfo(prompt) {
 
     document.querySelector("#popUpWindow").innerHTML = `

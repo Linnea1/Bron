@@ -335,3 +335,8 @@ button {
     transition: transform 0.3s ease;
     transform: translateX(100%);
 }
+
+
+.EnketLink a {
+    color: rgb(67, 89, 186);
+}

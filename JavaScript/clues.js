@@ -168,6 +168,7 @@ function RenderClues(value) {
 
     if (value) {
 
+        document.querySelector("main").style.height = "84vh";
         main.classList.add("slide-left");
         setTimeout(() => {
 
@@ -252,6 +253,7 @@ function RenderClues(value) {
 
     } else {
         swapStyleSheet("css/clues.css");
+        document.querySelector("main").style.height = "84vh";
         main.innerHTML = `
             <h1>LEDTRÅDAR</h1>
             <div class="clues"></div>

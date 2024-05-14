@@ -37,8 +37,8 @@ main {
 }
 
 .PictureBox {
-    height: 60vw;
-    width: 60vw;
+    height: 50vw;
+    width: 50vw;
     position: relative;
     padding: 10px 0px;
 }

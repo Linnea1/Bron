@@ -55,10 +55,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // make sure its the right method
         }
     }
 
-    $id = 1;
-
-    foreach ($users as $user) {
-        $id = $user["userId"] + 1;
+    $id = 1; // Default id if no users exist
+    if (!empty($users)) {
+        $ids = array_column($users, 'userId');
+        $id = max($ids) + 1;
     }
 
 

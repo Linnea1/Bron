@@ -104,11 +104,12 @@ function RenderAnswere(suspect) {
             if (d.guilty === true) {
                 let message = {
                     title: "Rätt svar!",
-                    text: "Tack vare din hjälp, kunde mördaren fångas och frid kan återigen inta Malmö.",
-                    direction: "Du har nu klarat av spelet. Återgå till startsidan för att spela en gång till.",
-                    NameOfPAge: "Hem",
+                    text: "Tack vare din hjälp, kunde mördaren fångas och frid kan återigen inta Malmö. Återgå till startsidan för att spela en gång till.",
+                    direction: "",
+                    NameOfPAge: "Startsidan",
                     NameOfEnket: "https://forms.gle/kVKgD1xSbve8XL3F8",
-                    link: "RenderOptions()"
+                    link: "RenderOptions()",
+                    value: true
                 }
 
                 ArrestPopUp(message)
@@ -116,11 +117,12 @@ function RenderAnswere(suspect) {
                 let message = {
                     title: "Fel svar!",
                     suspect: suspect.name,
-                    text: `${suspect.id} var inte mördaren och  mördaren är fortfarande på fri fot.`,
-                    direction: "Återgå till ledtrådarna och fortsätt att spela för att hjälpa mig sätta dit mördaren.",
+                    text: `${suspect.id} var inte mördaren och  mördaren är fortfarande på fri fot. Återgå till ledtrådarna och fortsätt att spela för att hjälpa mig sätta dit mördaren.`,
+                    direction: "",
                     NameOfPAge: "Ledtrådar",
                     NameOfEnket: "",
-                    link: "RenderClues()"
+                    link: "RenderClues()",
+                    value: false
                 }
 
                 ArrestPopUp(message)
