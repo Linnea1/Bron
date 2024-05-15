@@ -27,7 +27,7 @@ function renderClue(clue) {
                 <p> Se ytterligare ledtråd <span> här </span> </p>
             `;
 
-            document.querySelector("span").addEventListener("click", e => {
+            document.querySelector("#picTwo span").addEventListener("click", e => {
                 RenderPopUpPictureSecond(clue)
             })
         }

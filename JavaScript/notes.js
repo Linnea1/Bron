@@ -39,9 +39,6 @@ async function RenderNotes() {
         document.querySelector("#infoText").textContent = ""
     }
 
-    body.style.backgroundImage = `url('Bilder/notesBackground.jpg')`;
-    body.style.backgroundSize = "cover";
-
     main.querySelector("button").addEventListener("click", async (e) => {
 
         let text = main.querySelector("textarea").value;
