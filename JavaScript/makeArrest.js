@@ -109,7 +109,8 @@ function RenderAnswere(suspect) {
                     NameOfPAge: "Startsidan",
                     NameOfEnket: "https://forms.gle/kVKgD1xSbve8XL3F8",
                     link: "RenderOptions()",
-                    value: true
+                    value: true,
+                    audio:"Bilder/audio/Voiceover3.mp3"
                 }
 
                 ArrestPopUp(message)
@@ -117,12 +118,13 @@ function RenderAnswere(suspect) {
                 let message = {
                     title: "Fel svar!",
                     suspect: suspect.name,
-                    text: `${suspect.id} var inte mördaren och  mördaren är fortfarande på fri fot. Återgå till ledtrådarna och fortsätt att spela för att hjälpa mig sätta dit mördaren.`,
+                    text: `${suspect.id} var inte mördaren och mördaren är fortfarande på fri fot. Återgå till ledtrådarna och fortsätt att spela för att hjälpa mig sätta dit mördaren.`,
                     direction: "",
                     NameOfPAge: "Ledtrådar",
                     NameOfEnket: "",
                     link: "RenderClues()",
-                    value: false
+                    value: false,
+                    audio:`Bilder/audio/Voiceover${suspect.id}.mp3`
                 }
 
                 ArrestPopUp(message)

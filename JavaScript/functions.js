@@ -47,13 +47,15 @@ function ArrestPopUp(prompt) {
                     <p></p>
                 </div>
         </div>
-
+        <audio id="audioPlayer" src="${prompt.audio}" style="display: none;"></audio>
     `;
 
     let introText = prompt.text;
     let index = 0;
 
-
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.play()
+    
     function typeWriter() {
         if (index < introText.length) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
