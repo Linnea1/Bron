@@ -33,7 +33,6 @@ function swapStyleSheet(styleSheet) {
 function ArrestPopUp(prompt) {
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#popUpWindow").innerHTML = `
-        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
 
         <h2> ${prompt.title}</h2>
         <div class="content">
@@ -69,7 +68,6 @@ function ArrestPopUp(prompt) {
                 </div>
             `;
 
-            document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
             document.querySelector("#second p:nth-child(2)").addEventListener("click", e => {
 
                 if (prompt.value) {
@@ -88,8 +86,6 @@ function ArrestPopUp(prompt) {
                 else {
                     document.querySelector("#popUp").classList.add("hidden");
                 }
-
-                // e.preventDefault(); e.stopPropagation();
 
             });
             document.querySelector(".underscore").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
