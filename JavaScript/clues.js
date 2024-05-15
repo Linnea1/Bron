@@ -87,6 +87,7 @@ async function addClue(idUser, idClue) {
             "email": data.email,
             "pfp": data.pfp,
             "firstTime": data.firstTime,
+            "done": data.done,
             "userId": data.userId,
             "notes": data.notes,
             "clues": data.clues
@@ -168,7 +169,7 @@ function RenderClues(value) {
     let main = document.querySelector("main");
 
     if (value) {
-      
+
         document.querySelector("main").style.height = "84vh";
         main.classList.add("slide-left");
         setTimeout(() => {
@@ -220,25 +221,25 @@ function RenderClues(value) {
                     let parent = clueBox.querySelector(".lockedClueContent")
                     if (previousClue === 0) {
                         if (user.clues.length === 0) {
-                        let unlockIcon = $('<i>').addClass('fa-solid fa-unlock unlock lock');
+                            let unlockIcon = $('<i>').addClass('fa-solid fa-unlock unlock lock');
 
-                        $(parent).append(unlockIcon);
+                            $(parent).append(unlockIcon);
 
-                        var times = 80;
-                        var duration = 300;
-                        for (var i = 0; i < times; i++) {
-                            unlockIcon.animate({
-                                rotate: '-10deg' // Twist to the left
-                            }, duration)
-                                .animate({
-                                    rotate: '10deg' // Twist to the right
+                            var times = 80;
+                            var duration = 300;
+                            for (var i = 0; i < times; i++) {
+                                unlockIcon.animate({
+                                    rotate: '-10deg' // Twist to the left
                                 }, duration)
+                                    .animate({
+                                        rotate: '10deg' // Twist to the right
+                                    }, duration)
 
-                        }
+                            }
 
-                        unlockIcon.on("click", function () {
-                            unlockCluePopUp(clue.id);
-                        });
+                            unlockIcon.on("click", function () {
+                                unlockCluePopUp(clue.id);
+                            });
                         } else {
                             let unlockIcon = document.createElement("i");
                             unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
@@ -249,7 +250,7 @@ function RenderClues(value) {
                             let unlockIcon = $('<i>').addClass('fa-solid fa-unlock unlock lock');
 
                             $(parent).append(unlockIcon);
-    
+
                             var times = 80;
                             var duration = 300;
                             for (var i = 0; i < times; i++) {
@@ -259,9 +260,9 @@ function RenderClues(value) {
                                     .animate({
                                         rotate: '10deg' // Twist to the right
                                     }, duration)
-    
+
                             }
-    
+
                             unlockIcon.on("click", function () {
                                 unlockCluePopUp(clue.id);
                             });
@@ -367,7 +368,7 @@ function RenderClues(value) {
                         unlockIcon.on("click", function () {
                             unlockCluePopUp(clue.id);
                         });
-                    }else {
+                    } else {
                         let unlockIcon = document.createElement("i");
                         unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
                         parent.append(unlockIcon);

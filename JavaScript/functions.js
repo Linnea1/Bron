@@ -1,5 +1,11 @@
 
 async function fetching(URL, method, body) {
+
+    console.log("Sending request to:", URL);
+    console.log("Method:", method);
+    console.log("Body:", body);
+
+
     let response = await fetch(URL, {
         method: method,
         headers: { "Content-Type": "application/json" },
@@ -54,7 +60,7 @@ function ArrestPopUp(prompt) {
 
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.play()
-    
+
     function typeWriter() {
         if (index < introText.length) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
@@ -70,9 +76,33 @@ function ArrestPopUp(prompt) {
                 </div>
             `;
 
-            document.querySelector("#second p:nth-child(2)").addEventListener("click", e => {
+            document.querySelector("#second p:nth-child(2)").addEventListener("click", async e => {
+
+                let user = JSON.parse(localStorage.getItem("user"));
 
                 if (prompt.value) {
+                    try {
+                        let resourse = await fetching("api/UserDone.php", "PATCH", user);
+                        let data = await resourse.json();
+                        console.log(data);
+                        if (resourse) {
+
+                            let localUser = {
+                                "username": data.username,
+                                "email": data.email,
+                                "pfp": data.pfp,
+                                "firstTime": data.firstTime,
+                                "done": data.done,
+                                "userId": data.userId,
+                                "notes": data.notes,
+                                "clues": data.clues
+                            }
+
+                            window.localStorage.setItem("user", JSON.stringify(localUser));
+                        }
+                    } catch (error) {
+                        popUp(error);
+                    }
                     document.querySelector("#popUp").classList.remove("hidden");
                     document.querySelector("#popUpWindow").innerHTML = `
                         <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>

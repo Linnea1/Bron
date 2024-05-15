@@ -68,6 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // make sure its the right method
         "username" => $input["username"],
         "password" => $input["password"],
         "firstTime" => true,
+        "done" => false,
         "pfp" => "",
         "notes" => [],
         "clues" => []

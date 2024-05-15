@@ -110,6 +110,7 @@ async function RenderOptions(value) {
                         "email": data.email,
                         "pfp": data.pfp,
                         "firstTime": data.firstTime,
+                        "done": data.done,
                         "userId": data.userId,
                         "notes": data.notes,
                         "clues": data.clues
@@ -191,37 +192,32 @@ async function RenderOptions(value) {
     resetButtons()
     document.querySelector(".fa-house").classList.add("current-page");
 
-    if (user.done) {
-        console.log("true");
+    // if (user.done) {
 
-        let feedbackText = `Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>`;
+    //     document.querySelector(".OK").addEventListener("click", async e => {
+    //         try {
+    //             let resourse = await fetching("api/functions.php", "PATCH", user.userId);
+    //             let data = await resourse.json();
+    //             if (resourse) {
 
-        popUp(feedbackText)
+    //                 let localUser = {
+    //                     "username": data.username,
+    //                     "email": data.email,
+    //                     "pfp": data.pfp,
+    //                     "firstTime": data.firstTime,
+    //                     "done": data.done,
+    //                     "userId": data.userId,
+    //                     "notes": data.notes,
+    //                     "clues": data.clues
+    //                 }
 
-
-        document.querySelector(".OK").addEventListener("click", async e => {
-            try {
-                let resourse = await fetching("api/functions.php", "PATCH", user.userId);
-                let data = await resourse.json();
-                if (resourse) {
-
-                    let localUser = {
-                        "username": data.username,
-                        "email": data.email,
-                        "pfp": data.pfp,
-                        "firstTime": data.firstTime,
-                        "userId": data.userId,
-                        "notes": data.notes,
-                        "clues": data.clues
-                    }
-
-                    window.localStorage.setItem("user", JSON.stringify(localUser));
-                }
-            } catch (error) {
-                popUp(error);
-            }
-        });
-    }
+    //                 window.localStorage.setItem("user", JSON.stringify(localUser));
+    //             }
+    //         } catch (error) {
+    //             popUp(error);
+    //         }
+    //     });
+    // }
 
 }
 

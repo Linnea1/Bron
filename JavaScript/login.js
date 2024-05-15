@@ -56,6 +56,7 @@ function renderLoginPage() {
                 "email": data.email,
                 "pfp": pfp,
                 "firstTime": data.firstTime,
+                "done": data.done,
                 "userId": data.userId,
                 "notes": data.notes,
                 "clues": data.clues

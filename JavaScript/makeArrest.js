@@ -11,7 +11,57 @@ async function RenderMakeArrest() {
         <div class="bigBox"></div>
     `;
 
-    document.querySelector(".bigBox").innerHTML = `
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.done) {
+
+
+        document.querySelector(".bigBox").innerHTML = `
+
+            <h1> GISSA MISSTÄNKT</h1>
+            <div class="PictureBox">
+                <div id="profilePic"  style="background-image: url('Bilder/suspects/Goran.png')"></div>
+            </div>
+
+            <h3> Spelet är avklarat. Mördaren är nu fångad och frid kan återigen inta Malmö </h3>
+
+            <div id="suspects">
+                <div id="suspectBoxOne"></div>
+                <div id="suspectBoxTwo"></div>
+            </div>
+
+            <button disabled> Lås in och avsluta spelet </button>
+            <div id="message"></div>
+        `
+
+        let count = 0;
+
+        SUSPECTS.forEach(suspect => {
+            count++
+            let divDom = document.createElement("div");
+            divDom.classList.add("suspectBox");
+            divDom.setAttribute("id", suspect.name)
+            if (count <= 3) {
+                document.querySelector("#suspectBoxOne").append(divDom);
+            } else {
+                document.querySelector("#suspectBoxTwo").append(divDom);
+            }
+            divDom.innerHTML = `
+                <div class="Pic" style="background-image: url('${suspect.image}')"></div>
+                <p> ${suspect.name} </p>
+            `;
+
+        })
+
+        resetButtons()
+        document.querySelector(".fa-handcuffs").classList.add("current-page");
+        document.querySelector(".text-arrest").classList.add("current-page");
+
+    } else {
+
+
+
+        document.querySelector(".bigBox").innerHTML = `
 
         <h1> GISSA MISSTÄNKT</h1>
         <div class="PictureBox">
@@ -28,56 +78,62 @@ async function RenderMakeArrest() {
         <button onclick="CheckChosenPerson()"> Lås in och avsluta spelet </button>
         <div id="message"></div>
     `
-    document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
 
-    let count = 0;
+        let count = 0;
 
-    SUSPECTS.forEach(suspect => {
-        count++
-        let divDom = document.createElement("div");
-        divDom.classList.add("suspectBox");
-        divDom.setAttribute("id", suspect.name)
-        if (count <= 3) {
-            document.querySelector("#suspectBoxOne").append(divDom);
-        } else {
-            document.querySelector("#suspectBoxTwo").append(divDom);
-        }
-        divDom.innerHTML = `
+        SUSPECTS.forEach(suspect => {
+            count++
+            let divDom = document.createElement("div");
+            divDom.classList.add("suspectBox");
+            divDom.setAttribute("id", suspect.name)
+            if (count <= 3) {
+                document.querySelector("#suspectBoxOne").append(divDom);
+            } else {
+                document.querySelector("#suspectBoxTwo").append(divDom);
+            }
+            divDom.innerHTML = `
             <div class="Pic" style="background-image: url('${suspect.image}')"></div>
             <p> ${suspect.name} </p>
         `;
 
-        divDom.addEventListener("click", e => {
-            let wantedPerson = e.currentTarget;
+            divDom.addEventListener("click", e => {
+                let wantedPerson = e.currentTarget;
 
-            document.querySelectorAll('.suspectBox').forEach(box => {
-                let wantedPersonPicture = box.querySelector(".Pic")
-                if (box !== wantedPerson) {
-                    wantedPersonPicture.classList.remove('chosen');
+                document.querySelectorAll('.suspectBox').forEach(box => {
+                    let wantedPersonPicture = box.querySelector(".Pic")
+                    if (box !== wantedPerson) {
+                        wantedPersonPicture.classList.remove('chosen');
+                    }
+                });
+
+                wantedPerson.querySelector(".Pic").classList.toggle("chosen");
+
+                let selectedSuspect = document.querySelector(".chosen");
+
+                if (!selectedSuspect) {
+                    document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+                } else {
+
+                    SUSPECTS.forEach(person => {
+                        if (person.name === wantedPerson.id) {
+                            document.querySelector("#profilePic").style.backgroundImage = `url('${person.image}')`
+                        }
+                    })
                 }
+
             });
 
-            wantedPerson.querySelector(".Pic").classList.toggle("chosen");
 
-            let selectedSuspect = document.querySelector(".chosen");
 
-            if (!selectedSuspect) {
-                document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
-            } else {
+        })
+        resetButtons()
+        document.querySelector(".fa-handcuffs").classList.add("current-page");
+        document.querySelector(".text-arrest").classList.add("current-page");
 
-                SUSPECTS.forEach(person => {
-                    if (person.name === wantedPerson.id) {
-                        document.querySelector("#profilePic").style.backgroundImage = `url('${person.image}')`
-                    }
-                })
-            }
 
-        });
 
-    })
-    resetButtons()
-    document.querySelector(".fa-handcuffs").classList.add("current-page");
-    document.querySelector(".text-arrest").classList.add("current-page");
+    }
 
 }
 
@@ -110,7 +166,7 @@ function RenderAnswere(suspect) {
                     NameOfEnket: "https://forms.gle/kVKgD1xSbve8XL3F8",
                     link: "RenderOptions()",
                     value: true,
-                    audio:"Bilder/audio/Voiceover3.mp3"
+                    audio: "Bilder/audio/Voiceover3.mp3"
                 }
 
                 ArrestPopUp(message)
@@ -124,7 +180,7 @@ function RenderAnswere(suspect) {
                     NameOfEnket: "",
                     link: "RenderClues()",
                     value: false,
-                    audio:`Bilder/audio/Voiceover${suspect.id}.mp3`
+                    audio: `Bilder/audio/Voiceover${suspect.id}.mp3`
                 }
 
                 ArrestPopUp(message)

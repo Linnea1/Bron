@@ -90,6 +90,7 @@ async function RenderNotes() {
                     "email": updatedResponse.email,
                     "pfp": updatedResponse.pfp,
                     "firstTime": updatedResponse.firstTime,
+                    "done": updatedResponse.done,
                     "userId": updatedResponse.userId,
                     "notes": updatedResponse.notes,
                     "clues": updatedResponse.clues
@@ -175,6 +176,7 @@ async function RenderInsideNotes(response) {
                     "email": updatedResponse.email,
                     "pfp": updatedResponse.pfp,
                     "firstTime": updatedResponse.firstTime,
+                    "done": updatedResponse.done,
                     "userId": updatedResponse.userId,
                     "notes": updatedResponse.notes,
                     "clues": updatedResponse.clues

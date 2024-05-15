@@ -5,6 +5,7 @@
         "username": "elliot",
         "password": "elliot",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -15,6 +16,7 @@
         "username": "berit",
         "password": "berit",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -25,6 +27,7 @@
         "username": "redbull",
         "password": "redbull",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -35,6 +38,7 @@
         "username": "hejhopp",
         "password": "hejsan",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -45,6 +49,7 @@
         "username": "oliwer",
         "password": "oliwer",
         "firstTime": false,
+        "done": false,
         "pfp": "api\/data\/pictures\/pfp\/1712733284.jpeg",
         "notes": [
             {
@@ -82,6 +87,7 @@
         "username": "Linnea",
         "password": "hejhopp",
         "firstTime": false,
+        "done": false,
         "notes": [],
         "clues": [
             1,
@@ -94,6 +100,7 @@
         "username": "tesst",
         "password": "hejsan",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -104,6 +111,7 @@
         "username": "morgan",
         "password": "morgan",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": [
@@ -116,6 +124,7 @@
         "username": "mysterysolver",
         "password": "greger",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -126,6 +135,7 @@
         "username": "theo",
         "password": "theo",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -136,6 +146,7 @@
         "username": "virve",
         "password": "virve",
         "firstTime": false,
+        "done": false,
         "pfp": "api\/data\/pictures\/pfp\/1714582367.jpeg",
         "notes": [
             {
@@ -178,6 +189,7 @@
         "username": "frasse",
         "password": "frasse",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": []
@@ -188,6 +200,7 @@
         "username": "frasseone",
         "password": "frasseone",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [
             {
@@ -209,6 +222,7 @@
         "username": "hejsann",
         "password": "hejsann",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [
             {
@@ -239,6 +253,7 @@
         "username": "122",
         "password": "122",
         "firstTime": false,
+        "done": false,
         "pfp": "",
         "notes": [],
         "clues": [
@@ -251,6 +266,7 @@
         "username": "444",
         "password": "444",
         "firstTime": false,
+        "done": true,
         "pfp": "",
         "notes": [],
         "clues": [
@@ -263,8 +279,28 @@
         "username": "111",
         "password": "111",
         "firstTime": false,
+        "done": true,
         "pfp": "",
         "notes": [],
         "clues": []
+    },
+    {
+        "userId": 18,
+        "email": "666@hej",
+        "username": "666",
+        "password": "666",
+        "firstTime": false,
+        "done": true,
+        "pfp": "",
+        "notes": [
+            {
+                "timeDate": "15\/5\/2024, 17:29",
+                "content": "hje",
+                "id": 1
+            }
+        ],
+        "clues": [
+            1
+        ]
     }
 ]
