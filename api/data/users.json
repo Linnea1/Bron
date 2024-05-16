@@ -241,10 +241,7 @@
             7,
             8,
             9,
-            10,
-            11,
-            1,
-            1
+            10
         ]
     },
     {
@@ -290,7 +287,7 @@
         "username": "666",
         "password": "666",
         "firstTime": false,
-        "done": true,
+        "done": false,
         "pfp": "",
         "notes": [
             {

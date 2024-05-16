@@ -122,6 +122,7 @@ function unlockCluePopUp(id) {
     `;
 
     document.querySelector("#checkCode").style.width = "auto";
+    document.querySelector("#checkCode").style.fontSize = "4.5vw";
 
     document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
     var inputs = document.querySelectorAll('.popup-input');

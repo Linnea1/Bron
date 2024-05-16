@@ -4,8 +4,6 @@ let cluesUnlocked = false;
 function RenderIntro() {
     let user = JSON.parse(localStorage.getItem("user"));
     document.querySelector(".wrapper").style.height = "94vh;";
-    // document.querySelector(".wrapper").style.paddingBottom = "75px";
-    // document.querySelector(".main").style.height = "0";
     document.querySelector(".sticky-nav").style.height = "60px";
 
     document.querySelector(".sticky-nav").style.opacity = 0;
@@ -30,7 +28,7 @@ function RenderIntro() {
         const audioPlayer = document.getElementById('audioPlayer');
         audioPlayer.play()
 
-        let introText = "Saga: Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårt arbete. Så här mycket vet vi hittills: offret heter Klas och han blev mördad sent på natten igår. Varje liten bit information kan vara den pusselbit vi behöver för att lösa fallet.";
+        let introText = "Saga: Tack så mycket för att du hjälper mig med utredningen. Din information är ovärderlig för vårt arbete. Så här mycket vet vi hittills: offret heter Klas Eriksson och han blev mördad igår. Varje liten bit information kan vara den pusselbit vi behöver för att lösa fallet.";
         let index = 0;
 
         function typeWriter() {
@@ -44,7 +42,6 @@ function RenderIntro() {
             }
         }
 
-        // Starta skrivaren
         typeWriter();
     } else {
         RenderOptions()
@@ -63,9 +60,8 @@ function moreInfo() {
         if (indexTwo < introTextTwo.length) {
             document.getElementById("SagaIntro").innerHTML += introTextTwo.charAt(indexTwo);
             indexTwo++;
-            setTimeout(typeWriterTwo, 80); // Justera fördröjningen här (50 ms för varje bokstav)
+            setTimeout(typeWriterTwo, 80);
         } else {
-            // När all text är skriven ut, lägg till knappen "Nästa"
             document.getElementById("SagaIntro").innerHTML += "<br><button id='next' onclick='RenderOptions()'> Nästa </button>";
         }
     }
@@ -89,11 +85,18 @@ async function RenderOptions(value) {
         let infoContent = [
             {
                 tipsTitle: "Min karta bara laddar, varför?",
-                tipsText: "Om kartan bara står och laddar kan det hjälpa att ladda om sidan. Varför den står och laddar kan bero på att det är dåligt internet, eller om servern bråkar."
+                tipsText: "Om kartan inte laddas korrekt, försök att uppdatera sidan. Detta kan åtgärda problemet och få kartan att visas som den ska. Orsaken till problemet kan variera, men en enkel omladdning av sidan bör detta åtgärdas.",
+                pic: ""
             },
             {
                 tipsTitle: "Min position uppdateras inte på kartan & kan därför inte låsa upp nästa ledtråd",
-                tipsText: "I Slottsparken kan det finnas blindspots vilket gör att din plats inte uppdateras eller är korrekt. Men ingen fara! Du kan fortfarande låsa upp nästa ledtråd med hjälp av koden som finns på plats. Gå in på LEDTRÅDAR och tryck på lås upp på önskad ledtråd."
+                tipsText: "I Slottsparken kan det finnas blindspots där din plats inte uppdateras korrekt. Men oroa dig inte! Du kan fortfarande låsa upp nästa ledtråd med koden som finns på plats. Gå till LEDTRÅDAR och tryck på låset för den önskade ledtråden.",
+                pic: ""
+            },
+            {
+                tipsTitle: "Hur ser ledtråden ut? Jag hittar inte den!",
+                tipsText: "Om du inte hittar ledtrådarna så kan du skriva till någon av oss som har skapat spelet. Skaparna bakom Bron är Erica, Linnea, Julia, Virve och Melinda. Johannes har också koderna.",
+                pic: "Bilder/cluesPic/ClueEx.png"
             }
         ]
 
@@ -126,7 +129,6 @@ async function RenderOptions(value) {
 
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     document.querySelector("body").style.backgroundImage = `none`;
-    // document.querySelector(".wrapper").style.backgroundColor = "#3e4c4f";
     document.querySelector("main").style.backgroundImage = "";
 
     let options = [
@@ -446,7 +448,7 @@ function notifyAndNavigate(clue) {
     let user = JSON.parse(localStorage.getItem("user"));
     const audio = new Audio('Bilder/audio/police_tone.mp3');
     if (!user.clues.includes(clue.id)) {
-        // audio.play();
+        audio.play();
         CluePopUp(clue.id)
     }
 

@@ -79,8 +79,8 @@ main {
     width: 100px;
     height: 50px;
     font-size: 16px;
-    background-color: #242424;
-    border: 1px solid #ffffff6b;
+    background-color: rgba(67, 89, 186, 0.59);
+    border: 1px solid rgb(67, 89, 186);
     position: absolute;
     bottom: 2vh;
     right: 5vw;
@@ -228,6 +228,7 @@ main {
     text-align: center;
     /* border: 1px solid #ffffff78; */
     padding: 10px;
+    overflow: scroll;
 }
 
 #popUpWindow button {
@@ -365,4 +366,12 @@ button {
 
 .EnketLink a {
     color: rgb(67, 89, 186);
+}
+
+#picEx {
+    height: 30vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 2%;
 }

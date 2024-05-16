@@ -169,7 +169,7 @@ const CLUES = [
         shortText: "Här är obduktionsrapporten.",
         shortTextTwo: "Obduktionsrapporten från Rättmedicinalverket.",
         text: "Leta vid kommendantbron",
-        koordinater: [55.60277273529414, 12.988879344848087]
+        koordinater: [55.60274002504842, 12.98863342662444]
 
     },
     {
@@ -183,7 +183,7 @@ const CLUES = [
         shortText: "Det hölls ett förhör med Klas ex-fru.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
         text: "Leta vid andra sidan om utsiktsplatsen",
-        koordinater: [55.60147185428268, 12.99121296649658]
+        koordinater: [55.601486841708684, 12.991007360449684]
 
     },
     {
@@ -197,7 +197,7 @@ const CLUES = [
         shortText: "Här syntes Kristoffer gå förbi vid 22-tiden.",
         shortTextTwo: "",
         text: "Leta vid Stadsbiblioteket",
-        koordinater: [55.60074586831715, 12.993409032961107]
+        koordinater: [55.60070902493853, 12.992975827879258]
 
     },
     {
@@ -211,7 +211,7 @@ const CLUES = [
         shortText: "Denna samtalshistorik är intressant. ",
         shortTextTwo: "Samtalshistoriken på Klas telefon.",
         text: "Leta vid Casinots parkering",
-        koordinater: [55.60249199340967, 12.993933693685316]
+        koordinater: [55.6023457476268, 12.993715862892756]
 
     },
     {
@@ -225,7 +225,7 @@ const CLUES = [
         shortText: "Görans rörelsemönster. Screenshot från uber-appen.",
         shortTextTwo: "Dekalerna visar vart han har stannat.",
         text: "Leta vid utkanten av parken",
-        koordinater: [55.60307051733962, 12.994193590927555]
+        koordinater: [55.60311293989448, 12.993955302221526]
 
     },
     {
@@ -239,7 +239,7 @@ const CLUES = [
         shortText: "Ett stämpelkort från personal på casinot. ",
         shortTextTwo: "Erik är anställd på Casinot",
         text: "Leta vid Casinot",
-        koordinater: [55.6026051896978, 12.99257303071663]
+        koordinater: [55.60281774559934, 12.992845968941214]
 
     },
     {
@@ -253,7 +253,7 @@ const CLUES = [
         shortText: "Här stod Anna när hon såg en man räkna pengar och det verkar även som att Klas skickat sms denna kvällen.",
         shortTextTwo: "Konversation mellan Klas och Göran.",
         text: "Leta vid vattnet bakom casinot",
-        koordinater: [55.603214837494534, 12.991839320922354]
+        koordinater: [55.60330497986649, 12.991905874812316]
 
     },
     {
@@ -267,27 +267,11 @@ const CLUES = [
         shortText: "Förhöret med Erik tog en vändning.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
         text: "Leta vid lekplatsen bakom Casinot",
-        koordinater: [55.60286369491501, 12.99134720613196]
-
-    },
-    {
-        id: 11,
-        code: 9040,
-        title: "Test",
-        Locationimage: "Bilder/cluesPic/IMG_2438-2.jpg",
-        Clueimage: "Bilder/cluesPic/IMG_2438-2.jpg",
-        ClueimageTwo: "Bilder/cluesPic/ForhorErik.png",
-        ClueText: "",
-        shortText: "Förhöret med Erik tog en vändning.",
-        shortTextTwo: "Förhörsprotokollet från Polisen.",
-        text: "Leta vid lekplatsen bakom Ericas",
-        koordinater: [56.947250893608576, 12.535837108458423]
+        koordinater: [55.602834214779286, 12.991397573761436]
 
     }
 ];
 
-//CLUES med gamla id
-// const CLUES = [
 //     {
 //         id: 1,
 //         code: 2201,

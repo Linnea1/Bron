@@ -1,11 +1,6 @@
 
 async function fetching(URL, method, body) {
 
-    console.log("Sending request to:", URL);
-    console.log("Method:", method);
-    console.log("Body:", body);
-
-
     let response = await fetch(URL, {
         method: method,
         headers: { "Content-Type": "application/json" },
@@ -37,6 +32,7 @@ function swapStyleSheet(styleSheet) {
 
 
 function ArrestPopUp(prompt) {
+
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#popUpWindow").innerHTML = `
 
@@ -121,7 +117,10 @@ function ArrestPopUp(prompt) {
 
             });
             document.querySelector(".underscore").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
-            document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+            // document.querySelector("#popUpBackground").addEventListener("click", e => { 
+            //     backgroundClicked = true;
+            //     document.querySelector("#popUp").classList.add("hidden") 
+            // });
         }
     }
 
@@ -159,12 +158,30 @@ function popUpInfo(prompt) {
     document.querySelector("#popUp").classList.remove("hidden");
     prompt.forEach(x => {
 
-        document.querySelector("#prompt").innerHTML += `
-            <h3 id="tipsTitle"> ${x.tipsTitle} </h3>
-            <p id="tipsText"> ${x.tipsText} </p>
-            <br>
-        `;
+        if (x.pic != "") {
+            document.querySelector("#prompt").innerHTML += `
+                <h3 id="tipsTitle"> ${x.tipsTitle} </h3>
+                <div id="tipsText"> 
+                    ${x.tipsText} 
+                    <div id="picEx" style="background-image: url('${x.pic}')"> </div>
+                    <p id="infoTextPic"> Exempel på ledtråd. Leta efter ett laminerat papper med röd tråd </p>
+                </div>
+                <br>
+            `;
+        } else {
+
+            document.querySelector("#prompt").innerHTML += `
+                <h3 id="tipsTitle"> ${x.tipsTitle} </h3>
+                <div id="tipsText"> ${x.tipsText} </div>
+                <br>
+            `;
+        }
+
+
     })
+    document.querySelector("#prompt").style.height = "60vh";
+    document.querySelector("#prompt").style.overflow = "scroll";
+    document.querySelector("#prompt").style.marginTop = "0px";
 
     let button = document.createElement("button");
     button.textContent = "OK";
@@ -249,16 +266,47 @@ function RenderPopUpPictureSecond(clue) {
         <br>
     `;
 
-    if (clue.ClueimageTwo === "Bilder/cluesPic/erikPasserKortPic.png") {
-        document.querySelector("#clueTwo").style.height = "60vw";
-    }
+    // if (clue.ClueimageTwo === "Bilder/cluesPic/erikPasserKortPic.png") {
+    //     document.querySelector("#clueTwo").style.height = "60vw";
+    // }
 
-    if (clue.ClueimageTwo === "Bilder/cluesPic/mordvapen.jpg") {
-        document.querySelector("#clueTwo").style.height = "100vw";
-    }
+    // if (clue.ClueimageTwo === "Bilder/cluesPic/mordvapen.jpg") {
+    //     document.querySelector("#clueTwo").style.height = "100vw";
+    // }
 
-    if (clue.ClueimageTwo === "Bilder/cluesPic/Obduktion.png") {
-        document.querySelector("#clueTwo").style.height = "130vw";
+    // if (clue.ClueimageTwo === "Bilder/cluesPic/Obduktion.png") {
+    //     document.querySelector("#clueTwo").style.height = "130vw";
+    // }
+    // if (clue.ClueimageTwo === "Bilder/cluesPic/Obduktion.png") {
+    //     document.querySelector("#clueTwo").style.height = "120vw";
+    //     document.querySelector("#clueTwo").style.backgroundSize = "contain";
+    // }
+    // default{
+    //     document.querySelector("#clueTwo").style.backgroundSize = "cover";
+    // }
+
+    switch (clue.ClueimageTwo) {
+        case "Bilder/cluesPic/erikPasserKortPic.png":
+            document.querySelector("#clueTwo").style.height = "60vw";
+            document.querySelector("#clueTwo").style.backgroundSize = "contain";
+            break;
+        case "Bilder/cluesPic/mordvapen.jpg":
+            document.querySelector("#clueTwo").style.height = "100vw";
+            break;
+        case "Bilder/cluesPic/Obduktion.png":
+            document.querySelector("#clueTwo").style.height = "120vw";
+            break;
+        case "Bilder/cluesPic/SamtalslistaRobban.jpg":
+            document.querySelector("#clueTwo").style.height = "130vw";
+            document.querySelector("#clueTwo").style.backgroundSize = "contain";
+            break;
+        case "Bilder/cluesPic/Konversation_Klas_Goran.jpg":
+            document.querySelector("#clueTwo").style.height = "130vw";
+            document.querySelector("#clueTwo").style.backgroundSize = "contain";
+            break;
+        default:
+            document.querySelector("#clueTwo").style.backgroundSize = "cover";
+            break;
     }
 
 
