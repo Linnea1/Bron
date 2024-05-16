@@ -120,14 +120,23 @@ main {
 
 #NameAndAge {
     display: flex;
-    align-items: end;
     height: 100%;
-    font-size: 4vw;
+    padding-bottom: 5%;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#nameAge {
+    font-size: 5vw;
+}
+
+#NameAndAge p {
+    margin: 0%;
 }
 
 .odd {
     /* border: 1px solid #2772C1; */
-    /*text-align: right;*/
+    /* text-align: right; */
 }
 
 /* .odd #suspectPicture {
@@ -150,6 +159,23 @@ main {
     font-size: 16px;
     height: 49%;
     padding: 0vw 3vw;
+}
+
+#relationship,
+#security,
+#age {
+    font-size: 3.5vw;
+}
+
+#relationship span,
+#security span,
+#age span {
+    font-weight: bolder;
+}
+
+#name {
+    margin: 0px;
+    font-size: 5vw;
 }
 
 #info {

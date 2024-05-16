@@ -108,7 +108,7 @@ function ArrestPopUp(prompt) {
                         <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
                         <h2> Vi vill ha just din hjälp </h2>
                         <p>
-                            Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>
+                            Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <br> <br> <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>
                         </p>
                     `;
                     document.querySelector("#cross").addEventListener("click", () => {

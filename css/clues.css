@@ -256,3 +256,31 @@ button {
     transition: transform 0.3s ease;
     transform: translateX(100%);
 }
+
+#checkCode {
+    padding: 0% 3% 3% 3%;
+}
+
+.inputContainer {
+    padding-top: 6%;
+}
+
+.inputContainer input {
+    border: none;
+    /* Ta bort standardborder */
+    border-bottom: 2px solid #000000;
+    background-color: #242424;
+    margin: 0% 3%;
+}
+
+#message {
+    height: 10px;
+    margin: 10px 0px 15px 0px;
+    text-align: center;
+}
+
+#infomessage {
+    padding: 20px 0px 0px 0px;
+    margin: 0px;
+
+}

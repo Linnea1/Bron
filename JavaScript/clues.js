@@ -109,16 +109,19 @@ function unlockCluePopUp(id) {
     document.querySelector("#popUpWindow").innerHTML = `
     <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
       <div class="cluePopup">
+        <p id="infomessage">Skriv in den fyrsiffriga koden som finns på platsen</p>
           <div class="inputContainer">
-              <input class="popup-input" id="input1" maxlength="1">
-              <input class="popup-input" id="input2" maxlength="1">
-              <input class="popup-input" id="input3" maxlength="1">
-              <input class="popup-input" id="input4" maxlength="1">
+              <input  type="number" class="popup-input" id="input1" maxlength="1">
+              <input type="number" class="popup-input" id="input2" maxlength="1">
+              <input type="number" class="popup-input" id="input3" maxlength="1">
+              <input type="number" class="popup-input" id="input4" maxlength="1">
           </div>
           <p id="message"></p>
-          <button onclick="handleOK(${id})">OK</button>
+          <button id="checkCode" onclick="handleOK(${id})">Lås upp ledtråd</button>
       </div>
     `;
+
+    document.querySelector("#checkCode").style.width = "auto";
 
     document.querySelector("#cross").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); })
     var inputs = document.querySelectorAll('.popup-input');
@@ -162,7 +165,7 @@ function RenderClues(value) {
     if (user.pfp !== "") {
         document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
     } else {
-        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+        document.querySelector("#profilePicture").style.backgroundImage = `url('Bilder/userIconPic.jpg')`;
     }
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
 

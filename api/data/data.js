@@ -446,8 +446,10 @@ const CLUES = [
 const SUSPECTS = [
     {
         suspectId: 1,
-        name: "Kristoffer",
+        name: "Kristoffer Holm",
         age: "50",
+        securityNumber: "19740515-4973",
+        relationship: "Gift",
         image: "Bilder/suspects/kristoffer.jpg",
         text: "Kristoffer är advokat och kände Klas då han har barn med Kristoffers nya fru. Kristoffers alibi var att han var hemma med barnen medan hans fru var bortrest.",
         guilty: false
@@ -455,8 +457,10 @@ const SUSPECTS = [
     },
     {
         suspectId: 2,
-        name: "Göran",
+        name: "Göran Berg",
         age: "57",
+        securityNumber: "19671105-2391",
+        relationship: "Singel",
         image: "Bilder/suspects/Goran.png",
         text: "Göran hade blivit av med sitt jobb som kock och jobbade vid tillfället för Uber. Det är genom Görans gamla jobb som han lärde känna Klas och har därefter varit vänner.",
         guilty: true
@@ -464,8 +468,10 @@ const SUSPECTS = [
     },
     {
         suspectId: 3,
-        name: "Erik",
+        name: "Erik Lindqvist",
         age: "34",
+        securityNumber: "19900203-4255",
+        relationship: "Förhållande",
         image: "Bilder/suspects/Erik.png",
         text: "Erik jobbade som bartender inne på casinot och såg när Göran vann stora summor pengar. Enligt kollegor kom han in på jobbet med smutsiga skor och stod inte bakom bardisken hela kvällen. ",
         guilty: false
@@ -473,8 +479,10 @@ const SUSPECTS = [
     },
     {
         suspectId: 5,
-        name: "Robin",
+        name: "Robin Wallin",
         age: "30",
+        securityNumber: "19940918-2741",
+        relationship: "Singel",
         image: "Bilder/suspects/Robin.jpg",
         text: "Robin hade vid mord tillfället precis kommit ut från fängelset, dömd för mord- och rånförsök. Han är även känd hos polisen för att sälja droger i centrala Malmö. Enligt Robin själv var han på en fest i närheten, däremot fanns ingen som kunde bekräfta att han var där. ",
         guilty: false
@@ -482,10 +490,12 @@ const SUSPECTS = [
     },
     {
         suspectId: 5,
-        name: "Anna",
+        name: "Anna Håkansson",
         age: "48",
+        securityNumber: "19760109-4285",
+        relationship: "Förhållande",
         image: "Bilder/suspects/Anna.png",
-        text: "Anna gick genom parken efter en afterwork, i samband med att mordet skedde. Hon såg en man, som liknade Klas, göra något underligt. Enligt Anna ska mannen ha sett väldigt glad ut. ",
+        text: "Anna gick genom parken efter en afterwork med Åhléns, i samband med att mordet skedde. Hon såg en man, som liknade Klas, göra något underligt. Enligt Anna ska mannen ha sett väldigt glad ut. ",
         guilty: false
 
     }
