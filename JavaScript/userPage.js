@@ -165,7 +165,7 @@ async function RenderChangeProfilePicture() {
     if (user.pfp !== "") {
         document.querySelector("#profilePic").style.backgroundImage = `url('${user.pfp}')`;
     } else {
-        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
+        document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/userIconPic.jpg')`;
     }
 
     let fileForm = main.querySelector("#uploadPfp");

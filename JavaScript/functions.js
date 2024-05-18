@@ -64,6 +64,7 @@ function ArrestPopUp(prompt) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
             index++;
             setTimeout(typeWriter, 66);
+            typewriterRunning = true;
         }
         else {
             typewriterRunning = false;
@@ -118,11 +119,8 @@ function ArrestPopUp(prompt) {
                 }
             });
 
-            document.querySelector(".underscore").addEventListener("click", e => { 
-                if (!typewriterRunning) {
-                    document.querySelector("#popUp").classList.add("hidden"); 
-                }
-            });
+           
+            
         }
     }
 
