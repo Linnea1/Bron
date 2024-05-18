@@ -279,7 +279,9 @@
         "done": true,
         "pfp": "",
         "notes": [],
-        "clues": []
+        "clues": [
+            1
+        ]
     },
     {
         "userId": 18,
@@ -298,6 +300,35 @@
         ],
         "clues": [
             1
+        ]
+    },
+    {
+        "userId": 19,
+        "email": "Elin@.com",
+        "username": "Elin",
+        "password": "123",
+        "firstTime": false,
+        "done": true,
+        "pfp": "api\/data\/pictures\/pfp\/1716035311.jpeg",
+        "notes": [
+            {
+                "timeDate": "17\/5\/2024, 18:09",
+                "content": "testing",
+                "id": 1
+            }
+        ],
+        "clues": [
+            1,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
         ]
     }
 ]

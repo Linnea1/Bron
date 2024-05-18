@@ -50,7 +50,7 @@ function RenderIntro() {
 
 function moreInfo() {
     const audioPlayer = document.getElementById('audioPlayer');
-    audioPlayer.src = "Bilder/audio/Voiceover2.mp3";
+    audioPlayer.src = "Bilder/audio/VoiceoverPart2.mp3";
     audioPlayer.play()
     document.querySelector("#SagaIntro").innerHTML = "";
     let introTextTwo = "Saga: Använd kartan för att hitta ledtrådarna som kommer att guida dig genom mysteriet kring Klas öde. Utforska varje plats för att avslöja bit för bit av det stora pusslet och närma dig sanningen om vem som ligger bakom Klas död. För att öppna dessa hemligheter krävs det att du hittar varje plats unika kod. Börja din färd vid mordplatsen, där den första ledtråden väntar på att bli upptäckt. ";
@@ -177,12 +177,12 @@ async function RenderOptions(value) {
                 </div>
             `;
 
-        // divDom.addEventListener("click", option.event);
+       
         divDom.addEventListener("click", function () {
-            // Lägg till klassen 'swiped' för att trigga övergångseffekten på den övergripande containern
+        
             main.classList.add("swiped");
 
-            // Återställ klassen 'swiped' efter att övergångseffekten är klar
+          
             setTimeout(() => {
                 main.classList.remove("swiped");
                 option.event(true);
@@ -193,34 +193,6 @@ async function RenderOptions(value) {
     stickyNav();
     resetButtons()
     document.querySelector(".fa-house").classList.add("current-page");
-
-    // if (user.done) {
-
-    //     document.querySelector(".OK").addEventListener("click", async e => {
-    //         try {
-    //             let resourse = await fetching("api/functions.php", "PATCH", user.userId);
-    //             let data = await resourse.json();
-    //             if (resourse) {
-
-    //                 let localUser = {
-    //                     "username": data.username,
-    //                     "email": data.email,
-    //                     "pfp": data.pfp,
-    //                     "firstTime": data.firstTime,
-    //                     "done": data.done,
-    //                     "userId": data.userId,
-    //                     "notes": data.notes,
-    //                     "clues": data.clues
-    //                 }
-
-    //                 window.localStorage.setItem("user", JSON.stringify(localUser));
-    //             }
-    //         } catch (error) {
-    //             popUp(error);
-    //         }
-    //     });
-    // }
-
 }
 
 
@@ -233,7 +205,7 @@ async function renderCurrentLocationView(value) {
     if (value) {
 
         main.classList.add("slide-left");
-        // Vänta en kort stund för att låta CSS-övergången utföras
+   
         setTimeout(() => {
 
             stopExecution = false;
@@ -332,7 +304,7 @@ async function showPosition(position) {
         });
 
     } else {
-        // Uppdatera bara markörens position
+       
         userMarker.setPosition({ lat: latitude, lng: longitude });
     }
 
@@ -390,7 +362,7 @@ async function showPosition(position) {
                 updatedInfoWindow.open(map, marker);
                 openInfoWindows.push(updatedInfoWindow);
             });
-        })(clue); // Anropa funktionen omedelbart med aktuell ledtråd
+        })(clue);
 
         let distance = calculateDistance(latitude, longitude, clueLat, clueLng);
         const audio = new Audio('Bilder/audio/police_tone.mp3');
@@ -420,7 +392,7 @@ async function showPosition(position) {
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371e3; // Earth's radius in meters
+    const R = 6371e3;
     const φ1 = toRadians(lat1);
     const φ2 = toRadians(lat2);
     const Δφ = toRadians(lat2 - lat1);

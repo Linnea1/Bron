@@ -160,13 +160,13 @@ function RenderAnswere(suspect) {
             if (d.guilty === true) {
                 let message = {
                     title: "Rätt svar!",
-                    text: "Tack vare din hjälp, kunde mördaren fångas och frid kan återigen inta Malmö. Göran Berg jobbade tidigare som kock och kan därför kopplas till den kniv som användes i mordet. I stället för kock jobbade han för Uber, ett företag som är känt för att betala ut dåliga löner. Han var därav i desperat behov av pengar. Göran behövde göra allt i sin makt för att få tag i pengar, även om det betydde att hans bästa vän miste livet. Återgå till startsidan för att spela en gång till.",
+                    text: "Tack vare din hjälp, kunde mördaren fångas och frid kan återigen inta Malmö. Göran Berg jobbade tidigare som kock och kan därför kopplas till den kniv som användes i mordet. Efter sin karriär som kock började Göran jobba för Uber, ett företag som är känt för att betala ut dåliga löner. Han var därav i desperat behov av pengar. Göran behövde göra allt i sin makt för att få tag i pengar, även om det betydde att hans bästa vän miste livet. Återgå till startsidan för att spela en gång till.",
                     direction: "",
                     NameOfPAge: "Startsidan",
                     NameOfEnket: "https://forms.gle/kVKgD1xSbve8XL3F8",
                     link: "RenderOptions()",
                     value: true,
-                    audio: "Bilder/audio/Voiceover3.mp3"
+                    audio: "Bilder/audio/VoiceoverEnding.mp3"
                 }
 
                 ArrestPopUp(message)
@@ -180,7 +180,7 @@ function RenderAnswere(suspect) {
                     NameOfEnket: "",
                     link: "RenderClues()",
                     value: false,
-                    audio: `Bilder/audio/Voiceover${suspect.id}.mp3`
+                    audio: `Bilder/audio/Voiceover${d.suspectId}.mp3`
                 }
 
                 ArrestPopUp(message)

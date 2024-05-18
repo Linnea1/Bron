@@ -36,12 +36,21 @@ body {
     background-repeat: no-repeat;
     border-radius: 50px;
     background-position: center;
-    margin: 10px 10px;
+    margin: 5vw 5vw;
 }
 
 header {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-image: url("../Bilder/logo.png");
+    border-radius: 50%;
+    margin: 5vw 5vw;
 }
 
 .wrapper {
@@ -342,7 +351,7 @@ button {
     background-image: url("../Bilder/notesIcon.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 65%;
+    background-size: 53%;
 }
 
 #tipsText {

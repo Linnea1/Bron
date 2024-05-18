@@ -122,20 +122,29 @@ function RenderSuspects(value) {
             `;
 
             evenOrOdd++
-            if (evenOrOdd %= 2) {
-                SuspectxBox.classList.add("odd");
-                SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
-                <p id ="suspectPicture"></p>
-                <div id ="NameAndAge"></div>
-            `;
-            } else {
-                SuspectxBox.classList.add("even");
-                SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
-                <p id ="NameAndAge"></p>
-                <div id ="suspectPicture"></div>
-            `;
-            }
-
+                if (evenOrOdd %= 2) {
+                    SuspectxBox.classList.add("odd");
+                    SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+                        <p id ="suspectPicture"></p>
+                        <div id ="NameAndAge">
+                            <p id="name"></p>
+                            <p id="age"></p>
+                            <p id="relationship"></p>
+                            <p id="security"></p>
+                        </div>
+                    `;
+                } else {
+                    SuspectxBox.classList.add("even");
+                    SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+                        <div id ="NameAndAge">
+                            <p id="name"></p>
+                            <p id="age"></p>
+                            <p id="relationship"></p>
+                            <p id="security"></p>
+                        </div>
+                        <p id ="suspectPicture"></p>
+                    `;
+                }
             let pic = SuspectxBox.querySelector("#suspectPicture");
             pic.style.backgroundImage = `url('${clue.image}')`;
             pic.style.height = "105px";
@@ -150,25 +159,28 @@ function RenderSuspects(value) {
 
                 switch (index) {
                     case "name":
-                        SuspectxBox.querySelector("#NameAndAge").innerHTML += `
-                        <h2 id="${index}">${clue[index]}, </h2>
-                    `;
+                        SuspectxBox.querySelector("#name").innerHTML += `
+                            <h2 id="${index}">${clue[index]} </h2>
+                         `;
                         break;
 
                     case "age":
-                        SuspectxBox.querySelector("#NameAndAge").textContent += `
-                        ${clue[index]} år
-                    `;
+                        SuspectxBox.querySelector("#age").innerHTML += `
+                           <span> Ålder: </span> ${clue[index]}
+                        `;
                         break;
 
                     case "text":
                         SuspectxBox.querySelector("#text").innerHTML += `
-                    <p id="${index}">${clue[index]} </p>
-                    `;
+                            <p id="${index}">${clue[index]} </p>
+                        `;
                         break;
                 }
 
+
             }
+            SuspectxBox.querySelector("#security").innerHTML += ` <span> Pers.nr: </span> ${clue.securityNumber}`;
+                SuspectxBox.querySelector("#relationship").innerHTML += `<span> Status: </span> ${clue.relationship}`;
 
         });
     }

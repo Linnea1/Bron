@@ -6,7 +6,7 @@ let stopExecution=true;
 
 if (localStorage.getItem("user")) {
     RenderOptions();
-    // renderStartPage();
+   
 } else {
     renderStartPage();
 }

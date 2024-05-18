@@ -1,34 +1,75 @@
 function renderClue(clue) {
     document.querySelector("#notes").style.opacity = 1;
-    // body.style.backgroundImage = `url('Bilder/clueBackground.jpg')`;
+    
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
-    // body.style.backgroundSize = "cover";
+   
     let mainContainer = document.querySelector("main");
     mainContainer.classList.add("slide-left");
-    // Vänta en kort stund för att låta CSS-övergången utföras
+   
     setTimeout(() => {
         mainContainer.innerHTML = `
-            <div class="unlockClueContainer">
-                <h1>${clue.title}</h1>
-                <div class="clueImage2" style="background-image: url('${clue.Clueimage}')"></div>
-                <div id="picTwo"></div>
-                <p>${clue.shortText}</p>
+            
+            <div class="topContainer">
+                <i class="fa-solid fa-arrow-left"></i> 
+                <h1>LEDTRÅD ${clue.id}</h1>
             </div>
-            <button onclick="renderClueWithSlideBack()" class="back-button">Tillbaka</button>
+
+            <h1 class="clueHeader">${clue.title}</h1>
+            
+            <div class="unlockClueContainer">
+                <div class="clueImage2" style="background-image: url('${clue.Clueimage}')">
+                    <div class="boxOverlay">
+                        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                    </div>
+                </div>
+                <p class="description">${clue.shortText}</p>
+                <div id="picTwo"></div>
+                <div class="nextStep"></div>
+            </div>
+
         `;
-        // Ta bort övergångs-CSS-klassen efter att övergångseffekten är klar
+
+        document.querySelector(".fa-arrow-left").addEventListener("click",renderClueWithSlideBack)
         mainContainer.classList.remove("slide-left");
 
         document.querySelector(".clueImage2").addEventListener("click", e => {
             RenderPopUpPictureFirst(clue)
         })
         if (clue.ClueimageTwo !== "") {
+           
             document.querySelector("#picTwo").innerHTML = `
-                <p> Se ytterligare ledtråd <span> här </span> </p>
+            <h1 class="clueHeader header2">Mer bevismaterial</h1>
+            
+            <div class="clueImage2 secondPicture" style="background-image: url('${clue.ClueimageTwo}')">
+                <div class="boxOverlay">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                </div>
+            </div>
+            <p class="description">${clue.shortTextTwo}</p>
+           
             `;
 
-            document.querySelector("#picTwo span").addEventListener("click", e => {
+            document.querySelector(".secondPicture").addEventListener("click", e => {
                 RenderPopUpPictureSecond(clue)
+            })
+        }
+        let nextClue=clue.id+1;
+        if(nextClue!==11){
+            const c = CLUES.find((e) => e.id ===nextClue);
+
+            document.querySelector(".nextStep").innerHTML = `
+            <h1 class="clueHeader header2">Nästa ledtråd</h1>
+            
+            <div class="clueImage2 secondPicture" style="background-image: url('${c.Clueimage}')">
+                <div class="boxOverlay">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                </div>
+            </div>
+            <p class="description">${c.text}</p>
+            `;
+
+            document.querySelector(".nextStep").addEventListener("click", e => {
+                RenderPopUpPictureThird(c)
             })
         }
     }, 300);
@@ -37,10 +78,10 @@ function renderClue(clue) {
 }
 function renderClueWithSlideBack() {
     let mainContainer = document.querySelector("main");
-    mainContainer.classList.add("slide-right"); // Använd slide-right klassen för spegelvänd effekt
+    mainContainer.classList.add("slide-right"); 
     setTimeout(() => {
         mainContainer.classList.remove("slide-right");
-        RenderClues(false); // Lägg till denna rad för att rendera ledtrådarna igen
+        RenderClues(false); 
     }, 300);
 }
 
@@ -349,7 +390,6 @@ function RenderClues(value) {
                         let unlockIcon = document.createElement("i");
                         unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
                         parent.append(unlockIcon);
-                        console.log("Kan inte låsa upp den här ledtråden ännu.");
                     }
                 } else {
                     if (user.clues.includes(previousClue)) {
@@ -376,7 +416,6 @@ function RenderClues(value) {
                         let unlockIcon = document.createElement("i");
                         unlockIcon.setAttribute(`class`, `fa-solid fa-lock lock`);
                         parent.append(unlockIcon);
-                        console.log("Kan inte låsa upp den här ledtråden ännu.");
                     }
                 }
 

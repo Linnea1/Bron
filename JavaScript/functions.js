@@ -13,6 +13,7 @@ async function fetching(URL, method, body) {
 function basicHeader() {
 
     document.querySelector("header").innerHTML = ` 
+        <div class="logo"></div>
         <div id="profilePicture" class="icon" onclick="RenderUserPage()"></div>
     `;
 
@@ -30,23 +31,24 @@ function swapStyleSheet(styleSheet) {
     document.getElementById("styles").setAttribute("href", styleSheet);
 }
 
-
 function ArrestPopUp(prompt) {
+
+    // Flag to indicate if typewriter effect is running
+    let typewriterRunning = true;
 
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#popUpWindow").innerHTML = `
-
         <h2> ${prompt.title}</h2>
         <div class="content">
             <div class="pictureOfSaga" style="background-image: url('Bilder/Saga.jpg')"></div>
-                <div id="first">
-                    <p id="firstTextSaga"></p>
-                </div>
-                <div id="second"> 
-                    <p id="instructions"></p>
-                    <p id="enket"></p>
-                    <p></p>
-                </div>
+            <div id="first">
+                <p id="firstTextSaga"></p>
+            </div>
+            <div id="second"> 
+                <p id="instructions"></p>
+                <p id="enket"></p>
+                <p></p>
+            </div>
         </div>
         <audio id="audioPlayer" src="${prompt.audio}" style="display: none;"></audio>
     `;
@@ -55,15 +57,16 @@ function ArrestPopUp(prompt) {
     let index = 0;
 
     const audioPlayer = document.getElementById('audioPlayer');
-    audioPlayer.play()
+    audioPlayer.play();
 
     function typeWriter() {
         if (index < introText.length) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
             index++;
-            setTimeout(typeWriter, 80);
+            setTimeout(typeWriter, 66);
         }
         else {
+            typewriterRunning = false;
             document.getElementById("second").innerHTML = `
                 <p id="instructions"> ${prompt.direction}</p>
                 <p id="link" onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
@@ -73,14 +76,13 @@ function ArrestPopUp(prompt) {
             `;
 
             document.querySelector("#second p:nth-child(2)").addEventListener("click", async e => {
-
                 let user = JSON.parse(localStorage.getItem("user"));
 
                 if (prompt.value) {
                     try {
                         let resourse = await fetching("api/UserDone.php", "PATCH", user);
                         let data = await resourse.json();
-                        console.log(data);
+  
                         if (resourse) {
 
                             let localUser = {
@@ -114,20 +116,19 @@ function ArrestPopUp(prompt) {
                 else {
                     document.querySelector("#popUp").classList.add("hidden");
                 }
-
             });
-            document.querySelector(".underscore").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden"); });
-            // document.querySelector("#popUpBackground").addEventListener("click", e => { 
-            //     backgroundClicked = true;
-            //     document.querySelector("#popUp").classList.add("hidden") 
-            // });
+
+            document.querySelector(".underscore").addEventListener("click", e => { 
+                if (!typewriterRunning) {
+                    document.querySelector("#popUp").classList.add("hidden"); 
+                }
+            });
         }
     }
 
-    // Starta skrivaren
     typeWriter();
-
 }
+
 
 function popUp(prompt) {
 
@@ -239,7 +240,6 @@ function RenderPopUpPictureFirst(clue) {
         <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
         <h2> Ledtrådens plats </h2>
         <div id="clueFirst" style="background-image: url('${clue.Clueimage}')"></div>
-        <p id="clueTwoText"> ${clue.ClueText} </p>
         <br>
     `;
 
@@ -262,28 +262,8 @@ function RenderPopUpPictureSecond(clue) {
         <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
         <h2> Ytterligare ledtråd</h2>
         <div id="clueTwo" style="background-image: url('${clue.ClueimageTwo}')"></div>
-        <p id="clueTwoText"> ${clue.shortTextTwo} </p>
         <br>
     `;
-
-    // if (clue.ClueimageTwo === "Bilder/cluesPic/erikPasserKortPic.png") {
-    //     document.querySelector("#clueTwo").style.height = "60vw";
-    // }
-
-    // if (clue.ClueimageTwo === "Bilder/cluesPic/mordvapen.jpg") {
-    //     document.querySelector("#clueTwo").style.height = "100vw";
-    // }
-
-    // if (clue.ClueimageTwo === "Bilder/cluesPic/Obduktion.png") {
-    //     document.querySelector("#clueTwo").style.height = "130vw";
-    // }
-    // if (clue.ClueimageTwo === "Bilder/cluesPic/Obduktion.png") {
-    //     document.querySelector("#clueTwo").style.height = "120vw";
-    //     document.querySelector("#clueTwo").style.backgroundSize = "contain";
-    // }
-    // default{
-    //     document.querySelector("#clueTwo").style.backgroundSize = "cover";
-    // }
 
     switch (clue.ClueimageTwo) {
         case "Bilder/cluesPic/erikPasserKortPic.png":
@@ -309,6 +289,26 @@ function RenderPopUpPictureSecond(clue) {
             break;
     }
 
+
+    document.querySelector("#popUp").classList.remove("hidden");
+    document.querySelector("#cross").addEventListener("click", e => {
+        document.querySelector("#popUp").classList.add("hidden");
+    })
+}
+
+function RenderPopUpPictureThird(clue) {
+    document.querySelector("#popUpWindow").innerHTML = `
+        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
+        <h2> Nästa ledtrådens plats </h2>
+        <div id="clueFirst" style="background-image: url('${clue.Clueimage}')"></div>
+        <br>
+    `;
+
+    if (clue.Clueimage === "Bilder/cluesPic/camera.jpg") {
+        document.querySelector("#clueFirst").style.height = "60vw";
+    } else {
+        document.querySelector("#clueFirst").style.height = "120vw";
+    }
 
     document.querySelector("#popUp").classList.remove("hidden");
     document.querySelector("#cross").addEventListener("click", e => {
