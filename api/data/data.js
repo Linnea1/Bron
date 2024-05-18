@@ -6,10 +6,10 @@ const CLUES = [
         Locationimage: "Bilder/cluesPic/IMG_2448.jpg",
         Clueimage: "Bilder/cluesPic/IMG_2466-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/IMG_2457-2.jpg",
-        ClueText: "Blod vid mordplatsen",
-        shortText: "Här finns blod som polisen hittade på mordplatsen",
+        ClueText: "Blod vid mordplatsen.",
+        shortText: "Här finns blod som polisen hittade på mordplatsen.",
         shortTextTwo: "Skoavtryck hittats på brottsplatsen.",
-        text: "Leta vid utsiktsplats vid Casinot",
+        text: "Leta vid utsiktsplats vid Casinot.",
         koordinater: [55.6018888889, 12.9905555556]
 
     },
@@ -23,7 +23,7 @@ const CLUES = [
         ClueText: "Soptunna där mordvapnet hittades.",
         shortText: "En kniv hittades av polisen i denna soptunnan, den matchar sticksåren Klas har.",
         shortTextTwo: "Detta är mordvapnet",
-        text: "Leta efter en soptunna vid Korsbron",
+        text: "Leta efter en soptunna vid Korsbron.",
         koordinater: [55.60273330679147, 12.989689799850712]
 
     },
@@ -35,9 +35,9 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2485-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/Obduktion.png",
         ClueText: "Här hittades kroppen",
-        shortText: "Kroppen hittades här",
+        shortText: "Kroppen hittades här.",
         shortTextTwo: "Obduktionsrapporten från Rättmedicinalverket.",
-        text: "Leta vid kommendantbron",
+        text: "Leta vid kommendantbron.",
         koordinater: [55.60274002504842, 12.98863342662444]
 
     },
@@ -51,7 +51,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Det hölls ett förhör med Klas ex-fru.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
-        text: "Leta vid andra sidan om utsiktsplatsen",
+        text: "Leta vid andra sidan om utsiktsplatsen.",
         koordinater: [55.601486841708684, 12.991007360449684]
 
     },
@@ -65,7 +65,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Här syntes Kristoffer gå förbi vid 22-tiden.",
         shortTextTwo: "",
-        text: "Leta vid Stadsbiblioteket",
+        text: "Leta vid Stadsbiblioteket.",
         koordinater: [55.60070902493853, 12.992975827879258]
 
     },
@@ -79,7 +79,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Denna samtalshistorik är intressant. ",
         shortTextTwo: "Samtalshistoriken på Klas telefon.",
-        text: "Leta vid Casinots parkering",
+        text: "Leta vid Casinots parkering.",
         koordinater: [55.6023457476268, 12.993715862892756]
 
     },
@@ -93,7 +93,7 @@ const CLUES = [
         ClueText: "",
         shortText: "",
         shortTextTwo: "Görans rörelsemönster. Screenshot från uber-appen. Dekalerna visar vart han har stannat.",
-        text: "Leta vid utkanten av parken",
+        text: "Leta vid utkanten av parken.",
         koordinater: [55.60311293989448, 12.993955302221526]
 
     },
@@ -105,9 +105,9 @@ const CLUES = [
         Clueimage: "Bilder/cluesPic/IMG_2407-2.jpg",
         ClueimageTwo: "Bilder/cluesPic/erikPasserKortPic.png",
         ClueText: "",
-        shortText: "Polisen har fått Eriks stämpelkort",
-        shortTextTwo: "Erik är anställd på Casinot. Detta är hans stämpelkort under natten då Klas blev mördad",
-        text: "Leta vid Casinot",
+        shortText: "Polisen har fått Eriks stämpelkort.",
+        shortTextTwo: "Erik är anställd på Casinot. Detta är hans stämpelkort under natten då Klas blev mördad.",
+        text: "Leta vid Casinot.",
         koordinater: [55.60281774559934, 12.992845968941214]
 
     },
@@ -121,7 +121,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Här stod Anna när hon såg en man räkna pengar och det verkar även som att Klas skickat sms denna kvällen.",
         shortTextTwo: "Konversation mellan Klas och Göran.",
-        text: "Leta vid vattnet bakom casinot",
+        text: "Leta vid vattnet bakom casinot.",
         koordinater: [55.60330497986649, 12.991905874812316]
 
     },
@@ -135,7 +135,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Förhöret med Erik tog en vändning.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
-        text: "Leta vid lekplatsen bakom Casinot",
+        text: "Leta vid lekplatsen bakom Casinot.",
         koordinater: [55.602834214779286, 12.991397573761436]
 
     }
