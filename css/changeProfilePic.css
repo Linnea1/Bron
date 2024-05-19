@@ -12,9 +12,12 @@ main {
     margin: 0px 5vw 10vw 5vw;
     align-self: center;
     align-items: center;
+    padding-bottom:100px;
 }
 
-
+.wrapper{
+    height: 100%;
+}
 .PictureBox {
     height: 60vw;
     width: 60vw;

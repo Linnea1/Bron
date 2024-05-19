@@ -71,7 +71,6 @@ function moreInfo() {
 async function RenderOptions(value) {
     document.querySelector(".sticky-nav").style.opacity = 1;
     document.querySelector("#notes").style.opacity = 1;
-    //document.querySelector("main").style.height = "84vh";
     stopExecution = true;
 
     map = null;
@@ -159,13 +158,13 @@ async function RenderOptions(value) {
 
     let main = document.querySelector("main");
 
-    main.innerHTML = ``;
+    main.innerHTML = `<div class="container"></div>`;
 
     options.forEach(option => {
 
         let divDom = document.createElement("div");
         divDom.classList.add("option");
-        main.append(divDom);
+        document.querySelector(".container").append(divDom);
 
         divDom.innerHTML = `
                 <h2 class="title">${option.title}</h2>
