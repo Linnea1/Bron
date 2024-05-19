@@ -51,7 +51,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Det hölls ett förhör med Klas ex-fru.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
-        text: "Leta vid andra sidan om utsiktsplatsen.",
+        text: "Leta vid andra sidan om utsiktsplatsen. Titta vd träden",
         koordinater: [55.601486841708684, 12.991007360449684]
 
     },
@@ -65,7 +65,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Här syntes Kristoffer gå förbi vid 22-tiden.",
         shortTextTwo: "",
-        text: "Leta vid Stadsbiblioteket.",
+        text: "Leta vid Stadsbiblioteket. Titta i grönska.",
         koordinater: [55.60070902493853, 12.992975827879258]
 
     },
@@ -79,7 +79,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Denna samtalshistorik är intressant. ",
         shortTextTwo: "Samtalshistoriken på Klas telefon.",
-        text: "Leta vid Casinots parkering.",
+        text: "Leta mellan casinots parkering och vattnet",
         koordinater: [55.6023457476268, 12.993715862892756]
 
     },
