@@ -1,7 +1,7 @@
 main {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .bigBox {
@@ -12,15 +12,16 @@ main {
     margin: 0px 5vw 10vw 5vw;
     align-self: center;
     align-items: center;
-    padding-bottom:100px;
+    padding-bottom: 100px;
 }
 
-.wrapper{
+.wrapper {
     height: 100%;
 }
+
 .PictureBox {
-    height: 60vw;
-    width: 60vw;
+    height: 50vw;
+    width: 50vw;
     position: relative;
     margin-top: 10px;
 }
@@ -63,10 +64,12 @@ input {
 
 button {
     height: 10vw;
-    background-color: #000000c7;
-    border: 1px solid white;
+    background-color: #242424;
+    border: none;
     border-radius: 10px;
     color: white;
+    font-size: 3.5vw;
+    font-family: Titillium;
 }
 
 #save {
@@ -86,6 +89,10 @@ button {
 
 #logout {
     margin-right: 5px;
+}
+
+h1 {
+    margin: 0px;
 }
 
 h2,

@@ -3,6 +3,7 @@ function RenderSuspects(value) {
     stopExecution = true;
     document.querySelector("#notes").style.opacity = 1;
     let user = JSON.parse(localStorage.getItem("user"));
+    document.querySelector("main").style.height = "84vh";
 
     if (user.pfp !== "") {
         document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;
@@ -122,9 +123,9 @@ function RenderSuspects(value) {
             `;
 
             evenOrOdd++
-                if (evenOrOdd %= 2) {
-                    SuspectxBox.classList.add("odd");
-                    SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+            if (evenOrOdd %= 2) {
+                SuspectxBox.classList.add("odd");
+                SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
                         <p id ="suspectPicture"></p>
                         <div id ="NameAndAge">
                             <p id="name"></p>
@@ -133,9 +134,9 @@ function RenderSuspects(value) {
                             <p id="security"></p>
                         </div>
                     `;
-                } else {
-                    SuspectxBox.classList.add("even");
-                    SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
+            } else {
+                SuspectxBox.classList.add("even");
+                SuspectxBox.querySelector("#PicNameAndAge").innerHTML = `
                         <div id ="NameAndAge">
                             <p id="name"></p>
                             <p id="age"></p>
@@ -144,7 +145,7 @@ function RenderSuspects(value) {
                         </div>
                         <p id ="suspectPicture"></p>
                     `;
-                }
+            }
             let pic = SuspectxBox.querySelector("#suspectPicture");
             pic.style.backgroundImage = `url('${clue.image}')`;
             pic.style.height = "105px";
@@ -180,7 +181,7 @@ function RenderSuspects(value) {
 
             }
             SuspectxBox.querySelector("#security").innerHTML += ` <span> Pers.nr: </span> ${clue.securityNumber}`;
-                SuspectxBox.querySelector("#relationship").innerHTML += `<span> Status: </span> ${clue.relationship}`;
+            SuspectxBox.querySelector("#relationship").innerHTML += `<span> Status: </span> ${clue.relationship}`;
 
         });
     }

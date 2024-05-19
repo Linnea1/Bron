@@ -13,6 +13,7 @@ async function RenderNotes() {
 
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     document.querySelector("#notes").style.opacity = 0;
+    document.querySelector("main").style.height = "100%";
 
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
     let firstresponse = await resourse.json()
@@ -28,7 +29,7 @@ async function RenderNotes() {
         </div>
     `;
 
-    console.log(firstresponse.notes.length);
+    console.log(firstresponse.notes);
     if (firstresponse.notes !== "") {
         RenderInsideNotes(firstresponse)
     }

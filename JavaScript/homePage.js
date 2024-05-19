@@ -20,6 +20,7 @@ function RenderIntro() {
         main.style.display = "flex";
         main.style.flexDirection = "column";
         main.style.position = "absolute"
+        document.querySelector("#profilePicture").style.backgroundImage = "";
 
         document.querySelector("main").innerHTML = `
             <div id="SagaIntro"></div>
@@ -176,12 +177,12 @@ async function RenderOptions(value) {
                 </div>
             `;
 
-       
+
         divDom.addEventListener("click", function () {
-        
+
             main.classList.add("swiped");
 
-          
+
             setTimeout(() => {
                 main.classList.remove("swiped");
                 option.event(true);
@@ -204,7 +205,7 @@ async function renderCurrentLocationView(value) {
     if (value) {
 
         main.classList.add("slide-left");
-   
+
         setTimeout(() => {
 
             stopExecution = false;
@@ -303,7 +304,7 @@ async function showPosition(position) {
         });
 
     } else {
-       
+
         userMarker.setPosition({ lat: latitude, lng: longitude });
     }
 
