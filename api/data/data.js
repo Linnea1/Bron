@@ -51,7 +51,7 @@ const CLUES = [
         ClueText: "",
         shortText: "Det hölls ett förhör med Klas ex-fru.",
         shortTextTwo: "Förhörsprotokollet från Polisen.",
-        text: "Leta vid andra sidan om utsiktsplatsen. Titta vd träden",
+        text: "Leta vid andra sidan om utsiktsplatsen. Titta vid träden",
         koordinater: [55.601486841708684, 12.991007360449684]
 
     },
