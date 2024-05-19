@@ -5,6 +5,7 @@
 
 main {
     display: flex;
+    padding-bottom: 22%;
     flex-direction: column;
 }
 
