@@ -340,6 +340,8 @@
         "done": false,
         "pfp": "",
         "notes": [],
-        "clues": []
+        "clues": [
+            1
+        ]
     }
 ]

@@ -71,7 +71,7 @@ function moreInfo() {
 async function RenderOptions(value) {
     document.querySelector(".sticky-nav").style.opacity = 1;
     document.querySelector("#notes").style.opacity = 1;
-    document.querySelector("main").style.height = "84vh";
+    //document.querySelector("main").style.height = "84vh";
     stopExecution = true;
 
     map = null;

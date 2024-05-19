@@ -15,6 +15,7 @@ body {
 
 main {
     overflow: scroll;
+    height: 100vh;
 }
 
 .picSaga {

@@ -15,7 +15,8 @@ body {
 }
 
 main {
-    height: 84vh;
+    height: 100%;
+    padding-bottom: 25%;
     overflow: scroll;
     align-items: center;
 }
