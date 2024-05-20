@@ -181,7 +181,7 @@ function unlockCluePopUp(id) {
     });
 
     document.querySelector("#popUpBackground").addEventListener("click", e => {
-        document.querySelector("#popUp").classList.add("hidden")
+        // document.querySelector("#popUp").classList.add("hidden")
         ifPopup = true;
     });
 }

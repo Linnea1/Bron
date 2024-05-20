@@ -101,7 +101,7 @@ async function RenderUserPage() {
             deleteAccount();
         });
         document.querySelector(".secondButton").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
-        document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+        // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 
     });
 
@@ -154,7 +154,7 @@ async function RenderChangeProfilePicture() {
 
         <div id="pfpHolder">
             <form id="uploadPfp">
-                <label for="pfp">Välj en fil...</label>
+                <label for="pfp"> Välj en fil...<br> Godkända format: JPEG, PNG, GIF.</label>
                 <input type="file" id="pfp" name="pfp">
                 <button id="upload" type="submit">Ladda upp</button>
             </form>

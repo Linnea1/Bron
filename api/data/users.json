@@ -402,7 +402,8 @@
             3,
             4,
             5,
-            6
+            6,
+            7
         ]
     },
     {
@@ -414,6 +415,36 @@
         "done": false,
         "pfp": "",
         "notes": [],
-        "clues": []
+        "clues": [
+            1,
+            2,
+            3
+        ]
+    },
+    {
+        "userId": 23,
+        "email": "1818@hej",
+        "username": "1818",
+        "password": "1818",
+        "firstTime": false,
+        "done": false,
+        "pfp": "",
+        "notes": [
+            {
+                "timeDate": "20\/5\/2024, 18:21",
+                "content": "hje",
+                "id": 1
+            },
+            {
+                "timeDate": "20\/5\/2024, 18:25",
+                "content": "gregrg",
+                "id": 2
+            }
+        ],
+        "clues": [
+            1,
+            2,
+            3
+        ]
     }
 ]

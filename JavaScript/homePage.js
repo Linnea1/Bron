@@ -54,7 +54,7 @@ function moreInfo() {
     audioPlayer.src = "Bilder/audio/VoiceoverPart2.mp3";
     audioPlayer.play()
     document.querySelector("#SagaIntro").innerHTML = "";
-    let introTextTwo = "Saga: Använd kartan för att hitta ledtrådarna som kommer att guida dig genom mysteriet kring Klas öde. Utforska varje plats för att avslöja bit för bit av det stora pusslet och närma dig sanningen om vem som ligger bakom Klas död. För att öppna dessa hemligheter krävs det att du hittar varje plats unika kod. Börja din färd vid mordplatsen, där den första ledtråden väntar på att bli upptäckt. ";
+    let introTextTwo = "Saga: Använd kartan för att hitta ledtrådarna som kommer att guida dig genom mysteriet kring Klas öde. Utforska varje plats för att avslöja bit för bit av det stora pusslet och närma dig sanningen om vem som ligger bakom Klas död. För att öppna dessa hemligheter krävs det att du hittar varje plats unika kod. Börja din färd vid mordplatsen, där den första ledtråden väntar på att bli upptäckt.";
     let indexTwo = 0;
 
     function typeWriterTwo() {

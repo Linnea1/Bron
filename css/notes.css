@@ -87,3 +87,7 @@ h1 {
     text-align: center;
     height: 5%;
 }
+
+textarea {
+    font-size: 3vw
+}
