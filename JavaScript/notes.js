@@ -13,7 +13,7 @@ async function RenderNotes() {
 
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
     document.querySelector("#notes").style.opacity = 0;
-    document.querySelector("main").style.height = "100%";
+    document.querySelector("main").style.height = "90vh";
 
     let resourse = await fetching(`api/functions.php?user=${user.username}`);
     let firstresponse = await resourse.json()
