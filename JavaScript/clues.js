@@ -1,11 +1,12 @@
 function renderClue(clue) {
     document.querySelector("#notes").style.opacity = 1;
-    
+    document.querySelector("#loading").classList.add("hidden");
+
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
-   
+
     let mainContainer = document.querySelector("main");
     mainContainer.classList.add("slide-left");
-   
+
     setTimeout(() => {
         mainContainer.innerHTML = `
             
@@ -29,14 +30,14 @@ function renderClue(clue) {
 
         `;
 
-        document.querySelector(".fa-arrow-left").addEventListener("click",renderClueWithSlideBack)
+        document.querySelector(".fa-arrow-left").addEventListener("click", renderClueWithSlideBack)
         mainContainer.classList.remove("slide-left");
 
         document.querySelector(".clueImage2").addEventListener("click", e => {
             RenderPopUpPictureFirst(clue)
         })
         if (clue.ClueimageTwo !== "") {
-           
+
             document.querySelector("#picTwo").innerHTML = `
             <h1 class="clueHeader header2">Mer bevismaterial</h1>
             
@@ -53,9 +54,9 @@ function renderClue(clue) {
                 RenderPopUpPictureSecond(clue)
             })
         }
-        let nextClue=clue.id+1;
-        if(nextClue!==11){
-            const c = CLUES.find((e) => e.id ===nextClue);
+        let nextClue = clue.id + 1;
+        if (nextClue !== 11) {
+            const c = CLUES.find((e) => e.id === nextClue);
 
             document.querySelector(".nextStep").innerHTML = `
             <h1 class="clueHeader header2">Nästa ledtråd</h1>
@@ -78,10 +79,10 @@ function renderClue(clue) {
 }
 function renderClueWithSlideBack() {
     let mainContainer = document.querySelector("main");
-    mainContainer.classList.add("slide-right"); 
+    mainContainer.classList.add("slide-right");
     setTimeout(() => {
         mainContainer.classList.remove("slide-right");
-        RenderClues(false); 
+        RenderClues(false);
     }, 300);
 }
 
@@ -138,7 +139,8 @@ async function addClue(idUser, idClue) {
         user = JSON.parse(localStorage.getItem("user"));
 
         document.querySelector("#popUp").classList.add("hidden");
-        RenderClues();
+        const clue = CLUES.find((e) => e.id === idClue);
+        renderClue(clue);
 
     } catch (error) {
         errorMessage.textContent = error.message;

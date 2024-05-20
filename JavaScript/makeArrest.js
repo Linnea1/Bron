@@ -7,13 +7,16 @@ async function RenderMakeArrest() {
     document.querySelector("#notes").style.opacity = 1;
     document.querySelector(".wrapper").style.backgroundImage = `url('Bilder/blueGradientBkg.avif')`;
 
+    document.querySelector("#loading").classList.add("hidden");
+
     main.innerHTML = `
         <div class="bigBox"></div>
     `;
 
     let user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.done) {
+    if (user.done == true) {
+        console.log("false");
 
 
         document.querySelector(".bigBox").innerHTML = `
@@ -30,9 +33,9 @@ async function RenderMakeArrest() {
                 <div id="suspectBoxTwo"></div>
             </div>
 
-            <button disabled> Lås in och avsluta spelet </button>
+            <button class="makeArrest" disabled> Lås in och avsluta spelet </button>
             <div id="message"></div>
-        `
+        `;
 
         let count = 0;
 
@@ -59,29 +62,28 @@ async function RenderMakeArrest() {
 
     } else {
 
-
-
         document.querySelector(".bigBox").innerHTML = `
 
-        <h1> GISSA MISSTÄNKT</h1>
-        <div class="PictureBox">
-            <div id="profilePic"></div>
-        </div>
+            <h1> GISSA MISSTÄNKT</h1>
+            <div class="PictureBox">
+                <div id="profilePic"></div>
+            </div>
 
-        <h3> Är du redo att ta fast mördaren? Gör ditt slutgiltiga val här </h3>
+            <h3> Är du redo att ta fast mördaren? Gör ditt slutgiltiga val här </h3>
 
-        <div id="suspects">
-            <div id="suspectBoxOne"></div>
-            <div id="suspectBoxTwo"></div>
-        </div>
+            <div id="suspects">
+                <div id="suspectBoxOne"></div>
+                <div id="suspectBoxTwo"></div>
+            </div>
 
-        <button class="makeArrest"> Lås in och avsluta spelet </button>
-        <div id="message"></div>
+            <button class="makeArrest"> Lås in och avsluta spelet </button>
+            <div id="message"></div>
         `
-        if(user.clues.length>=3){
-            document.querySelector(".makeArrest").addEventListener("click",CheckChosenPerson)
-        }else{
+        if (user.clues.length >= 3) {
+            document.querySelector(".makeArrest").addEventListener("click", CheckChosenPerson)
+        } else {
             document.querySelector('.makeArrest').setAttribute('disabled', '');
+            document.querySelector("h3").textContent = "Lås upp minst tre ledtrådar innan du gör ditt slutgiltliga val.";
         }
         document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
 

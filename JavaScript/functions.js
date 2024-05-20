@@ -56,6 +56,7 @@ function ArrestPopUp(prompt) {
     let introText = prompt.text;
     let index = 0;
 
+    document.getElementById("firstTextSaga").innerHTML = "";
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.play();
 
@@ -70,12 +71,12 @@ function ArrestPopUp(prompt) {
             typewriterRunning = false;
             setTimeout(() => {
                 document.getElementById("second").innerHTML = `
-                <p id="instructions"> ${prompt.direction}</p>
-                <p id="link" onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
-                <div id="enket">
-                    <p></p>
-                </div>
-            `;
+                    <p id="instructions"> ${prompt.direction}</p>
+                    <p id="link" onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
+                    <div id="enket">
+                        <p></p>
+                    </div>
+                `;
 
                 document.querySelector("#second p:nth-child(2)").addEventListener("click", async e => {
                     let user = JSON.parse(localStorage.getItem("user"));
@@ -105,12 +106,12 @@ function ArrestPopUp(prompt) {
                         }
                         document.querySelector("#popUp").classList.remove("hidden");
                         document.querySelector("#popUpWindow").innerHTML = `
-                        <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
-                        <h2> Vi vill ha just din hjälp </h2>
-                        <p>
-                            Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <br> <br> <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>
-                        </p>
-                    `;
+                            <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
+                            <h2> Vi vill ha just din hjälp </h2>
+                            <p>
+                                Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <br> <br> <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>
+                            </p>
+                        `;
                         document.querySelector("#cross").addEventListener("click", () => {
                             document.querySelector("#popUp").classList.add("hidden");
                         });

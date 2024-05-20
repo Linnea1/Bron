@@ -4,6 +4,7 @@ function RenderSuspects(value) {
     document.querySelector("#notes").style.opacity = 1;
     let user = JSON.parse(localStorage.getItem("user"));
     document.querySelector("main").style.height = "84vh";
+    document.querySelector("#loading").classList.add("hidden");
 
     if (user.pfp !== "") {
         document.querySelector("#profilePicture").style.backgroundImage = `url('${user.pfp}')`;

@@ -139,6 +139,7 @@ async function RenderChangeProfilePicture() {
     swapStyleSheet("css/changeProfilePic.css");
 
     let user = JSON.parse(localStorage.getItem("user"));
+    document.querySelector("#loading").classList.add("hidden");
 
     main.innerHTML = `
         <div class="bigBox"></div>

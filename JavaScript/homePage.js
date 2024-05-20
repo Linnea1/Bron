@@ -72,6 +72,7 @@ function moreInfo() {
 async function RenderOptions(value) {
     document.querySelector(".sticky-nav").style.opacity = 1;
     document.querySelector("#notes").style.opacity = 1;
+    document.querySelector("#loading").classList.add("hidden");
     stopExecution = true;
 
     map = null;
