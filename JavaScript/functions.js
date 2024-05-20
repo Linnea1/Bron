@@ -120,7 +120,7 @@ function ArrestPopUp(prompt) {
                         document.querySelector("#popUp").classList.add("hidden");
                     }
                 });
-            }, 500);
+            }, 300);
 
 
         }

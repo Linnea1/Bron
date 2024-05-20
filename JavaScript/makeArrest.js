@@ -181,7 +181,7 @@ function RenderAnswere(suspect) {
                 let message = {
                     title: "Fel svar!",
                     suspect: suspect.name,
-                    text: `${suspect.id} var inte mördaren och mördaren är fortfarande på fri fot. Återgå till ledtrådarna och fortsätt att spela för att hjälpa mig sätta dit mördaren.`,
+                    text: `${suspect.id} var inte mördaren, och gärningspersonen är fortfarande på fri fot. Gå tillbaka till ledtrådarna och fortsätt spelet för att hjälpa mig att fånga mördaren.`,
                     direction: "",
                     NameOfPAge: "Ledtrådar",
                     NameOfEnket: "",
