@@ -342,7 +342,7 @@
         "username": "1122",
         "password": "1122",
         "firstTime": false,
-        "done": false,
+        "done": true,
         "pfp": "",
         "notes": [
             {
@@ -453,10 +453,14 @@
         "email": "1133@.com",
         "username": "1133",
         "password": "1133",
-        "firstTime": true,
+        "firstTime": false,
         "done": false,
         "pfp": "",
         "notes": [],
-        "clues": []
+        "clues": [
+            1,
+            2,
+            3
+        ]
     }
 ]

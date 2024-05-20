@@ -64,7 +64,7 @@ function ArrestPopUp(prompt) {
         if (index < introText.length) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
             index++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 80);
             typewriterRunning = true;
         }
         else {
