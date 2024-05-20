@@ -378,7 +378,8 @@
         ],
         "clues": [
             1,
-            2
+            2,
+            3
         ]
     },
     {
@@ -446,5 +447,16 @@
             2,
             3
         ]
+    },
+    {
+        "userId": 24,
+        "email": "1133@.com",
+        "username": "1133",
+        "password": "1133",
+        "firstTime": true,
+        "done": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
     }
 ]
