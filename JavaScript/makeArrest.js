@@ -75,9 +75,14 @@ async function RenderMakeArrest() {
             <div id="suspectBoxTwo"></div>
         </div>
 
-        <button onclick="CheckChosenPerson()"> Lås in och avsluta spelet </button>
+        <button class="makeArrest"> Lås in och avsluta spelet </button>
         <div id="message"></div>
-    `
+        `
+        if(user.clues.length>=3){
+            document.querySelector(".makeArrest").addEventListener("click",CheckChosenPerson)
+        }else{
+            document.querySelector('.makeArrest').setAttribute('disabled', '');
+        }
         document.querySelector("#profilePic").style.backgroundImage = `url('Bilder/360_F_303991942_n0GmMYFyNkDGlhvzF6605BSK9mYBXX6B.jpg')`;
 
         let count = 0;
