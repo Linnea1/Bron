@@ -19,7 +19,7 @@ main {
 .bigBox {
     flex-grow: 2;
     width: 90vw;
-    margin: 0vw 5vw;
+    margin: 0vw 5vw 20vw 5vw;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ main {
 
 #noteBox {
     width: 100%;
-    flex: 0.7;
+    flex: 0.9;
     /* takes up the remaining space */
     overflow-y: auto;
     margin-bottom: 10%;
