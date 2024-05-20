@@ -3,7 +3,7 @@ body {
 }
 
 main {
-    height: 92vh;
+    height: 90vh;
     /* Ensure main fills the viewport height */
     display: flex;
     flex-direction: column;

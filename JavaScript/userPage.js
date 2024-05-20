@@ -146,7 +146,7 @@ async function RenderChangeProfilePicture() {
 
     main.querySelector(".bigBox").innerHTML = `
 
-        <h2> BYT PROFILBILD </h2>
+        <h1> BYT PROFILBILD </h1>
         <div class="PictureBox">
             <div id="profilePic"></div>
         </div>

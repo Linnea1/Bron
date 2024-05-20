@@ -13,7 +13,7 @@ async function fetching(URL, method, body) {
 function basicHeader() {
 
     document.querySelector("header").innerHTML = ` 
-        <div class="logo"></div>
+        <div class="logo" onclick="RenderOptions()"></div>
         <div id="profilePicture" class="icon" onclick="RenderUserPage()"></div>
     `;
 
@@ -63,12 +63,13 @@ function ArrestPopUp(prompt) {
         if (index < introText.length) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
             index++;
-            setTimeout(typeWriter, 66);
+            setTimeout(typeWriter, 100);
             typewriterRunning = true;
         }
         else {
             typewriterRunning = false;
-            document.getElementById("second").innerHTML = `
+            setTimeout(() => {
+                document.getElementById("second").innerHTML = `
                 <p id="instructions"> ${prompt.direction}</p>
                 <p id="link" onclick="${prompt.link}"> Till <span class="underscore"> ${prompt.NameOfPAge} </span> </p>
                 <div id="enket">
@@ -76,51 +77,51 @@ function ArrestPopUp(prompt) {
                 </div>
             `;
 
-            document.querySelector("#second p:nth-child(2)").addEventListener("click", async e => {
-                let user = JSON.parse(localStorage.getItem("user"));
+                document.querySelector("#second p:nth-child(2)").addEventListener("click", async e => {
+                    let user = JSON.parse(localStorage.getItem("user"));
 
-                if (prompt.value) {
-                    try {
-                        let resourse = await fetching("api/UserDone.php", "PATCH", user);
-                        let data = await resourse.json();
-  
-                        if (resourse) {
+                    if (prompt.value) {
+                        try {
+                            let resourse = await fetching("api/UserDone.php", "PATCH", user);
+                            let data = await resourse.json();
 
-                            let localUser = {
-                                "username": data.username,
-                                "email": data.email,
-                                "pfp": data.pfp,
-                                "firstTime": data.firstTime,
-                                "done": data.done,
-                                "userId": data.userId,
-                                "notes": data.notes,
-                                "clues": data.clues
+                            if (resourse) {
+
+                                let localUser = {
+                                    "username": data.username,
+                                    "email": data.email,
+                                    "pfp": data.pfp,
+                                    "firstTime": data.firstTime,
+                                    "done": data.done,
+                                    "userId": data.userId,
+                                    "notes": data.notes,
+                                    "clues": data.clues
+                                }
+
+                                window.localStorage.setItem("user", JSON.stringify(localUser));
                             }
-
-                            window.localStorage.setItem("user", JSON.stringify(localUser));
+                        } catch (error) {
+                            popUp(error);
                         }
-                    } catch (error) {
-                        popUp(error);
-                    }
-                    document.querySelector("#popUp").classList.remove("hidden");
-                    document.querySelector("#popUpWindow").innerHTML = `
+                        document.querySelector("#popUp").classList.remove("hidden");
+                        document.querySelector("#popUpWindow").innerHTML = `
                         <div id="cross" style="background-image: url('Bilder/cross.png')"> </div>
                         <h2> Vi vill ha just din hjälp </h2>
                         <p>
                             Hjälp oss att utveckla spelet genom att trycka på länken till vår enkät <br> <br> <span class="EnketLink"><a href="https://forms.gle/kVKgD1xSbve8XL3F8" target="_blank">https://forms.gle/kVKgD1xSbve8XL3F8</a></span>
                         </p>
                     `;
-                    document.querySelector("#cross").addEventListener("click", () => {
+                        document.querySelector("#cross").addEventListener("click", () => {
+                            document.querySelector("#popUp").classList.add("hidden");
+                        });
+                    }
+                    else {
                         document.querySelector("#popUp").classList.add("hidden");
-                    });
-                }
-                else {
-                    document.querySelector("#popUp").classList.add("hidden");
-                }
-            });
+                    }
+                });
+            }, 500);
 
-           
-            
+
         }
     }
 
@@ -142,7 +143,7 @@ function popUp(prompt) {
     button.classList = "OK";
     document.querySelector("#popUpWindow").append(button);
     document.querySelector(".OK").addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); document.querySelector("#popUp").classList.add("hidden") });
-    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
 
 
@@ -187,7 +188,7 @@ function popUpInfo(prompt) {
     button.classList = "OK";
     document.querySelector("#popUpWindow").append(button);
     document.querySelector(".OK").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
-    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
 
 function CluePopUp(id) {

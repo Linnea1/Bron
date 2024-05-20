@@ -1,7 +1,25 @@
-.bigBox {
+html,
+body {
     height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100vh;
+}
+
+.bigBox {
+    flex-grow: 2;
     width: 90vw;
-    margin: 0vw 5vw;
+    margin: 0vw 5vw 20vw 5vw;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -10,7 +28,8 @@
 
 #story {
     width: 100%;
-    height: 15%;
+    flex: 0 0 15%;
+    /* ensures it takes up 15% of the parent */
     background-color: #ffffff70;
     padding: 5px;
     border-radius: 10px;
@@ -20,13 +39,14 @@
 
 #noteBox {
     width: 100%;
-    height: 50%;
-    overflow: scroll;
+    flex: 0.9;
+    /* takes up the remaining space */
+    overflow-y: auto;
     margin-bottom: 10%;
 }
 
 .note {
-    margin: 5vw 0vw;
+    margin: 5vw 0;
     background-color: #ffffff70;
     border-radius: 10px;
     border: 1px solid #035073;
@@ -46,7 +66,7 @@ button {
     border: none;
     border-radius: 10px;
     color: white;
-    margin: 3vw 0vw;
+    margin: 3vw 0 8vw 0;
     font-size: 16px;
     width: 100%;
     font-family: Titillium;
@@ -59,7 +79,7 @@ img {
 }
 
 h1 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #infoText {
