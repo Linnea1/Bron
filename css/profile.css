@@ -8,7 +8,7 @@ main {
     width: 97%;
     display: flex;
     flex-direction: column;
-    padding: 0px 0px 120px 0px;
+    padding: 0px 0px 150px 0px;
     align-self: center;
     align-items: center;
 }

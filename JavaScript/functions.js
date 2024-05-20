@@ -63,7 +63,7 @@ function ArrestPopUp(prompt) {
         if (index < introText.length) {
             document.getElementById("firstTextSaga").innerHTML += introText.charAt(index);
             index++;
-            setTimeout(typeWriter, 120);
+            setTimeout(typeWriter, 100);
             typewriterRunning = true;
         }
         else {
@@ -143,7 +143,7 @@ function popUp(prompt) {
     button.classList = "OK";
     document.querySelector("#popUpWindow").append(button);
     document.querySelector(".OK").addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); document.querySelector("#popUp").classList.add("hidden") });
-    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
 
 
@@ -188,7 +188,7 @@ function popUpInfo(prompt) {
     button.classList = "OK";
     document.querySelector("#popUpWindow").append(button);
     document.querySelector(".OK").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
-    document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
+    // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 }
 
 function CluePopUp(id) {
