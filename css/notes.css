@@ -29,7 +29,6 @@ main {
 #story {
     width: 100%;
     flex: 0 0 15%;
-    /* ensures it takes up 15% of the parent */
     background-color: #ffffff70;
     padding: 5px;
     border-radius: 10px;
@@ -40,7 +39,6 @@ main {
 #noteBox {
     width: 100%;
     flex: 0.9;
-    /* takes up the remaining space */
     overflow-y: auto;
     margin-bottom: 10%;
 }

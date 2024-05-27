@@ -158,7 +158,7 @@ function CheckChosenPerson(parent) {
 
 function RenderAnswere(suspect) {
 
-    let suspectName = suspect.id
+    let suspectName = suspect.idx
 
     SUSPECTS.forEach(d => {
         let name = d.name;

@@ -1,12 +1,9 @@
 .sticky-nav {
-    /* height: 60px; */
     height: 8%;
     width: 100%;
     background-color: rgb(39, 38, 39);
     position: fixed;
-    /* Change position to fixed */
     bottom: 0;
-    /* Stick it to the bottom of the screen */
     z-index: 10;
 }
 

@@ -98,10 +98,9 @@ async function RenderUserPage() {
         document.querySelector("#popUpWindow").append(secondButton);
         document.querySelector(".firstButton").addEventListener("click", e => {
             document.querySelector("#popUp").classList.add("hidden");
-            deleteAccount();
+            logout();
         });
         document.querySelector(".secondButton").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
-        // document.querySelector("#popUpBackground").addEventListener("click", e => { document.querySelector("#popUp").classList.add("hidden") });
 
     });
 
@@ -265,21 +264,3 @@ async function changePassword(e) {
     }
 }
 
-async function deleteAccount() {
-    let body = {
-        username: user.username,
-        password: user.password
-    };
-
-    try {
-        let response = await fetching("api/settings.php", "DELETE", body);
-        if (response.ok) {
-            logout();
-        } else {
-            let data = await response.json();
-            popUp(data.message);
-        }
-    } catch (error) {
-        popUp(error);
-    }
-}

@@ -462,5 +462,16 @@
             2,
             3
         ]
+    },
+    {
+        "userId": 25,
+        "email": "123123@hej",
+        "username": "123123",
+        "password": "123123",
+        "firstTime": false,
+        "done": false,
+        "pfp": "",
+        "notes": [],
+        "clues": []
     }
 ]

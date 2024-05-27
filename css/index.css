@@ -140,23 +140,9 @@ main {
     margin: 0%;
 }
 
-.odd {
-    /* border: 1px solid #2772C1; */
-    /* text-align: right; */
-}
-
-/* .odd #suspectPicture {
-    border: 1px solid #2772C1;
-} */
-
 .even {
-    /* border: 1px solid #AC1B51; */
     text-align: left;
 }
-
-/* .even #suspectPicture {
-    border: 1px solid #AC1B51;
-} */
 
 #PicNameAndAge {
     display: flex;
@@ -186,7 +172,6 @@ main {
 
 #info {
     height: 100%;
-    /* padding: 0vw 5vw 5vw 5vw; */
 }
 
 
@@ -232,7 +217,6 @@ main {
     left: 0;
     right: 0;
     text-align: center;
-    /* border: 1px solid #ffffff78; */
     padding: 10px;
     overflow: scroll;
 }

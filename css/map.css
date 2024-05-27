@@ -4,17 +4,14 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* För att undvika onödigt scrollande */
 }
 
 #map {
-    /* height: 85vh; */
     height: 88%;
     position: relative;
     z-index: 999;
     transition: center 0.4s ease-in-out;
     z-index: 7;
-    /* Anpassa tiden efter behov */
 }
 
 #GoTo {
@@ -27,7 +24,6 @@ body {
 
 #outer-circle {
     transition: radius 0.5s ease;
-    /* Övergångseffekt för radien */
 }
 
 .gm-style-iw,
@@ -68,7 +64,6 @@ body {
 
 .inputContainer input {
     border: none;
-    /* Ta bort standardborder */
     border-bottom: 2px solid #000000;
     background-color: #242424;
     margin: 0% 3%;

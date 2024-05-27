@@ -28,10 +28,6 @@ main {
     padding-left: 16px;
 }
 
-/* #passwordHolder {
-    margin-bottom: 25px;
-} */
-
 #passwordold {
     margin-bottom: 15px;
 }
@@ -80,7 +76,6 @@ h1 {
 }
 
 #delete {
-    /* border: 1px solid #C01232; */
     margin-left: 5px;
 }
 
